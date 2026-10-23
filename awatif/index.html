@@ -42,8 +42,21 @@
   #home.away{opacity:0;transform:scale(.94);pointer-events:none}
   .intro{text-align:center;margin-top:min(4vh,40px)}
   .kicker{font-size:14px;letter-spacing:3px;color:var(--muted);opacity:0;animation:fadeUp .9s .2s var(--ease) forwards}
-  .name{font-size:clamp(2.6rem,7.5vw,5.2rem);font-weight:700;color:var(--gold);margin:4px 0 0;letter-spacing:.5px}
-  .name span{display:inline-block;opacity:0;transform:translateY(18px);filter:blur(6px);animation:reveal 1s var(--ease) forwards}
+  .quote{position:relative;min-height:2.7em;font-size:clamp(1.7rem,4.6vw,3.3rem);font-weight:700;color:var(--cream);margin:8px auto 0;max-width:min(92vw,900px);display:grid;place-items:center;line-height:1.35}
+  .quote span{grid-area:1/1;opacity:0;transform:translateY(16px);filter:blur(8px);transition:opacity 1s var(--ease),transform 1.1s var(--ease),filter 1s var(--ease)}
+  .quote span.on{opacity:1;transform:none;filter:none}
+  .quote span.out{opacity:0;transform:translateY(-14px);filter:blur(8px)}
+  .quote em{font-style:normal;color:var(--gold)}
+  .sign{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:clamp(8px,1.6vh,16px);opacity:0;animation:fadeUp 1s .9s var(--ease) forwards}
+  .sign i{width:clamp(30px,7vw,70px);height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+  .sign i:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+  .sign i::after{content:"";display:block;width:5px;height:5px;margin-top:-2px;border-radius:50%;background:var(--gold);transform:rotate(45deg)}
+  .sign i:first-child::after{margin-right:auto} .sign i:last-child::after{margin-left:auto}
+  .name{font-size:clamp(1.5rem,3.4vw,2.3rem);font-weight:600;letter-spacing:1.5px;background:linear-gradient(90deg,#c9a96a,#f3e2bd,#c9a96a);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+  @keyframes shine{to{background-position:-200% 0}}
+  .qdots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+  .qdots b{width:5px;height:5px;border-radius:50%;background:rgba(247,241,236,.25);transition:.5s}
+  .qdots b.on{background:var(--gold);transform:scale(1.4)}
   .role{color:var(--muted);font-size:clamp(.95rem,2vw,1.1rem);opacity:0;animation:fadeUp .9s 1s var(--ease) forwards}
   @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
   @keyframes reveal{to{opacity:1;transform:none;filter:none}}
@@ -176,7 +189,9 @@
 <main id="home" aria-label="الرئيسية">
   <div class="intro">
     <div class="kicker">ملف الإنجاز الوظيفي · 2026</div>
-    <h1 class="name" id="name">عواطف الجهني</h1>
+    <p class="quote" id="quote" aria-live="polite"></p>
+    <div class="qdots" id="qdots" aria-hidden="true"></div>
+    <div class="sign"><i></i><h1 class="name">عواطف الجهني</h1><i></i></div>
     <div class="role">مساعد إداري ممارس ثاني · الإعلام المدرسي · الابتدائية ١٦٥ بجدة</div>
   </div>
   <div class="arc" id="arc" role="listbox" aria-label="أقسام الموقع" tabindex="0"></div>
@@ -331,8 +346,27 @@ sndIcon();
   })(0);
 })();
 
-/* ======================= الاسم: يظهر كلمةً كلمة ======================= */
-$("#name").innerHTML = "عواطف الجهني".split(" ").map((w, i) => `<span style="animation-delay:${400 + i * 220}ms">${w}</span>`).join(" ");
+/* ======================= العبارات المتبدلة ======================= */
+const QUOTES = [
+  "الإنجاز ليس صدفة، بل <em>شغفٌ يُصنع كل يوم</em>",
+  "أعمل بشغف، و<em>أترك العمل يتحدّث</em>",
+  "لم يكن يومًا ولا يومين… بل <em>رحلة تعلّمٍ صنعت الإنجاز</em>",
+  "تعلّمتُ، فأتقنتُ، <em>فأنجزتُ</em>",
+  "كل إنجازٍ هنا بدأ بخطوة تعلّم، <em>وكبر بالإصرار</em>",
+];
+$("#quote").innerHTML = QUOTES.map(q => `<span>${q}</span>`).join("");
+$("#qdots").innerHTML = QUOTES.map(() => "<b></b>").join("");
+const qs = [...$("#quote").children], qd = [...$("#qdots").children];
+let qi = -1;
+function nextQuote() {
+  if (qi >= 0) { qs[qi].classList.remove("on"); qs[qi].classList.add("out"); qd[qi].classList.remove("on"); }
+  const prev = qi; qi = (qi + 1) % QUOTES.length;
+  setTimeout(() => { if (prev >= 0) qs[prev].classList.remove("out"); }, 1100);
+  qs[qi].classList.add("on"); qd[qi].classList.add("on");
+  if (prev >= 0 && !document.body.classList.contains("inner")) chime([1046.5, 1568], .09, .03);
+}
+setTimeout(nextQuote, 350);
+setInterval(nextQuote, 5200);
 
 /* ======================= القوس الدوّار ======================= */
 const arc = $("#arc"), N = SECTIONS.length;
