@@ -30,6 +30,8 @@
 
   /* ===== الإطار العام ===== */
   .top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:max(18px,env(safe-area-inset-top)) clamp(16px,4vw,48px) 0}
+  body.inner .top{background:linear-gradient(180deg,rgba(43,24,48,.96) 55%,rgba(43,24,48,0));padding-bottom:22px}
+  .top{transition:background .4s}
   .mono{display:flex;align-items:center;gap:10px;font-family:"El Messiri";font-size:19px;color:var(--gold)}
   .mono i{width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-style:normal;font-size:18px}
   .ctrl{display:flex;gap:8px}
@@ -232,6 +234,9 @@ const I = {
   chart:'<path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/>',
   arrow:'<path d="M15 6l-6 6 6 6"/>',
   play:'<path d="M8 5.5v13l11-6.5z"/>',
+  image:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9.5" r="2"/><path d="m21 16-5-5-9 9"/>',
+  spark:'<path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/>',
+  clip:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/>',
   film:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9.5h4M3 14.5h4M17 9.5h4M17 14.5h4"/>',
 };
 const svg = n => `<svg viewBox="0 0 24 24">${I[n]}</svg>`;
@@ -239,7 +244,10 @@ const svg = n => `<svg viewBox="0 0 24 24">${I[n]}</svg>`;
 /* ======================= المحتوى (التعديل هنا فقط) ======================= */
 const D = "https://drive.google.com/file/d/";
 const SECTIONS = [
-  { id:"media", icon:"camera", bg:"linear-gradient(150deg,#9b6b93,#5a3457)", fg:"#fff", title:"أعمالي الإعلامية", sub:"٦ تغطيات موثّقة",
+  { id:"goals", icon:"target", bg:"linear-gradient(150deg,#d8bd8a,#b39660)", fg:"#2b1830", title:"الأهداف", sub:"٥ أهداف بأوزانها",
+    desc:"أهداف الأداء الوظيفي لعام 2026 ونسبة تحقق كل هدف.", custom:"goals",
+    rows:[{icon:"doc", bg:"#a88a55", title:"ملف الأهداف 2026", desc:"أهداف الأداء الوظيفي والأوزان النسبية لكل هدف.", link:D+"1YlEwNcPSfCiaEdTpVrVzb-5THHgezUEW/view"}]},
+  { id:"media", icon:"camera", bg:"linear-gradient(150deg,#9b6b93,#5a3457)", fg:"#fff", title:"الإعلام", sub:"٦ تغطيات موثّقة",
     desc:"تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.", goal:"الهدف الأول · الوزن ٣٠٪ · مكتمل ٦ من ٦",
     kpis:[["٦ / ٦","تقارير منجزة"],["١٠٠٪","تحقق الهدف"],["٥","مناسبات"]],
     items:[
@@ -253,28 +261,31 @@ const SECTIONS = [
     // الفيديوهات: كل فيديو {title, desc, id} و id هو رقم الملف في الدرايف
     videos:[
     ]},
-  { id:"reports", icon:"doc", bg:"linear-gradient(150deg,#5a3457,#3a2140)", fg:"#f7f1ec", title:"تقاريري", sub:"٣ تقارير تحليلية",
-    desc:"تقارير أقرأ فيها البيانات وأحوّلها إلى قرارات.", goal:"تقارير التحليل والمتابعة",
+  { id:"reports", icon:"doc", bg:"linear-gradient(150deg,#5a3457,#3a2140)", fg:"#f7f1ec", title:"التقارير", sub:"قريبًا",
+    desc:"التقارير الأسبوعية بالأعمال المنفذة.", goal:"الهدف الخامس · الوزن ١٥٪ · المستهدف ٢٠ تقريرًا", soon:"تُضاف التقارير قريبًا"},
+  { id:"service", icon:"users", bg:"linear-gradient(150deg,#d9a5b3,#b07a93)", fg:"#2b1830", title:"خدمة مستفيدين", sub:"٩٥.٨٪ رضا أولياء الأمور",
+    desc:"رضا المستفيدين، وقياس اتجاه المتعلمين، وبيانات الكادر، وتحليل الانضباط.", goal:"الهدف الثاني والثالث · الوزن ٤٠٪", custom:"service",
     rows:[
-      {icon:"moon",  bg:"#7d4f78", title:"الحضور والغياب في رمضان ١٤٤٧هـ", desc:"تحليل مفصل من ٦ إلى ١٦ رمضان، ومسارات التواصل والتحفيز والضبط.", link:D+"17fzMnUCt-SgT-Oj5Nu9nlsAxFZuBuaQ9/view"},
-      {icon:"chart", bg:"#9b6b93", title:"الأداء ورضا المستفيدين ١٤٤٧هـ", desc:"قراءة في ٢٤ ردًا: كفاءة الكادر ورضا أولياء الأمور ونقاط التحسين.", link:D+"14_hBsMAAzzTDaIniFyJh0c_ey0j1XnYU/view"},
-      {icon:"clock", bg:"#a88a55", title:"مشاركة الإعلام المدرسي في الانضباط", desc:"المبادرة وآلية تنفيذها وأثرها.", link:D+"1WueEldG6eIcIgqGcZC4ojoTIRMP1ry8V/view"},
+      {icon:"chart", bg:"#9b6b93", title:"تقرير الأداء ورضا المستفيدين ١٤٤٧هـ", desc:"قراءة في ٢٤ ردًا: كفاءة الكادر ورضا أولياء الأمور ونقاط التحسين.", link:D+"14_hBsMAAzzTDaIniFyJh0c_ey0j1XnYU/view"},
+      {icon:"moon",  bg:"#7d4f78", title:"الانضباط خلال شهر رمضان المبارك", desc:"تحليل مفصل لنسب الحضور والغياب من ٦ إلى ١٦ رمضان ١٤٤٧هـ.", link:D+"17fzMnUCt-SgT-Oj5Nu9nlsAxFZuBuaQ9/view"},
+      {icon:"image", bg:"#a88a55", title:"الانضباط خلال شهر رمضان (إنفوجرافيك)", desc:"ملخص بصري لنتائج الانضباط في رمضان.", link:D+"1oORJrOp5rZbxDhws5Nh_1Yb3TuutStGF/view"},
     ]},
-  { id:"service", icon:"users", bg:"linear-gradient(150deg,#d9a5b3,#b07a93)", fg:"#2b1830", title:"خدمة المستفيدين", sub:"٩٥.٨٪ رضا أولياء الأمور",
-    desc:"رضا المستفيدين، وقياس اتجاه المتعلمين، وبيانات الكادر.", goal:"الهدف الثاني والثالث · الوزن ٤٠٪", custom:"service"},
-  { id:"goals", icon:"target", bg:"linear-gradient(150deg,#d8bd8a,#b39660)", fg:"#2b1830", title:"أهدافي 2026", sub:"٥ أهداف بأوزانها",
-    desc:"أهداف الأداء الوظيفي ونسبة تحقق كل هدف.", custom:"goals"},
+  { id:"initiatives", icon:"spark", bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", fg:"#fff", title:"المبادرات", sub:"قريبًا",
+    desc:"المبادرات التي أطلقتها وشاركت فيها.", soon:"تُضاف المبادرات قريبًا"},
+  { id:"tasks", icon:"clip", bg:"linear-gradient(150deg,#4a2c50,#2b1830)", fg:"#f7f1ec", title:"التكليفات", sub:"قريبًا",
+    desc:"التكليفات الرسمية والأعمال المسندة.", soon:"تُضاف التكليفات قريبًا"},
   { id:"self", icon:"check", bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", fg:"#f7f1ec", title:"التقويم الذاتي", sub:"قريبًا",
     desc:"ملف التقويم الذاتي الإلكتروني وتحسين خطة المدرسة.", goal:"الهدف الرابع · الوزن ١٥٪", soon:"يُضاف ملف التقويم الذاتي الإلكتروني قريبًا"},
-  { id:"weekly", icon:"cal", bg:"linear-gradient(150deg,#f7f1ec,#e6d6cc)", fg:"#2b1830", title:"التقارير الأسبوعية", sub:"قريبًا",
-    desc:"تقرير أسبوعي بالأعمال المنفذة.", goal:"الهدف الخامس · الوزن ١٥٪ · المستهدف ٢٠ تقريرًا", soon:"تُضاف التقارير الأسبوعية قريبًا"},
+  { id:"certs", icon:"award", bg:"linear-gradient(150deg,#f7f1ec,#e6d6cc)", fg:"#2b1830", title:"شهادات الورشات والدورات", sub:"دورة إلزامية",
+    desc:"الدورات والورشات التدريبية التي حضرتها.",
+    rows:[{icon:"award", bg:"#a88a55", title:"الدورات الإلزامية", desc:"شهادات الدورات الإلزامية.", link:D+"1EEqAlApHPVVUimD3ZgDPhLhUy-DOM6iO/view"}]},
 ];
 const GOALS = [
   ["جودة وانتظام العمل الإعلامي المدرسي",30,6,6,"media"],
   ["تنظيم وتطوير روابط خدمة المستفيد",20,0,1,"service"],
   ["قياس اتجاه المتعلمين",20,0,2,"service"],
   ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,0,1,"self"],
-  ["تقرير أسبوعي بالأعمال المنفذة",15,0,20,"weekly"],
+  ["تقرير أسبوعي بالأعمال المنفذة",15,0,20,"reports"],
 ];
 /* ======================================================================= */
 
@@ -441,8 +452,9 @@ function pageHTML(s) {
         <div class="cv" style="--bg:linear-gradient(150deg,#4a2c50,#2b1830)">${svg("film")}<span class="play">${svg("play")}</span></div>
         <div class="tx"><h3>${v.title}</h3><p>${v.desc || ""}</p><div class="ft"><span class="ok">فيديو</span><span class="go">تشغيل ←</span></div></div></button>`).join("")}</div>`
     : `<div class="soon rise"><b>قريبًا</b>تُضاف فيديوهات ومقاطع المعلمات قريبًا</div>`);
-  if (s.rows) b += `<div class="rows">${s.rows.map((r, i) => `<a class="row rise" ${rise(i)} href="${r.link}" target="_blank" rel="noopener">
-      <span class="ri" style="--bg:${r.bg}">${svg(r.icon)}</span><div><h3>${r.title}</h3><p>${r.desc}</p></div><span class="go">فتح التقرير ←</span></a>`).join("")}</div>`;
+  const rows = () => `<div class="rows">${s.rows.map((r, i) => `<a class="row rise" ${rise(i)} href="${r.link}" target="_blank" rel="noopener">
+      <span class="ri" style="--bg:${r.bg}">${svg(r.icon)}</span><div><h3>${r.title}</h3><p>${r.desc}</p></div><span class="go">فتح ←</span></a>`).join("")}</div>`;
+  if (s.rows && !s.custom) b += rows();
   if (s.soon) b += `<div class="soon rise"><b>قريبًا</b>${s.soon}</div>`;
   if (s.custom === "service") b += `
     <div class="kpis"><div class="kpi rise" ${rise(0)}><b>٩٥.٨٪</b><span>رضا أولياء الأمور</span></div><div class="kpi rise" ${rise(1)}><b>٩١.٧٪</b><span>كفاءة التعامل</span></div><div class="kpi rise" ${rise(2)}><b>٢٤</b><span>ردًا في العينة</span></div></div>
@@ -455,9 +467,11 @@ function pageHTML(s) {
       <div class="side"><span class="lbl">قبل</span><h4>الطريقة السابقة</h4><ul><li>تُضاف التفاصيل قريبًا</li></ul></div>
       <div class="mid">⇄</div>
       <div class="side new"><span class="lbl">بعد</span><h4>كوادر ١٦٥</h4><ul><li>تُضاف التفاصيل قريبًا</li></ul></div>
-    </div>`;
+    </div>
+    <div class="h3">التقارير والشواهد</div>${rows()}`;
   if (s.custom === "goals") b += `<div class="box rise">${GOALS.map(g => { const p = Math.round(Math.min(1, g[2] / g[3]) * 100);
-      return `<a href="#${g[4]}" style="display:block">${meter(`${g[0]} <small style="color:var(--muted)">· الوزن ${ar(g[1])}٪</small>`, Math.max(p, 2), ar(p) + "٪")}</a>`; }).join("")}</div>`;
+      return `<a href="#${g[4]}" style="display:block">${meter(`${g[0]} <small style="color:var(--muted)">· الوزن ${ar(g[1])}٪</small>`, Math.max(p, 2), ar(p) + "٪")}</a>`; }).join("")}</div>
+    <div class="h3">الملف</div>${rows()}`;
   return `<div class="phead wrap"><div class="ico rise">${svg(s.icon)}</div><h2 class="rise" ${rise(1)}>${s.title}</h2><p class="rise" ${rise(2)}>${s.desc}</p>${s.goal ? `<span class="goal rise" ${rise(3)}>${s.goal}</span>` : ""}</div>
           <div class="wrap pbody">${b}</div>`;
 }
