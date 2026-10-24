@@ -191,6 +191,8 @@
   .sheet .who span{border:1px solid var(--line);border-radius:99px;padding:2px 12px;font-size:13px;color:var(--muted)}
   .cta{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;border-radius:16px;background:linear-gradient(90deg,var(--gold),#e6cfa5);color:var(--plum);font-weight:700;transition:transform .3s var(--soft)}
   .cta:hover{transform:scale(1.02)}
+  .cta.alt{margin-top:10px;background:transparent;color:var(--gold);border:1px solid var(--gold)}
+  .cta[hidden]{display:none}
 
   .back{position:fixed;top:max(18px,env(safe-area-inset-top));left:clamp(16px,4vw,48px);z-index:25;display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:99px;border:1px solid var(--line);background:rgba(43,24,48,.6);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transform:translateX(-10px);transition:.4s var(--ease)}
   body.inner .back{opacity:1;pointer-events:auto;transform:none}
@@ -234,7 +236,7 @@
   <div class="sheet">
     <div class="cv" id="mCv"></div>
     <button class="ic-btn x" id="mX" aria-label="إغلاق"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-    <div class="in"><h3 id="mT"></h3><p id="mD"></p><ul id="mP"></ul><div class="who" id="mW"></div><a class="cta" id="mL" target="_blank" rel="noopener">فتح الشاهد</a></div>
+    <div class="in"><h3 id="mT"></h3><p id="mD"></p><ul id="mP"></ul><div class="who" id="mW"></div><a class="cta" id="mL" target="_blank" rel="noopener">فتح الشاهد</a><a class="cta alt" id="mV" target="_blank" rel="noopener" hidden>مشاهدة الفيديو</a></div>
   </div>
 </div>
 
@@ -280,14 +282,15 @@ const SECTIONS = [
   { id:"goals", icon:"target", bg:"linear-gradient(150deg,#d8bd8a,#b39660)", fg:"#2b1830", title:"الأهداف", sub:"٥ أهداف بأوزانها",
     desc:"أهداف الأداء الوظيفي لعام 2026 ونسبة تحقق كل هدف.", custom:"goals",
     rows:[{icon:"doc", bg:"#a88a55", title:"ملف الأهداف 2026", desc:"أهداف الأداء الوظيفي والأوزان النسبية لكل هدف.", link:D+"1YlEwNcPSfCiaEdTpVrVzb-5THHgezUEW/view"}]},
-  { id:"media", icon:"camera", bg:"linear-gradient(150deg,#9b6b93,#5a3457)", fg:"#fff", title:"الإعلام", sub:"٦ تغطيات موثّقة",
-    desc:"تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.", goal:"الهدف الأول · الوزن ٣٠٪ · مكتمل ٦ من ٦",
-    kpis:[["٦ / ٦","تقارير منجزة"],["١٠٠٪","تحقق الهدف"],["٥","مناسبات"]],
+  { id:"media", icon:"camera", bg:"linear-gradient(150deg,#9b6b93,#5a3457)", fg:"#fff", title:"الإعلام", sub:"٧ تقارير · المستهدف ٦",
+    desc:"تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.", goal:"الهدف الأول · الوزن ٣٠٪ · ٧ تقارير من ٦ مستهدفة",
+    kpis:[["٧ / ٦","تقارير منجزة"],["+١","فوق المستهدف"],["٦","مناسبات"]],
     items:[
-      {icon:"flag",  bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", title:"يوم التأسيس", desc:"توثيق فعاليات يوم التأسيس بالصور والمحتوى المرئي.", points:["تصوير ميداني","إعداد المحتوى المرئي","تقرير رسمي"], link:D+"1aj5UEewepr0U4OwcxAzQGqdFqlNvkL8n/view"},
-      {icon:"book",  bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", title:"اليوم العالمي للغة العربية", desc:"تغطية الاحتفاء باللغة العربية وفقراته.", points:["توثيق الفقرات","تقرير رسمي"], link:D+"1i5sJZ_cLtGG-qasuRKzMNmANpQZLug-e/view"},
+      {icon:"flag",  bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", title:"يوم التأسيس 2026", desc:"توثيق فعاليات يوم التأسيس بالصور والمحتوى المرئي.", points:["تصوير ميداني","إعداد المحتوى المرئي","تقرير رسمي"], link:D+"1aj5UEewepr0U4OwcxAzQGqdFqlNvkL8n/view"},
+      {icon:"book",  bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", title:"يوم اللغة العربية 2026", desc:"تغطية الاحتفاء باللغة العربية وفقراته.", points:["توثيق الفقرات","تقرير رسمي"], link:D+"1i5sJZ_cLtGG-qasuRKzMNmANpQZLug-e/view"},
+      {icon:"apple", bg:"linear-gradient(150deg,#d8bd8a,#9b6b93)", title:"يوم المعلم 2026 · «أنتِ الأساس»", desc:"الاثنين ٢٤ ربيع الآخر ١٤٤٨هـ · ٥ أكتوبر 2026: احتفاء بـ ٢٢ معلمة، وفيديو «رسائل الإداريات».", points:["قصيدة «قم للمعلم وفّه التبجيلا» على المسرح","عرض أسماء المعلمات على الشاشة تقديرًا لعطائهن","فقرة «شكرًا قدوتي.. شكرًا معلمتي»","فيديو «رسائل الإداريات» للمعلمات","ركن ضيافة وهدايا تقديرية","فيديو احترافي بهوية يوم المعلم، منشور في قناة المدرسة"], link:D+"12blVrNkVysWezQ9soPPSElzNzY2IiwJH/view", video:"https://t.me/almdrsa165b/827", yr:"١٤٤٨هـ"},
       {icon:"apple", bg:"linear-gradient(150deg,#d9a5b3,#9b6b93)", title:"يوم المعلم", desc:"توثيق مبادرات تكريم المعلمات في يومهن العالمي.", points:["تصوير وتوثيق","تقرير رسمي"], link:D+"1_l8x1ugDagOpNuglda_CXBY5vn_-XXPG/view"},
-      {icon:"grad",  bg:"linear-gradient(150deg,#5a3457,#2b1830)", title:"حفل التخرج", desc:"تغطية شاملة لحفل تخرج الطالبات بالتصوير والمونتاج.", points:["تصوير","مونتاج","تقرير رسمي"], link:D+"1IQcr8BAjx6ge94JzLM4XdFDDsTaaS1lr/view"},
+      {icon:"grad",  bg:"linear-gradient(150deg,#5a3457,#2b1830)", title:"حفل تخرج السادس 2026", desc:"تغطية شاملة لحفل تخرج الطالبات بالتصوير والمونتاج.", points:["تصوير","مونتاج","تقرير رسمي"], link:D+"1IQcr8BAjx6ge94JzLM4XdFDDsTaaS1lr/view"},
       {icon:"award", bg:"linear-gradient(150deg,#d8bd8a,#a88a55)", title:"ختام العام وتكريم المنسوبات", desc:"تكريم المعلمات والإداريات والموظفات وحارس المدرسة.", points:["توثيق ميداني","تغطية متسلسلة للفقرات","مونتاج مرئي للمناسبة"], link:D+"1p22JeGIRikLQc0fTyE37bcTmfsyie4Z8/view"},
       {icon:"clock", bg:"linear-gradient(150deg,#9b6b93,#d9a5b3)", title:"رسائل الانضباط للأسر", desc:"رسائل دورية مساء كل أحد وخميس عبر القنوات المعتمدة.", points:["تعزيز انتظام الطالبات","الحد من الغياب والتأخر","تواصل إيجابي مع الأسرة"], link:D+"1WueEldG6eIcIgqGcZC4ojoTIRMP1ry8V/view"},
     ],
@@ -330,7 +333,7 @@ const SECTIONS = [
     rows:[{icon:"award", bg:"#a88a55", title:"الدورات الإلزامية", desc:"شهادات الدورات الإلزامية.", link:D+"1EEqAlApHPVVUimD3ZgDPhLhUy-DOM6iO/view"}]},
 ];
 const GOALS = [
-  ["جودة وانتظام العمل الإعلامي المدرسي",30,6,6,"media"],
+  ["جودة وانتظام العمل الإعلامي المدرسي",30,7,6,"media"],
   ["تنظيم وتطوير روابط خدمة المستفيد",20,1,1,"service"],
   ["قياس اتجاه المتعلمين",20,2,2,"qiyas"],
   ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,1,1,"self"],
@@ -585,8 +588,9 @@ $("#page").addEventListener("click", e => {
   $("#mCv").classList.remove("vid"); $("#mCv").style.setProperty("--bg", it.bg); $("#mCv").innerHTML = svg(it.icon);
   $("#mT").textContent = it.title; $("#mD").textContent = it.desc;
   $("#mP").innerHTML = it.points.map(p => `<li>${p}</li>`).join("");
-  $("#mW").innerHTML = `<span>إعداد: عواطف الجهني</span><span>العام الدراسي ١٤٤٧هـ</span>`;
-  $("#mL").href = it.link; $("#modal").classList.add("on"); SND.open(); $("#mX").focus();
+  $("#mW").innerHTML = `<span>إعداد: عواطف الجهني</span><span>العام الدراسي ${it.yr || "١٤٤٧هـ"}</span>`;
+  $("#mL").href = it.link; $("#mV").hidden = !it.video; if (it.video) $("#mV").href = it.video;
+  $("#modal").classList.add("on"); SND.open(); $("#mX").focus();
 });
 function closeModal() { $("#modal").classList.remove("on"); SND.close(); setTimeout(() => { if ($("#mCv").classList.contains("vid")) $("#mCv").innerHTML = ""; }, 350); }
 $("#mX").onclick = closeModal;
