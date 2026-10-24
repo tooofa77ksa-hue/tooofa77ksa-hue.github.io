@@ -313,8 +313,9 @@ const SECTIONS = [
   { id:"initiatives", icon:"spark", bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", fg:"#fff", title:"المبادرات", sub:"+٤٨.٣ نقطة أثر",
     desc:"مبادرات أطلقتها لرفع جودة العمل في المدرسة.", custom:"initiatives",
     rows:[{icon:"spark", bg:"#b88aa8", title:"قياس أثر ورشة NotebookLM", desc:"ورشة للموظفات من الخطة التشغيلية ١٤٤٨هـ، بقياس قبلي وبعدي.", link:D+"13x387JsKyfuTnYUk6UTlnkCbmZX7uwfG/view"}]},
-  { id:"reports", icon:"doc", bg:"linear-gradient(150deg,#5a3457,#3a2140)", fg:"#f7f1ec", title:"التقارير", sub:"قريبًا",
-    desc:"التقارير الأسبوعية بالأعمال المنفذة.", goal:"الهدف الخامس · الوزن ١٥٪ · المستهدف ٢٠ تقريرًا", soon:"تُضاف التقارير قريبًا"},
+  { id:"reports", icon:"doc", bg:"linear-gradient(150deg,#5a3457,#3a2140)", fg:"#f7f1ec", title:"التقارير", sub:"٢٠ تقريرًا أسبوعيًا",
+    desc:"تقرير أسبوعي بالأعمال المنفذة وأهمية كل إجراء، من مارس إلى سبتمبر 2026.", goal:"الهدف الخامس · الوزن ١٥٪ · مكتمل ٢٠ من ٢٠", custom:"reports",
+    rows:[{icon:"doc", bg:"#7d4f78", title:"التقارير الأسبوعية 2026", desc:"ملف واحد يضم التقارير الأسبوعية العشرين بأعمالها وأهميتها وشواهدها.", link:D+"1LcC50B8KHy6_b1GY-6RaK5ZQG_Mv3wZJ/view"}]},
   { id:"self", icon:"check", bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", fg:"#f7f1ec", title:"التقويم الذاتي", sub:"منصة وخطتان",
     desc:"التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات إلكترونية بدل الورق.", goal:"الهدف الرابع · الوزن ١٥٪ · مكتمل", custom:"self",
     rows:[
@@ -333,7 +334,7 @@ const GOALS = [
   ["تنظيم وتطوير روابط خدمة المستفيد",20,1,1,"service"],
   ["قياس اتجاه المتعلمين",20,2,2,"qiyas"],
   ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,1,1,"self"],
-  ["تقرير أسبوعي بالأعمال المنفذة",15,0,20,"reports"],
+  ["تقرير أسبوعي بالأعمال المنفذة",15,20,20,"reports"],
 ];
 /* ======================================================================= */
 
@@ -518,6 +519,10 @@ function pageHTML(s) {
   const steps = (arr) => `<div class="steps">${arr.map((x, i) => `<div class="step rise" ${rise(i)}><span class="yr">${x[0]}</span><b>${x[1]}</b><small>${x[2]}</small></div>`).join('<span class="arr">←</span>')}</div>`;
   if (s.custom === "qiyas") b += steps([["١٤٤٦هـ","نماذج إلكترونية","تجمع الردود وتقف عندها"],["١٤٤٧هـ","نماذج إلكترونية","تفريغ يدوي في جدول"],["١٤٤٨هـ","منصة متكاملة","تقرأ الرأي وتحوّله إلى عمل"]]) + `<div class="h3">الشواهد والروابط</div>${rows()}`;
   if (s.custom === "self") b += steps([["١","التقويم الذاتي","نعرف أين نحن"],["٢","خطة التحسين","نعالج نقاط الضعف"],["٣","الخطة التشغيلية","ننفّذ خلال العام"]]) + `<div class="h3">المنصات والشواهد</div>${rows()}`;
+  if (s.custom === "reports") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>٢٠ / ٢٠</b><span>تقريرًا أسبوعيًا</span></div><div class="kpi rise" ${rise(1)}><b>١٠٠٪</b><span>تحقق الهدف</span></div><div class="kpi rise" ${rise(2)}><b>٧ أشهر</b><span>مارس ← سبتمبر 2026</span></div></div>
+    <div class="h3">أبرز ما تضمّنته التقارير</div>
+    <div class="skills">${[["clock","رسائل الانضباط مساء الأحد والخميس"],["camera","تصوير الإذاعة المدرسية وتوثيقها يوميًا"],["link","إرسال التوثيق لإدارة تعليم جدة أولًا بأول"],["chart","قياس اتجاه المتعلمين لجميع الصفوف"],["film","فيديوهات التخرج وتكريم المتقاعدات واستقبال المعلمات"],["spark","ورشة NotebookLM للموظفات"],["users","رابط موافقات التصوير بلوحة بيانات"],["flag","توثيق حفلَي اليوم الوطني"],["target","دعم الاستعداد لاختبارات نافس"]].map((k, i) => `<div class="skill rise" ${rise(i + 3)}><span class="si">${svg(k[0])}</span>${k[1]}</div>`).join("")}</div>
+    <div class="h3">الملف</div>${rows()}`;
   if (s.custom === "initiatives") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>٣٥٪</b><span>قبل الورشة · ٢٠ استجابة</span></div><div class="kpi rise" ${rise(1)}><b>٨٣.٣٪</b><span>بعد الورشة · ٢٢ استجابة</span></div><div class="kpi rise" ${rise(2)}><b>+٤٨.٣</b><span>نقطة تحسّن · تحقق المؤشر</span></div></div>
     <div class="h3">ورشة NotebookLM للموظفات</div>
     <div class="box rise" ${rise(3)}>${meter("كفاءة الموظفات قبل الورشة",35,"٣٥٪")}${meter("كفاءة الموظفات بعد الورشة",83.3,"٨٣.٣٪")}${meter("الوصول إلى الاستخدام بثقة واستقلالية",63.6,"٦٣.٦٪")}</div>
