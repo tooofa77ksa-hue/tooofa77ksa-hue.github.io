@@ -504,7 +504,7 @@ function pageHTML(s) {
     ? `<div class="grid">${s.videos.map((v, i) => `<button class="item rise" ${rise(i)} data-v="${i}">
         <div class="cv" style="--bg:linear-gradient(150deg,#4a2c50,#2b1830)">${svg("film")}<span class="play">${svg("play")}</span></div>
         <div class="tx"><h3>${v.title}</h3><p>${v.desc || ""}</p><div class="ft"><span class="ok">فيديو</span><span class="go">تشغيل ←</span></div></div></button>`).join("")}</div>`
-    : `<div class="soon rise"><b>قريبًا</b>تُضاف فيديوهات ومقاطع المعلمات قريبًا</div>`);
+    : `<div class="hobby rise"><span class="si">${svg("film")}</span><div><b>الفيديوهات داخل التقارير</b><p>كل فيديو صممته مرفق داخل تقريره، ويُفتح من زر «مشاهدة الفيديو» أو بمسح الباركود في التقرير.</p></div></div>`);
   const rows = () => `<div class="rows">${s.rows.map((r, i) => `<a class="row rise" ${rise(i)} href="${r.link}" target="_blank" rel="noopener">
       <span class="ri" style="--bg:${r.bg}">${svg(r.icon)}</span><div><h3>${r.title}</h3><p>${r.desc}</p></div><span class="go">فتح ←</span></a>`).join("")}</div>`;
   if (s.rows && !s.custom) b += rows();
