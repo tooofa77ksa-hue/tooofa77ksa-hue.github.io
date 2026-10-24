@@ -152,6 +152,14 @@
   @keyframes beatS{0%,100%{transform:scale(1)}20%{transform:scale(1.1)}40%{transform:scale(.97)}}
   .hobby b{font-family:"El Messiri";font-size:1.25rem;color:var(--gold)}
   .hobby p{color:var(--muted)}
+  .steps{display:flex;align-items:stretch;gap:10px;margin-bottom:10px}
+  .step{flex:1;border:1px solid var(--line);background:var(--glass);border-radius:20px;padding:16px;text-align:center}
+  .step:last-child{border-color:rgba(216,189,138,.6);box-shadow:0 0 30px rgba(216,189,138,.12)}
+  .step .yr{display:inline-block;font-family:"El Messiri";color:var(--plum);background:var(--gold);border-radius:99px;padding:0 12px;font-size:14px}
+  .step b{display:block;font-family:"El Messiri";font-size:1.15rem;margin-top:8px}
+  .step small{color:var(--muted)}
+  .arr{align-self:center;color:var(--gold);font-size:22px}
+  @media (max-width:640px){.steps{flex-direction:column}.arr{transform:rotate(-90deg)}}
   .soon{border:1px dashed rgba(216,189,138,.4);border-radius:22px;padding:26px;text-align:center;color:var(--muted)}
   .soon b{display:block;font-family:"El Messiri";color:var(--rose);font-size:18px}
   .ba{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center}
@@ -249,6 +257,7 @@ const I = {
   chart:'<path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/>',
   arrow:'<path d="M15 6l-6 6 6 6"/>',
   play:'<path d="M8 5.5v13l11-6.5z"/>',
+  link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
   user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4.2 4-6.5 8-6.5s7.2 2.3 8 6.5"/>',
   pen:'<path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/>',
   code:'<path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/>',
@@ -285,28 +294,45 @@ const SECTIONS = [
     // الفيديوهات: كل فيديو {title, desc, id} و id هو رقم الملف في الدرايف
     videos:[
     ]},
-  { id:"service", icon:"users", bg:"linear-gradient(150deg,#d9a5b3,#b07a93)", fg:"#2b1830", title:"خدمة مستفيدين", sub:"٩٥.٨٪ رضا أولياء الأمور",
-    desc:"رضا المستفيدين، وقياس اتجاه المتعلمين، وبيانات الكادر، وتحليل الانضباط.", goal:"الهدف الثاني والثالث · الوزن ٤٠٪", custom:"service",
+  { id:"service", icon:"users", bg:"linear-gradient(150deg,#d9a5b3,#b07a93)", fg:"#2b1830", title:"خدمة مستفيدين", sub:"١١ بندًا منفذًا من آرائكم",
+    desc:"قلتم فسمعنا، وسمعنا فعملنا، وعملنا فأخبرناكم.", goal:"الهدف الثاني · الوزن ٢٠٪ · مكتمل", custom:"service",
     rows:[
-      {icon:"chart", bg:"#9b6b93", title:"تقرير الأداء ورضا المستفيدين ١٤٤٧هـ", desc:"قراءة في ٢٤ ردًا: كفاءة الكادر ورضا أولياء الأمور ونقاط التحسين.", link:D+"14_hBsMAAzzTDaIniFyJh0c_ey0j1XnYU/view"},
-      {icon:"moon",  bg:"#7d4f78", title:"الانضباط خلال شهر رمضان المبارك", desc:"تحليل مفصل لنسب الحضور والغياب من ٦ إلى ١٦ رمضان ١٤٤٧هـ.", link:D+"17fzMnUCt-SgT-Oj5Nu9nlsAxFZuBuaQ9/view"},
+      {icon:"heart", bg:"#b07a93", title:"قياس الرضا: ماذا فعلنا لأجلكم؟ ١٤٤٨هـ", desc:"١١ بندًا منفذًا استجابة لآراء أولياء الأمور، و١٠ كلمات شكر، و٥ مبادرات ذاتية.", link:D+"1PrU8BrCY5xZlQd80yGJyKaNPT20ep-cU/view"},
+      {icon:"link",  bg:"#9b6b93", title:"رابط ما عملناه بآرائكم", desc:"صفحة المستفيدين: الإجراءات المنفذة بالصور والتفاصيل.", link:"https://qiyas-165-1448.web.app/#/amal"},
+      {icon:"chart", bg:"#7d4f78", title:"تقرير الأداء ورضا المستفيدين ١٤٤٧هـ", desc:"قراءة في ٢٤ ردًا: كفاءة الكادر ورضا أولياء الأمور ونقاط التحسين.", link:D+"14_hBsMAAzzTDaIniFyJh0c_ey0j1XnYU/view"},
+      {icon:"moon",  bg:"#5a3457", title:"الانضباط خلال شهر رمضان المبارك", desc:"تحليل مفصل لنسب الحضور والغياب من ٦ إلى ١٦ رمضان ١٤٤٧هـ.", link:D+"17fzMnUCt-SgT-Oj5Nu9nlsAxFZuBuaQ9/view"},
       {icon:"image", bg:"#a88a55", title:"الانضباط خلال شهر رمضان (إنفوجرافيك)", desc:"ملخص بصري لنتائج الانضباط في رمضان.", link:D+"1oORJrOp5rZbxDhws5Nh_1Yb3TuutStGF/view"},
     ]},
-  { id:"initiatives", icon:"spark", bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", fg:"#fff", title:"المبادرات", sub:"قريبًا",
-    desc:"المبادرات التي أطلقتها وشاركت فيها.", soon:"تُضاف المبادرات قريبًا"},
+  { id:"qiyas", icon:"chart", bg:"linear-gradient(150deg,#9b6b93,#4a2c50)", fg:"#fff", title:"قياس اتجاه المتعلمين", sub:"من النماذج إلى المنصة",
+    desc:"عامان على نماذج تجمع الردود، وعام على منصة تقرأ الرأي وتحوّله إلى عمل.", goal:"الهدف الثالث · الوزن ٢٠٪ · مكتمل", custom:"qiyas",
+    rows:[
+      {icon:"doc",   bg:"#9b6b93", title:"من النماذج إلى المنصة ١٤٤٨هـ", desc:"تطوّر قياس اتجاه المتعلمين عبر ١٤٤٦ و١٤٤٧ و١٤٤٨هـ.", link:D+"1sRBECdwJlwqp5pbZZhBoawRmF4MePnQ4/view"},
+      {icon:"link",  bg:"#7d4f78", title:"الاستبيان الذي وصل أولياء الأمور", desc:"الرابط نفسه الذي وصل كل أسرة.", link:"https://qiyas-165-1448.web.app/#/survey"},
+      {icon:"heart", bg:"#b07a93", title:"كلمات طيبة وصلتنا منكم", desc:"ما أثنى به أولياء الأمور على المدرسة بنصه.", link:"https://qiyas-165-1448.web.app/#/shukr"},
+    ]},
+  { id:"initiatives", icon:"spark", bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", fg:"#fff", title:"المبادرات", sub:"+٤٨.٣ نقطة أثر",
+    desc:"مبادرات أطلقتها لرفع جودة العمل في المدرسة.", custom:"initiatives",
+    rows:[{icon:"spark", bg:"#b88aa8", title:"قياس أثر ورشة NotebookLM", desc:"ورشة للموظفات من الخطة التشغيلية ١٤٤٨هـ، بقياس قبلي وبعدي.", link:D+"13x387JsKyfuTnYUk6UTlnkCbmZX7uwfG/view"}]},
   { id:"reports", icon:"doc", bg:"linear-gradient(150deg,#5a3457,#3a2140)", fg:"#f7f1ec", title:"التقارير", sub:"قريبًا",
     desc:"التقارير الأسبوعية بالأعمال المنفذة.", goal:"الهدف الخامس · الوزن ١٥٪ · المستهدف ٢٠ تقريرًا", soon:"تُضاف التقارير قريبًا"},
-  { id:"self", icon:"check", bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", fg:"#f7f1ec", title:"التقويم الذاتي", sub:"قريبًا",
-    desc:"ملف التقويم الذاتي الإلكتروني وتحسين خطة المدرسة.", goal:"الهدف الرابع · الوزن ١٥٪", soon:"يُضاف ملف التقويم الذاتي الإلكتروني قريبًا"},
+  { id:"self", icon:"check", bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", fg:"#f7f1ec", title:"التقويم الذاتي", sub:"منصة وخطتان",
+    desc:"التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات إلكترونية بدل الورق.", goal:"الهدف الرابع · الوزن ١٥٪ · مكتمل", custom:"self",
+    rows:[
+      {icon:"check", bg:"#7d4f78", title:"منصة التقويم الذاتي ١٤٤٧ و١٤٤٨هـ", desc:"المجالات الأربعة ومعاييرها وشواهدها في منصة واحدة.", link:"https://readdy.cc/preview/ccfdd1a6-911c-47e7-84c5-b2436ac6f7ed/14579353/"},
+      {icon:"doc",   bg:"#9b6b93", title:"التقويم الذاتي: من الورق إلى المنصة", desc:"كيف تحوّلت الاستمارة الورقية إلى منصة تُفتح من أي جهاز.", link:D+"15lfy749UtfBBEF5w11IwYa2ocwVrjyKr/view"},
+      {icon:"target",bg:"#a88a55", title:"منصة خطة التحسين المدرسي ١٤٤٨هـ", desc:"بديل رقمي لأربع استمارات ورقية بـ ١٤٠ بطاقة أسبوعية.", link:"https://khutta-165.web.app/"},
+      {icon:"cal",   bg:"#5a3457", title:"الخطة التشغيلية ١٤٤٨هـ", desc:"أقسام الخطة وجداولها ومؤشراتها في منصة واحدة.", link:"https://khutta-165.web.app/operational-plan"},
+      {icon:"book",  bg:"#4a2c50", title:"رؤية وزارة التعليم وأهدافها الاستراتيجية", desc:"مرجع: الرؤية والرسالة والمحاور والأهداف.", link:D+"1ZxbS51QLwcSyC2g9Dly6HO06u25Oolxw/view"},
+    ]},
   { id:"certs", icon:"award", bg:"linear-gradient(150deg,#f7f1ec,#e6d6cc)", fg:"#2b1830", title:"شهادات الورشات والدورات", sub:"دورة إلزامية",
     desc:"الدورات والورشات التدريبية التي حضرتها.",
     rows:[{icon:"award", bg:"#a88a55", title:"الدورات الإلزامية", desc:"شهادات الدورات الإلزامية.", link:D+"1EEqAlApHPVVUimD3ZgDPhLhUy-DOM6iO/view"}]},
 ];
 const GOALS = [
   ["جودة وانتظام العمل الإعلامي المدرسي",30,6,6,"media"],
-  ["تنظيم وتطوير روابط خدمة المستفيد",20,0,1,"service"],
-  ["قياس اتجاه المتعلمين",20,0,2,"service"],
-  ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,0,1,"self"],
+  ["تنظيم وتطوير روابط خدمة المستفيد",20,1,1,"service"],
+  ["قياس اتجاه المتعلمين",20,2,2,"qiyas"],
+  ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,1,1,"self"],
   ["تقرير أسبوعي بالأعمال المنفذة",15,0,20,"reports"],
 ];
 /* ======================================================================= */
@@ -479,18 +505,23 @@ function pageHTML(s) {
   if (s.rows && !s.custom) b += rows();
   if (s.soon) b += `<div class="soon rise"><b>قريبًا</b>${s.soon}</div>`;
   if (s.custom === "service") b += `
-    <div class="kpis"><div class="kpi rise" ${rise(0)}><b>٩٥.٨٪</b><span>رضا أولياء الأمور</span></div><div class="kpi rise" ${rise(1)}><b>٩١.٧٪</b><span>كفاءة التعامل</span></div><div class="kpi rise" ${rise(2)}><b>٢٤</b><span>ردًا في العينة</span></div></div>
+    <div class="kpis"><div class="kpi rise" ${rise(0)}><b>١١</b><span>بندًا منفذًا من آرائكم</span></div><div class="kpi rise" ${rise(1)}><b>١٠</b><span>كلمات شكر وصلتنا</span></div><div class="kpi rise" ${rise(2)}><b>٥</b><span>مبادرات ذاتية</span></div></div>
+    <div class="h3">ماذا فعلنا لأجلكم؟ ١٤٤٨هـ</div>${rows()}
     <div class="h3">رضا المستفيدين · الفصل الأول ١٤٤٧هـ</div>
     <div class="box rise" ${rise(3)}>${meter("رضا أولياء الأمور",95.8)}${meter("كفاءة الموظفة وأسلوب التعامل",91.7)}${meter("سرعة الإنجاز",91.7)}${meter("طلبات القبول والتسجيل من إجمالي الخدمة",54.2)}</div>
-    <div class="h3">قياس اتجاه المتعلمين</div>
-    <div class="soon rise" ${rise(4)}><b>القياس الإلكتروني ١٤٤٨هـ</b>يُضاف قريبًا</div>
     <div class="h3">بيانات المعلمات والإداريات: من القديم إلى «كوادر ١٦٥»</div>
     <div class="ba rise" ${rise(7)}>
       <div class="side"><span class="lbl">قبل</span><h4>الطريقة السابقة</h4><ul><li>تُضاف التفاصيل قريبًا</li></ul></div>
       <div class="mid">⇄</div>
       <div class="side new"><span class="lbl">بعد</span><h4>كوادر ١٦٥</h4><ul><li>تُضاف التفاصيل قريبًا</li></ul></div>
-    </div>
-    <div class="h3">التقارير والشواهد</div>${rows()}`;
+    </div>`;
+  const steps = (arr) => `<div class="steps">${arr.map((x, i) => `<div class="step rise" ${rise(i)}><span class="yr">${x[0]}</span><b>${x[1]}</b><small>${x[2]}</small></div>`).join('<span class="arr">←</span>')}</div>`;
+  if (s.custom === "qiyas") b += steps([["١٤٤٦هـ","نماذج إلكترونية","تجمع الردود وتقف عندها"],["١٤٤٧هـ","نماذج إلكترونية","تفريغ يدوي في جدول"],["١٤٤٨هـ","منصة متكاملة","تقرأ الرأي وتحوّله إلى عمل"]]) + `<div class="h3">الشواهد والروابط</div>${rows()}`;
+  if (s.custom === "self") b += steps([["١","التقويم الذاتي","نعرف أين نحن"],["٢","خطة التحسين","نعالج نقاط الضعف"],["٣","الخطة التشغيلية","ننفّذ خلال العام"]]) + `<div class="h3">المنصات والشواهد</div>${rows()}`;
+  if (s.custom === "initiatives") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>٣٥٪</b><span>قبل الورشة · ٢٠ استجابة</span></div><div class="kpi rise" ${rise(1)}><b>٨٣.٣٪</b><span>بعد الورشة · ٢٢ استجابة</span></div><div class="kpi rise" ${rise(2)}><b>+٤٨.٣</b><span>نقطة تحسّن · تحقق المؤشر</span></div></div>
+    <div class="h3">ورشة NotebookLM للموظفات</div>
+    <div class="box rise" ${rise(3)}>${meter("كفاءة الموظفات قبل الورشة",35,"٣٥٪")}${meter("كفاءة الموظفات بعد الورشة",83.3,"٨٣.٣٪")}${meter("الوصول إلى الاستخدام بثقة واستقلالية",63.6,"٦٣.٦٪")}</div>
+    <div class="h3">الشاهد</div>${rows()}`;
   if (s.custom === "about") b += aboutHTML();
   if (s.custom === "goals") b += `<div class="box rise">${GOALS.map(g => { const p = Math.round(Math.min(1, g[2] / g[3]) * 100);
       return `<a href="#${g[4]}" style="display:block">${meter(`${g[0]} <small style="color:var(--muted)">· الوزن ${ar(g[1])}٪</small>`, Math.max(p, 2), ar(p) + "٪")}</a>`; }).join("")}</div>
