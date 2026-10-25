@@ -147,19 +147,6 @@
   .skill:hover{transform:translateY(-4px);border-color:rgba(216,189,138,.55);box-shadow:0 0 24px rgba(216,189,138,.15)}
   .si{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),#e6cfa5);color:var(--plum)}
   .si svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-  .glist{display:grid;gap:16px}
-  .gcard{border:1px solid var(--line);background:var(--glass);border-radius:22px;padding:22px;backdrop-filter:blur(8px)}
-  .gcard header{display:flex;justify-content:space-between;gap:10px;font-size:.9rem}
-  .gcard .gnum{color:var(--gold)} .gcard .gw{color:var(--muted)}
-  .gcard h4{font-family:"El Messiri";font-size:1.25rem;margin:6px 0 12px}
-  .gline{display:grid;grid-template-columns:72px 1fr;gap:10px;margin:8px 0;line-height:1.9}
-  .gline b{color:var(--rose);font-weight:500}
-  .gline p{margin:0}
-  .gcard footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:.9rem}
-  .gdone{color:var(--gold);font-weight:700}
-  .gx{border:1px solid rgba(216,189,138,.5);border-radius:99px;padding:2px 12px;color:var(--gold)}
-  .gcard footer a{margin-inline-start:auto;color:var(--rose)}
-  @media (max-width:560px){.gline{grid-template-columns:1fr;gap:2px}}
   .hobby{display:flex;gap:16px;align-items:center;border:1px solid rgba(216,189,138,.4);background:var(--glass);border-radius:22px;padding:20px}
   .hobby .si{width:56px;height:56px;background:linear-gradient(135deg,var(--rose),var(--mauve));color:#fff;animation:beatS 1.8s ease-in-out infinite}
   @keyframes beatS{0%,100%{transform:scale(1)}20%{transform:scale(1.1)}40%{transform:scale(.97)}}
@@ -322,7 +309,7 @@ const SECTIONS = [
       {icon:"image", bg:"#a88a55", title:"الانضباط خلال شهر رمضان (إنفوجرافيك)", desc:"ملخص بصري لنتائج الانضباط في رمضان.", link:D+"1oORJrOp5rZbxDhws5Nh_1Yb3TuutStGF/view"},
     ]},
   { id:"qiyas", icon:"chart", bg:"linear-gradient(150deg,#9b6b93,#4a2c50)", fg:"#fff", title:"قياس اتجاه المتعلمين", sub:"من النماذج إلى المنصة",
-    desc:"عامان على نماذج تجمع الردود، وعام على منصة تقرأ الرأي وتحوّله إلى عمل.", goal:"الهدف الثالث · الوزن ٢٠٪ · مكتمل وشمل المراحل كلها", custom:"qiyas",
+    desc:"عامان على نماذج تجمع الردود، وعام على منصة تقرأ الرأي وتحوّله إلى عمل.", goal:"الهدف الثالث · الوزن ٢٠٪ · مكتمل", custom:"qiyas",
     rows:[
       {icon:"doc",   bg:"#9b6b93", title:"من النماذج إلى المنصة ١٤٤٨هـ", desc:"تطوّر قياس اتجاه المتعلمين عبر ١٤٤٦ و١٤٤٧ و١٤٤٨هـ.", link:D+"1sRBECdwJlwqp5pbZZhBoawRmF4MePnQ4/view"},
       {icon:"link",  bg:"#7d4f78", title:"الاستبيان الذي وصل أولياء الأمور", desc:"الرابط نفسه الذي وصل كل أسرة.", link:"https://qiyas-165-1448.web.app/#/survey"},
@@ -354,26 +341,11 @@ const SECTIONS = [
     rows:[{icon:"award", bg:"#a88a55", title:"الدورات الإلزامية", desc:"شهادات الدورات الإلزامية.", link:D+"1EEqAlApHPVVUimD3ZgDPhLhUy-DOM6iO/view"}]},
 ];
 const GOALS = [
-  {n:"الأول", t:"جودة وانتظام العمل الإعلامي المدرسي", w:30, done:9, target:6, to:"media", unit:"تقارير",
-   req:"إعداد ٦ تقارير إعلامية تغطي مناسبات المدرسة خلال 2026.",
-   did:"أنجزت ٩ تقارير لـ٨ مناسبات، شملت كل منها التصوير والمونتاج والتقرير الرسمي، ونُشرت مقاطعها في قناة المدرسة.",
-   extra:"+٣ تقارير فوق المستهدف"},
-  {n:"الثاني", t:"تنظيم وتطوير روابط خدمة المستفيد", w:20, done:1, target:1, to:"service", unit:"رابط",
-   req:"تنظيم وتطوير رابط واحد لخدمة المستفيدين.",
-   did:"بنيت منصة متكاملة بثلاث صفحات: استبيان يصل كل أسرة، وصفحة «ماذا عملنا برأيكم» تعرض ١١ بندًا نُفّذ من آراء المستفيدين، وصفحة لكلمات الشكر.",
-   extra:"منصة كاملة بدل رابط واحد"},
-  {n:"الثالث", t:"قياس اتجاه المتعلمين", w:20, done:2, target:2, to:"qiyas", unit:"تقرير",
-   req:"إعداد تقريرين لقياس اتجاه المتعلمين، والمطلوب فيه مرحلة واحدة.",
-   did:"نقلت القياس كاملًا من النماذج الإلكترونية إلى منصة متكاملة، وطبّقته على المراحل كلها لا على مرحلة واحدة. لكل فصل رابط يصل أسره مربوط بالكشف الرسمي، والنتائج تُحسب لحظة وصول الرأي بلا تفريغ يدوي، وكل ملاحظة تتحول إلى إجراء له مسؤول وتاريخ وشاهد، مع مقارنة ثلاثة أعوام (١٤٤٦ · ١٤٤٧ · ١٤٤٨هـ).",
-   extra:"المراحل كلها بدل مرحلة واحدة"},
-  {n:"الرابع", t:"ملف التقويم الذاتي وتحسين خطة المدرسة", w:15, done:1, target:1, to:"self", unit:"ملف",
-   req:"المقصود: إعداد ملف التقويم الذاتي للمدرسة، ثم استثمار نتائجه في تحسين خطة المدرسة (خطة التحسين والخطة التشغيلية).",
-   did:"أعددت ملف التقويم الذاتي، ثم نقلت الخطتين من الورق إلى منصتين إلكترونيتين: ١٢ استمارة و١٤٢ جدولًا، يُحدَّث فيها التقدم وتُصدَّر وتُطبع مباشرة.",
-   extra:"منصتان إلكترونيتان بدل ملف ورقي"},
-  {n:"الخامس", t:"تقرير أسبوعي بالأعمال المنفذة", w:15, done:20, target:20, to:"reports", unit:"تقرير",
-   req:"المقصود: رفع تقرير كل أسبوع يوثّق جميع الأعمال التي نُفذت فيه، بإجمالي ٢٠ تقريرًا في العام.",
-   did:"رفعت ٢٠ تقريرًا أسبوعيًا من مارس إلى سبتمبر 2026 دون انقطاع، وجمعتها في ملف واحد يسهل الرجوع إليه.",
-   extra:"٢٠ من ٢٠ دون انقطاع"},
+  ["جودة وانتظام العمل الإعلامي المدرسي",30,9,6,"media"],
+  ["تنظيم وتطوير روابط خدمة المستفيد",20,1,1,"service"],
+  ["قياس اتجاه المتعلمين",20,2,2,"qiyas"],
+  ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,1,1,"self"],
+  ["تقرير أسبوعي بالأعمال المنفذة",15,20,20,"reports"],
 ];
 /* ======================================================================= */
 
@@ -578,28 +550,11 @@ function pageHTML(s) {
     <div class="hobby rise" ${rise(8)}><span class="si">${svg("doc")}</span><div><b>الخطتان في منصتين إلكترونيتين</b><p>منصتان، و١٢ استمارة، و١٤٢ جدولًا إلكترونيًا. التفاصيل في قسم «التقويم الذاتي».</p></div></div>
     <div class="h3">الشواهد</div>${rows()}`;
   if (s.custom === "about") b += aboutHTML();
-  if (s.custom === "goals") b += goalsHTML(rows);
+  if (s.custom === "goals") b += `<div class="box rise">${GOALS.map(g => { const p = Math.round(Math.min(1, g[2] / g[3]) * 100);
+      return `<a href="#${g[4]}" style="display:block">${meter(`${g[0]} <small style="color:var(--muted)">· الوزن ${ar(g[1])}٪</small>`, Math.max(p, 2), ar(p) + "٪")}</a>`; }).join("")}</div>
+    <div class="h3">الملف</div>${rows()}`;
   return `<div class="phead wrap"><div class="ico rise">${svg(s.icon)}</div><h2 class="rise" ${rise(1)}>${s.title}</h2><p class="rise" ${rise(2)}>${s.desc}</p>${s.goal ? `<span class="goal rise" ${rise(3)}>${s.goal}</span>` : ""}</div>
           <div class="wrap pbody">${b}</div>`;
-}
-
-function goalsHTML(rows) {
-  const score = GOALS.reduce((t, g) => t + g.w * Math.min(1, g.done / g.target), 0);
-  return `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>${ar(Math.round(score))}٪</b><span>نسبة تحقق الأهداف الموزونة</span></div>
-      <div class="kpi rise" ${rise(1)}><b>٥ / ٥</b><span>أهداف مكتملة</span></div>
-      <div class="kpi rise" ${rise(2)}><b>٤</b><span>أهداف تجاوزت المطلوب</span></div></div>
-    <div class="box rise" ${rise(3)}>${GOALS.map(g => { const p = Math.round(Math.min(1, g.done / g.target) * 100);
-      return meter(`${g.t} <small style="color:var(--muted)">· الوزن ${ar(g.w)}٪</small>`, Math.max(p, 2), ar(p) + "٪"); }).join("")}
-      <p style="color:var(--muted);margin-top:6px">المجموع: ${GOALS.map(g => ar(g.w)).join(" + ")} = ${ar(Math.round(score))} من ١٠٠.</p></div>
-    <div class="h3">ماذا كان المطلوب، وماذا تم</div>
-    <div class="glist">${GOALS.map((g, i) => `<article class="gcard rise" ${rise(4 + i)}>
-      <header><span class="gnum">الهدف ${g.n}</span><span class="gw">الوزن ${ar(g.w)}٪</span></header>
-      <h4>${g.t}</h4>
-      <div class="gline"><b>المطلوب</b><p>${g.req}</p></div>
-      <div class="gline"><b>ما تم</b><p>${g.did}</p></div>
-      <footer><span class="gdone">${ar(g.done)} / ${ar(g.target)} ${g.unit} · ${ar(Math.round(g.done / g.target * 100))}٪</span><span class="gx">${g.extra}</span><a href="#${g.to}">الشواهد ←</a></footer>
-    </article>`).join("")}</div>
-    <div class="h3">الملف</div>${rows()}`;
 }
 
 function aboutHTML() {
