@@ -315,9 +315,14 @@ const SECTIONS = [
       {icon:"link",  bg:"#7d4f78", title:"الاستبيان الذي وصل أولياء الأمور", desc:"الرابط نفسه الذي وصل كل أسرة.", link:"https://qiyas-165-1448.web.app/#/survey"},
       {icon:"heart", bg:"#b07a93", title:"كلمات طيبة وصلتنا منكم", desc:"ما أثنى به أولياء الأمور على المدرسة بنصه.", link:"https://qiyas-165-1448.web.app/#/shukr"},
     ]},
-  { id:"initiatives", icon:"spark", bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", fg:"#fff", title:"المبادرات", sub:"+٤٨.٣ نقطة أثر",
-    desc:"مبادرات أطلقتها لرفع جودة العمل في المدرسة.", custom:"initiatives",
-    rows:[{icon:"spark", bg:"#b88aa8", title:"قياس أثر ورشة NotebookLM", desc:"ورشة للموظفات من الخطة التشغيلية ١٤٤٨هـ، بقياس قبلي وبعدي.", link:D+"13x387JsKyfuTnYUk6UTlnkCbmZX7uwfG/view"}]},
+  { id:"initiatives", icon:"spark", bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", fg:"#fff", title:"المبادرات", sub:"٣ مبادرات بأثر مقاس",
+    desc:"مبادرات أطلقتها لرفع جودة العمل ونواتج التعلم في المدرسة، وكل مبادرة بقياس قبلي وبعدي.", custom:"initiatives",
+    rows:[
+      {icon:"spark", bg:"#b88aa8", title:"قياس أثر ورشة NotebookLM", desc:"ورشة للموظفات من الخطة التشغيلية ١٤٤٨هـ، بقياس قبلي وبعدي.", link:D+"13x387JsKyfuTnYUk6UTlnkCbmZX7uwfG/view"},
+      {icon:"chart", bg:"#9b6b93", title:"شواهد برنامج الخوارزمي · الحساب الذهني", desc:"التقرير القبلي والبعدي، وتقرير المدرب، والمنصة التفاعلية، وصور مشاركة الطالبات.", link:D+"1Gsr4knbdRdLpYlbntpi4FzYN4MJFRk0W/view"},
+      {icon:"film",  bg:"#7d4f78", title:"مشاركة الطالبات في برنامج الحساب الذهني", desc:"لقطات من مشاركة الطالبات مع المدرب، منشورة في قناة المدرسة.", link:"https://t.me/almdrsa165b/804"},
+      {icon:"doc",   bg:"#a88a55", title:"تقرير مبادرة التحول الرقمي ١٤٤٨هـ", desc:"من الورق إلى المنصة: الخطتان في منصتين إلكترونيتين.", link:"reports/digital-transformation-1448.html"},
+    ]},
   { id:"reports", icon:"doc", bg:"linear-gradient(150deg,#5a3457,#3a2140)", fg:"#f7f1ec", title:"التقارير", sub:"٢٠ تقريرًا أسبوعيًا",
     desc:"تقرير أسبوعي بالأعمال المنفذة وأهمية كل إجراء، من مارس إلى سبتمبر 2026.", goal:"الهدف الخامس · الوزن ١٥٪ · مكتمل ٢٠ من ٢٠", custom:"reports",
     rows:[{icon:"doc", bg:"#7d4f78", title:"التقارير الأسبوعية 2026", desc:"ملف واحد يضم التقارير الأسبوعية العشرين بأعمالها وأهميتها وشواهدها.", link:D+"1LcC50B8KHy6_b1GY-6RaK5ZQG_Mv3wZJ/view"}]},
@@ -326,8 +331,9 @@ const SECTIONS = [
     rows:[
       {icon:"check", bg:"#7d4f78", title:"منصة التقويم الذاتي ١٤٤٧ و١٤٤٨هـ", desc:"المجالات الأربعة ومعاييرها وشواهدها في منصة واحدة.", link:"https://readdy.cc/preview/ccfdd1a6-911c-47e7-84c5-b2436ac6f7ed/14579353/"},
       {icon:"doc",   bg:"#9b6b93", title:"التقويم الذاتي: من الورق إلى المنصة", desc:"كيف تحوّلت الاستمارة الورقية إلى منصة تُفتح من أي جهاز.", link:D+"15lfy749UtfBBEF5w11IwYa2ocwVrjyKr/view"},
-      {icon:"target",bg:"#a88a55", title:"منصة خطة التحسين المدرسي ١٤٤٨هـ", desc:"بديل رقمي لأربع استمارات ورقية بـ ١٤٠ بطاقة أسبوعية.", link:"https://khutta-165.web.app/"},
-      {icon:"cal",   bg:"#5a3457", title:"الخطة التشغيلية ١٤٤٨هـ", desc:"أقسام الخطة وجداولها ومؤشراتها في منصة واحدة.", link:"https://khutta-165.web.app/operational-plan"},
+      {icon:"doc",   bg:"#7d4f78", title:"تقرير التحول الرقمي: من الورق إلى المنصة ١٤٤٨هـ", desc:"منصتان، و١٢ استمارة محوّلة، و١٤٢ جدولًا إلكترونيًا، متاحة على مدار الساعة.", link:"reports/digital-transformation-1448.html"},
+      {icon:"target",bg:"#a88a55", title:"منصة خطة التحسين ١٤٤٨هـ", desc:"الاستمارات الاثنتا عشرة المعتمدة بجداولها، قابلة للتحرير والحفظ.", link:"https://khutta-165.web.app/#/dashboard"},
+      {icon:"cal",   bg:"#5a3457", title:"الخطة التشغيلية ١٤٤٨هـ", desc:"الوثيقة كاملة: الرؤية والرسالة، والقضايا، والتحليل الرباعي، والجدول الزمني، والتقويم الدراسي.", link:"https://khutta-165.web.app/#/operational-plan"},
       {icon:"book",  bg:"#4a2c50", title:"رؤية وزارة التعليم وأهدافها الاستراتيجية", desc:"مرجع: الرؤية والرسالة والمحاور والأهداف.", link:D+"1ZxbS51QLwcSyC2g9Dly6HO06u25Oolxw/view"},
     ]},
   { id:"certs", icon:"award", bg:"linear-gradient(150deg,#f7f1ec,#e6d6cc)", fg:"#2b1830", title:"شهادات الورشات والدورات", sub:"دورة إلزامية",
@@ -523,15 +529,26 @@ function pageHTML(s) {
     </div>`;
   const steps = (arr) => `<div class="steps">${arr.map((x, i) => `<div class="step rise" ${rise(i)}><span class="yr">${x[0]}</span><b>${x[1]}</b><small>${x[2]}</small></div>`).join('<span class="arr">←</span>')}</div>`;
   if (s.custom === "qiyas") b += steps([["١٤٤٦هـ","نماذج إلكترونية","تجمع الردود وتقف عندها"],["١٤٤٧هـ","نماذج إلكترونية","تفريغ يدوي في جدول"],["١٤٤٨هـ","منصة متكاملة","تقرأ الرأي وتحوّله إلى عمل"]]) + `<div class="h3">الشواهد والروابط</div>${rows()}`;
-  if (s.custom === "self") b += steps([["١","التقويم الذاتي","نعرف أين نحن"],["٢","خطة التحسين","نعالج نقاط الضعف"],["٣","الخطة التشغيلية","ننفّذ خلال العام"]]) + `<div class="h3">المنصات والشواهد</div>${rows()}`;
+  if (s.custom === "self") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>٢</b><span>منصتان إلكترونيتان</span></div><div class="kpi rise" ${rise(1)}><b>١٢</b><span>استمارة محوّلة رقميًا</span></div><div class="kpi rise" ${rise(2)}><b>١٤٢</b><span>جدولًا إلكترونيًا</span></div></div>
+    <div class="ba rise" ${rise(3)} style="margin-bottom:26px">
+      <div class="side"><span class="lbl">قبل</span><h4>الخطة ورقية</h4><ul><li>تعديل سطر يعني إعادة طباعة الملف كاملًا</li><li>نسخة واحدة في مكان واحد</li><li>لا يُعرف من عدّل ومتى، والمحذوف لا يُسترجع</li></ul></div>
+      <div class="mid">⇄</div>
+      <div class="side new"><span class="lbl">بعد</span><h4>الخطة منصّة</h4><ul><li>التعديل يُحفظ ويظهر للجميع فورًا</li><li>رابط يُفتح من أي جهاز ومكان</li><li>سجلّ للتعديلات وسلّة تُرجع المحذوف</li><li>طباعة رسمية وتصدير PDF وExcel</li></ul></div>
+    </div>` + steps([["١","التقويم الذاتي","نعرف أين نحن"],["٢","خطة التحسين","نعالج نقاط الضعف"],["٣","الخطة التشغيلية","ننفّذ خلال العام"]]) + `<div class="h3">المنصات والشواهد</div>${rows()}`;
   if (s.custom === "reports") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>٢٠ / ٢٠</b><span>تقريرًا أسبوعيًا</span></div><div class="kpi rise" ${rise(1)}><b>١٠٠٪</b><span>تحقق الهدف</span></div><div class="kpi rise" ${rise(2)}><b>٧ أشهر</b><span>مارس ← سبتمبر 2026</span></div></div>
     <div class="h3">أبرز ما تضمّنته التقارير</div>
     <div class="skills">${[["clock","رسائل الانضباط مساء الأحد والخميس"],["camera","تصوير الإذاعة المدرسية وتوثيقها يوميًا"],["link","إرسال التوثيق لإدارة تعليم جدة أولًا بأول"],["chart","قياس اتجاه المتعلمين لجميع الصفوف"],["film","فيديوهات التخرج وتكريم المتقاعدات واستقبال المعلمات"],["spark","ورشة NotebookLM للموظفات"],["users","رابط موافقات التصوير بلوحة بيانات"],["flag","توثيق حفلَي اليوم الوطني"],["target","دعم الاستعداد لاختبارات نافس"]].map((k, i) => `<div class="skill rise" ${rise(i + 3)}><span class="si">${svg(k[0])}</span>${k[1]}</div>`).join("")}</div>
     <div class="h3">الملف</div>${rows()}`;
-  if (s.custom === "initiatives") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>٣٥٪</b><span>قبل الورشة · ٢٠ استجابة</span></div><div class="kpi rise" ${rise(1)}><b>٨٣.٣٪</b><span>بعد الورشة · ٢٢ استجابة</span></div><div class="kpi rise" ${rise(2)}><b>+٤٨.٣</b><span>نقطة تحسّن · تحقق المؤشر</span></div></div>
-    <div class="h3">ورشة NotebookLM للموظفات</div>
+  if (s.custom === "initiatives") b += `
+    <div class="h3">١. ورشة NotebookLM للموظفات</div>
+    <div class="kpis"><div class="kpi rise" ${rise(0)}><b>٣٥٪</b><span>قبل الورشة · ٢٠ استجابة</span></div><div class="kpi rise" ${rise(1)}><b>٨٣.٣٪</b><span>بعد الورشة · ٢٢ استجابة</span></div><div class="kpi rise" ${rise(2)}><b>+٤٨.٣</b><span>نقطة تحسّن · تحقق المؤشر</span></div></div>
     <div class="box rise" ${rise(3)}>${meter("كفاءة الموظفات قبل الورشة",35,"٣٥٪")}${meter("كفاءة الموظفات بعد الورشة",83.3,"٨٣.٣٪")}${meter("الوصول إلى الاستخدام بثقة واستقلالية",63.6,"٦٣.٦٪")}</div>
-    <div class="h3">الشاهد</div>${rows()}`;
+    <div class="h3">٢. برنامج الخوارزمي · الحساب الذهني (شراكة مجتمعية)</div>
+    <div class="kpis"><div class="kpi rise" ${rise(4)}><b>٧٤٪</b><span>القياس القبلي · ٢٨ سبتمبر</span></div><div class="kpi rise" ${rise(5)}><b>٨٤٪</b><span>القياس البعدي · ٦ أكتوبر</span></div><div class="kpi rise" ${rise(6)}><b>+١٠</b><span>نقاط تحسّن · تحقق المؤشر</span></div></div>
+    <div class="box rise" ${rise(7)}>${meter("دقة المهارات الحسابية قبل البرنامج",74,"٧٤٪")}${meter("دقة المهارات الحسابية بعد البرنامج",84,"٨٤٪")}<p style="color:var(--muted);margin-top:6px">تحسّنت دقة ١٧ طالبة، و٧ طالبات حققن ٩٠٪ فأكثر ومؤهلات للترشيح لبرنامج الكشف عن الموهبة.</p></div>
+    <div class="h3">٣. التحول الرقمي: من الورق إلى المنصة</div>
+    <div class="hobby rise" ${rise(8)}><span class="si">${svg("doc")}</span><div><b>الخطتان في منصتين إلكترونيتين</b><p>منصتان، و١٢ استمارة، و١٤٢ جدولًا إلكترونيًا. التفاصيل في قسم «التقويم الذاتي».</p></div></div>
+    <div class="h3">الشواهد</div>${rows()}`;
   if (s.custom === "about") b += aboutHTML();
   if (s.custom === "goals") b += `<div class="box rise">${GOALS.map(g => { const p = Math.round(Math.min(1, g[2] / g[3]) * 100);
       return `<a href="#${g[4]}" style="display:block">${meter(`${g[0]} <small style="color:var(--muted)">· الوزن ${ar(g[1])}٪</small>`, Math.max(p, 2), ar(p) + "٪")}</a>`; }).join("")}</div>
