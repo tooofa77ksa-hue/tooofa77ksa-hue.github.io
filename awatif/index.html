@@ -199,6 +199,74 @@
   body.inner .ctrl .home-only{display:none}
   .back svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
 
+
+  /* ===== الصفحة الرئيسية قابلة للنزول: العارض ثم رحلة الخيط الذهبي ===== */
+  #home{display:block;overflow-y:auto;overflow-x:clip;overscroll-behavior:contain;scrollbar-width:none}
+  #home::-webkit-scrollbar{display:none}
+  .first{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:86px 0 40px}
+  @media (min-width:701px) and (max-height:980px){.first{padding-top:64px}.arc{height:clamp(240px,33vh,330px);margin-top:clamp(14px,3vh,30px)}}
+  #fx{position:fixed;inset:0;z-index:3;pointer-events:none}
+  #bar{position:fixed;top:0;right:0;height:2px;z-index:25;background:linear-gradient(90deg,var(--gold),var(--rose));width:0}
+  #home.away ~ #bar, body.inner #bar{opacity:0}
+  .cue{position:relative;margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+  .cue span{width:24px;height:38px;border:1.5px solid var(--gold);border-radius:14px;position:relative}
+  .cue span::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:4px;background:var(--gold);animation:wheel 1.6s ease-in-out infinite}
+  @keyframes wheel{0%{opacity:0;transform:translateY(-4px)}40%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+
+  .cue{opacity:0;animation:fadeUp 1s 2.2s var(--ease) forwards}
+  :root{--gold-2:#f3e2bd}
+  #journey{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:10vh 16px 18vh}
+  #journey #thread{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+  #journey #thread .base{fill:none;stroke:rgba(216,189,138,.12);stroke-width:1.5}
+  #journey #thread .live{fill:none;stroke:url(#gold);stroke-width:2.6;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(243,226,189,.65))}
+  #journey .ch{position:relative;min-height:78vh;display:flex;align-items:center}
+  #journey .ch .in{width:min(600px,100%);position:relative;display:flex;gap:28px;align-items:flex-start}
+  #journey .ch .txt{flex:1;min-width:0}
+  #journey .ch:nth-child(odd) .in{margin-right:4%}
+  #journey .ch:nth-child(even) .in{margin-right:auto;margin-left:4%;flex-direction:row-reverse;text-align:left}
+  #journey .ch:nth-child(even) .in .txt{direction:rtl;text-align:right}
+  #journey .num{flex:none;position:relative;width:92px;height:92px;display:grid;place-items:center;font-family:"El Messiri";font-size:34px;color:rgba(216,189,138,.35);transition:color .8s var(--ease),transform .8s var(--ease)}
+  #journey .num svg{position:absolute;inset:0;overflow:visible}
+  #journey .num circle{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-dasharray:283;stroke-dashoffset:283;transition:stroke-dashoffset 1.2s var(--ease)}
+  #journey .num .halo{position:absolute;inset:-18px;border-radius:50%;background:radial-gradient(circle,rgba(243,226,189,.35),transparent 65%);opacity:0;transition:opacity .9s}
+  #journey .ch h2{font-size:clamp(2rem,5vw,3.4rem);color:var(--gold);margin-top:2px}
+  #journey .ch p{color:var(--muted);font-size:1.05rem;max-width:420px}
+  #journey .ch .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  #journey .ch .meta span{border:1px solid var(--line);border-radius:99px;padding:2px 12px;font-size:13.5px;color:var(--rose)}
+  #journey .ch .go{display:inline-flex;align-items:center;gap:8px;margin-top:18px;height:46px;padding:0 20px;border-radius:99px;background:linear-gradient(90deg,var(--gold),#e6cfa5);color:var(--plum);font-weight:700;font-size:15px;transition:transform .3s}
+  #journey .ch .go:hover{transform:translateY(-2px)}
+  #journey .ch .r{opacity:0;transform:translateY(26px);filter:blur(6px);transition:opacity .9s var(--ease),transform 1s var(--ease),filter .9s}
+  #journey .ch.lit .num{color:var(--plum);transform:scale(1.06)}
+  #journey .ch.lit .num circle{stroke-dashoffset:0}
+  #journey .ch.lit .num .halo{opacity:1}
+  #journey .ch.lit .num b{position:relative;z-index:1}
+  #journey .ch.lit .num::before{content:"";position:absolute;inset:10px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-2));transform:scale(0);animation:fill .7s .25s var(--ease) forwards}
+  @keyframes fill{to{transform:scale(1)}}
+  #journey .ch.lit .r{opacity:1;transform:none;filter:none}
+  #journey .ch.lit .r:nth-child(2){transition-delay:.15s}.ch.lit .r:nth-child(3){transition-delay:.3s}.ch.lit .r:nth-child(4){transition-delay:.45s}
+  @media (max-width:700px){
+    #journey .ch{min-height:72vh}
+    #journey .ch .in,#journey .ch:nth-child(odd) .in,#journey .ch:nth-child(even) .in{margin:0;width:100%;gap:16px}
+    #journey .num{width:64px;height:64px;font-size:24px}
+  }
+  #journey .end{position:relative;text-align:center;padding:14vh 0 8vh}
+  #journey .heart{width:150px;height:150px;margin:0 auto 26px;position:relative}
+  #journey .heart svg{width:100%;height:100%;overflow:visible}
+  #journey .heart path{fill:url(#heartGrad);opacity:0;transform:scale(.6);transform-origin:0 0;transition:opacity .9s var(--ease),transform 1.2s cubic-bezier(.34,1.56,.64,1);filter:drop-shadow(0 0 18px rgba(243,226,189,.55))}
+  #journey .end.done .heart path{opacity:1;transform:scale(1);animation:beat 1.6s 1.2s ease-in-out infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.1)}30%{transform:scale(.97)}45%{transform:scale(1.06)}}
+  #journey .end h2{font-size:clamp(1.7rem,4.6vw,2.9rem);color:var(--cream);opacity:0;transform:translateY(20px);transition:1s .3s var(--ease)}
+  #journey .sig{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px;opacity:0;transform:translateY(14px);transition:1s .7s var(--ease)}
+  #journey .sig i{width:clamp(30px,8vw,80px);height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+  #journey .sig i:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+  #journey .nm{position:relative;font-family:"El Messiri";font-size:clamp(1.8rem,4.4vw,2.8rem);font-weight:600;letter-spacing:1px;background:linear-gradient(90deg,#c9a96a,var(--gold-2),#c9a96a);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+  #journey .mini{position:absolute;top:-.35em;right:-.15em;width:.62em;height:.62em;transform:scale(0) rotate(-20deg);transition:transform .8s 1.5s cubic-bezier(.34,1.8,.64,1)}
+  #journey .mini svg{width:100%;height:100%;fill:var(--rose);filter:drop-shadow(0 0 6px rgba(217,165,179,.9))}
+  #journey .end.done .mini{transform:scale(1) rotate(-12deg);animation:twinkle 2.2s 2.4s ease-in-out infinite}
+  @keyframes twinkle{50%{filter:brightness(1.35)}}
+  #journey .yr{color:var(--muted);margin-top:6px;opacity:0;transition:1s 1s}
+  #journey .end.done h2,#journey .end.done .sig,#journey .end.done .yr{opacity:1;transform:none}
+
   @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}}
 </style>
 </head>
@@ -214,10 +282,11 @@
 <button class="back" id="back" aria-label="العودة للرئيسية"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>الرئيسية</button>
 
 <main id="home" aria-label="الرئيسية">
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="first">
   <div class="intro">
     <div class="kicker">ملف الإنجاز الوظيفي · 2026</div>
     <p class="quote" id="quote" aria-live="polite"></p>
-    <div class="qdots" id="qdots" aria-hidden="true"></div>
     <div class="sign"><i></i><h1 class="name">عواطف الجهني</h1><i></i></div>
     <div class="role">مساعد إداري ممارس ثاني · الإعلام المدرسي · الابتدائية ١٦٥ بجدة</div>
   </div>
@@ -228,8 +297,25 @@
     <button class="ic-btn" id="next" aria-label="التالي"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
   </div>
   <div class="hint">اسحبي البطاقات أو اضغطي عليها</div>
+  <div class="cue" aria-hidden="true"><span></span>انزلي لتبدأ الرحلة</div>
+</div>
+<section class="story" id="journey" aria-label="رحلة الإنجاز">
+  <svg id="thread" aria-hidden="true">
+    <defs><linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3e2bd"/><stop offset=".5" stop-color="#d8bd8a"/><stop offset="1" stop-color="#d9a5b3"/></linearGradient>
+      <linearGradient id="heartGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3e2bd"/><stop offset=".6" stop-color="#d8bd8a"/><stop offset="1" stop-color="#d9a5b3"/></linearGradient></defs>
+    <path class="base" id="pBase"/><path class="live" id="pLive"/>
+  </svg>
+  <div id="chapters"></div>
+  <section class="end" id="end">
+    <div class="heart" id="heart" aria-hidden="true"><svg viewBox="-60 -60 120 120"><path id="heartFill"/></svg></div>
+    <h2>حين نُتقن العمل، يُصبح الأثر توقيعنا</h2>
+    <div class="sig"><i></i><span class="nm">عواطف الجهني<b class="mini" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.3-9.4C1.4 8.2 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.8 3.7 4.5 7.1C19.5 16.4 12 21 12 21z"/></svg></b></span><i></i></div>
+    <p class="yr">2026</p>
+  </section>
+</section>
 </main>
 
+<div id="bar" aria-hidden="true"></div>
 <section id="page" aria-live="polite"></section>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mT">
@@ -421,23 +507,9 @@ sndIcon();
 })();
 
 /* ======================= العبارات المتبدلة ======================= */
-const QUOTES = [
-  "الإنجاز ليس صدفة، بل <em>شغفٌ يُصنع كل يوم</em>",
-  "حين نُتقن العمل، <em>يُصبح الأثر توقيعنا</em>",
-];
-$("#quote").innerHTML = QUOTES.map(q => `<span>${q}</span>`).join("");
-$("#qdots").innerHTML = QUOTES.map(() => "<b></b>").join("");
-const qs = [...$("#quote").children], qd = [...$("#qdots").children];
-let qi = -1;
-function nextQuote() {
-  if (qi >= 0) { qs[qi].classList.remove("on"); qs[qi].classList.add("out"); qd[qi].classList.remove("on"); }
-  const prev = qi; qi = (qi + 1) % QUOTES.length;
-  setTimeout(() => { if (prev >= 0) qs[prev].classList.remove("out"); }, 1100);
-  qs[qi].classList.add("on"); qd[qi].classList.add("on");
-  if (prev >= 0 && !document.body.classList.contains("inner")) chime([1046.5, 1568], .09, .03);
-}
-setTimeout(nextQuote, 350);
-setInterval(nextQuote, 5200);
+const QUOTE = "الإنجاز ليس صدفة، بل <em>شغفٌ يُصنع كل يوم</em>";
+$("#quote").innerHTML = `<span>${QUOTE}</span>`;
+setTimeout(() => $("#quote").firstChild.classList.add("on"), 350);
 
 /* ======================= القوس الدوّار ======================= */
 const arc = $("#arc"), N = SECTIONS.length;
@@ -491,7 +563,7 @@ arc.addEventListener("pointerup", e => {
   if (i === cur()) openSection(SECTIONS[i].id); else goTo(i);
 });
 arc.addEventListener("pointercancel", endDrag);
-arc.addEventListener("wheel", e => { e.preventDefault(); clearTimeout(arc._w); target = target + (e.deltaY + e.deltaX) / 300; arc._w = setTimeout(() => go(Math.round(target)), 140); }, { passive: false });
+arc.addEventListener("wheel", e => { if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; e.preventDefault(); clearTimeout(arc._w); target = target + (e.deltaY + e.deltaX) / 300; arc._w = setTimeout(() => go(Math.round(target)), 140); }, { passive: false });
 addEventListener("keydown", e => {
   if ($("#modal").classList.contains("on")) { if (e.key === "Escape") closeModal(); return; }
   if (document.body.classList.contains("inner")) { if (e.key === "Escape") location.hash = ""; return; }
@@ -620,6 +692,117 @@ $("#modal").addEventListener("click", e => { if (e.target.id === "modal") closeM
 
 /* طقّة خفيفة لكل زر */
 document.addEventListener("pointerdown", e => { if (e.target.closest(".ic-btn,.item,.row,.dots button,.back,.cta")) SND.tap(); });
+
+/* ======================= رحلة الخيط الذهبي ======================= */
+(() => {
+const home = $("#home");
+const CH = [
+  ["نبذة عني","١٢ عامًا من العطاء، وبكالوريوس، وشغفٌ بالتصميم لا ينتهي. أتعلّم الأداة، ثم أصنع بها الجمال.",["١٢ عامًا","بكالوريوس","حب التصميم"],"about"],
+  ["التكليفات","التكليفات الرسمية والأعمال المسندة.",["قريبًا"],"tasks"],
+  ["الأهداف","خمسة أهداف للأداء الوظيفي لعام 2026، لكل هدف وزنه ومستهدفه.",["٥ أهداف","فترة التقييم 2026"],"goals"],
+  ["الإعلام","تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.",["٩ تقارير","المستهدف ٦"],"media"],
+  ["خدمة مستفيدين","قلتم فسمعنا، وسمعنا فعملنا، وعملنا فأخبرناكم.",["١١ بندًا منفذًا","١٠ كلمات شكر"],"service"],
+  ["قياس اتجاه المتعلمين","من النماذج إلى المنصة: عامان على نماذج، وعام على منصة تحوّل الرأي إلى عمل.",["١٤٤٦","١٤٤٧","١٤٤٨"],"qiyas"],
+  ["المبادرات","ورشة NotebookLM، والحساب الذهني بشراكة مجتمعية، والتحول الرقمي للخطط.",["٣ مبادرات","+٤٨.٣ و+١٠ نقاط"],"initiatives"],
+  ["التقارير","تقرير كل أسبوع بالأعمال المنفذة وأهميتها، من مارس إلى سبتمبر 2026.",["٢٠ / ٢٠","مكتمل"],"reports"],
+  ["التقويم الذاتي","التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات بدل الورق.",["٣ منصات","مكتمل"],"self"],
+  ["شهادات الورشات والدورات","الدورات والورشات التدريبية التي حضرتها.",["الدورات الإلزامية"],"certs"],
+];
+$("#chapters").innerHTML = CH.map((c, i) => `<section class="ch"><div class="in">
+  <div class="num"><span class="halo"></span><svg viewBox="0 0 92 92"><circle cx="46" cy="46" r="45" transform="rotate(-90 46 46)"/></svg><b>${ar(String(i + 1).padStart(2, "0"))}</b></div>
+  <div class="txt"><h2 class="r">${c[0]}</h2><p class="r">${c[1]}</p>
+  <div class="meta r">${c[2].map(m => `<span>${m}</span>`).join("")}</div>
+  <a class="go r" href="#${c[3]}">عرض الشواهد ←</a></div></div></section>`).join("");
+
+/* ===== المسار الذهبي ===== */
+const story = $("#journey"), svg = $("#thread"), base = $("#pBase"), live = $("#pLive");
+let L = 0, samples = [], anchors = [];
+function build() {
+  const sr = story.getBoundingClientRect(), top = sr.top + home.scrollTop, W = sr.width;
+  svg.setAttribute("viewBox", `0 0 ${W} ${story.offsetHeight}`);
+  anchors = [...document.querySelectorAll(".ch .num")].map(n => { const r = n.getBoundingClientRect(); return { x: r.left - sr.left + r.width / 2, y: r.top + home.scrollTop - top + r.height / 2, r: r.width / 2 }; });
+  // يبدأ من منتصف أعلى الرحلة، ويلتف حول كل رقم ثم ينساب للذي بعده
+  let d = `M ${W / 2} 0`, px = W / 2, py = 0;
+  anchors.forEach((a, i) => {
+    const ey = a.y - a.r - 6, gap = ey - py;
+    d += ` C ${px} ${py + gap * .55}, ${a.x} ${ey - gap * .45}, ${a.x} ${ey}`;
+    // لفّة حول الرقم
+    const R = a.r + 6, dir = i % 2 ? 0 : 1;
+    d += ` A ${R} ${R} 0 0 ${dir} ${a.x} ${a.y + R}`;
+    px = a.x; py = a.y + R;
+  });
+  // ينساب إلى أعلى القلب ثم يرسمه
+  const hr = $("#heart").getBoundingClientRect(), hc = { x: hr.left - sr.left + hr.width / 2, y: hr.top + home.scrollTop - top + hr.height / 2 }, S = hr.width * .5;
+  const nY = hc.y - .3 * S, hgap = nY - py;
+  d += ` C ${px} ${py + hgap * .55}, ${hc.x} ${nY - hgap * .45}, ${hc.x} ${nY}`;
+  live.setAttribute("d", d); L0 = live.getTotalLength();
+  const H = (dx, dy) => `${hc.x + dx * S} ${hc.y + dy * S}`;
+  d += ` C ${H(-.15,-.85)}, ${H(-1.05,-.7)}, ${H(-.95,-.05)} C ${H(-.85,.45)}, ${H(-.3,.6)}, ${H(0,.95)}`
+     + ` C ${H(.3,.6)}, ${H(.85,.45)}, ${H(.95,-.05)} C ${H(1.05,-.7)}, ${H(.15,-.85)}, ${H(0,-.3)}`;
+  // نفس القلب معبّأً داخل عنصره (إحداثيات محلية)
+  const h = (dx, dy) => `${dx * 50} ${dy * 50}`;
+  $("#heartFill").setAttribute("d", `M ${h(0,-.3)} C ${h(-.15,-.85)}, ${h(-1.05,-.7)}, ${h(-.95,-.05)} C ${h(-.85,.45)}, ${h(-.3,.6)}, ${h(0,.95)} C ${h(.3,.6)}, ${h(.85,.45)}, ${h(.95,-.05)} C ${h(1.05,-.7)}, ${h(.15,-.85)}, ${h(0,-.3)} Z`);
+  heartY = nY;
+  base.setAttribute("d", d); live.setAttribute("d", d);
+  L = live.getTotalLength(); live.style.strokeDasharray = L;
+  samples = []; for (let s = 0; s <= L; s += 6) { const p = live.getPointAtLength(s); samples.push([s, p.x, p.y]); }
+  storyTop = top;
+}
+let storyTop = 0, lenNow = 0, lenTarget = 0, lastLit = -1, L0 = 0, heartY = 0, heartT = 0, heartDone = false;
+function lenForY(y) {   // أبعد نقطة على المسار لم تتجاوز هذا الارتفاع (قبل القلب فقط)
+  let best = 0; for (const s of samples) { if (s[0] > L0) break; if (s[2] <= y) best = s[0]; else if (s[2] > y + 400) break; } return best;
+}
+
+/* ===== الشرارات ===== */
+const fx = $("#fx"), cx = fx.getContext("2d"); let dpr = 1, sparks = [];
+function sizeFx() { dpr = Math.min(devicePixelRatio || 1, 2); fx.width = innerWidth * dpr; fx.height = innerHeight * dpr; fx.style.width = innerWidth + "px"; fx.style.height = innerHeight + "px"; }
+
+function frame() {
+  if (document.body.classList.contains("inner")) { cx.clearRect(0, 0, fx.width, fx.height); requestAnimationFrame(frame); return; }
+  const head = home.scrollTop + innerHeight * .58 - storyTop;
+  // حين يصل الخيط لأعلى القلب، يرسم القلب وحده خلال ثانيتين
+  if (head >= heartY && samples.length) { if (!heartT) heartT = performance.now(); const k = Math.min(1, (performance.now() - heartT) / 2000); lenTarget = L0 + (L - L0) * (1 - Math.pow(1 - k, 3)); }
+  else { heartT = 0; lenTarget = lenForY(head); }
+  const prev = lenNow; lenNow += (lenTarget - lenNow) * (reduced ? 1 : .14);
+  live.style.strokeDashoffset = L - lenNow;
+  const sh = home.scrollHeight - home.clientHeight; $("#bar").style.width = (home.scrollTop / Math.max(1, sh) * 100) + "%";
+
+  // راس الخيط: نجمة لامعة
+  cx.clearRect(0, 0, fx.width, fx.height);
+  if (lenNow > 2 && L) {
+    const p = live.getPointAtLength(lenNow), sr = story.getBoundingClientRect(), vb = svg.viewBox.baseVal, k = sr.width / (vb.width || 1);
+    const x = (sr.left + p.x * k) * dpr, y = (sr.top + p.y * k) * dpr, moving = Math.abs(lenNow - prev) > .4;
+    if (moving && !reduced) for (let i = 0; i < 3; i++) sparks.push({ x, y, vx: (Math.random() - .5) * 1.6 * dpr, vy: (Math.random() * 1.2 + .2) * dpr, life: 1, r: (Math.random() * 1.6 + .6) * dpr });
+    const g = cx.createRadialGradient(x, y, 0, x, y, 26 * dpr); g.addColorStop(0, "rgba(255,246,222,.95)"); g.addColorStop(.25, "rgba(243,226,189,.55)"); g.addColorStop(1, "rgba(216,189,138,0)");
+    cx.fillStyle = g; cx.beginPath(); cx.arc(x, y, 26 * dpr, 0, 7); cx.fill();
+    cx.save(); cx.translate(x, y); cx.rotate(performance.now() / 900); cx.fillStyle = "#fff6de";
+    for (let i = 0; i < 4; i++) { cx.rotate(Math.PI / 2); cx.beginPath(); cx.moveTo(0, -11 * dpr); cx.lineTo(1.6 * dpr, 0); cx.lineTo(-1.6 * dpr, 0); cx.fill(); }
+    cx.restore();
+  }
+  sparks = sparks.filter(s => (s.life -= .022) > 0);
+  for (const s of sparks) { s.x += s.vx; s.y += s.vy; cx.globalAlpha = s.life; cx.fillStyle = s.life > .5 ? "#f3e2bd" : "#d9a5b3"; cx.beginPath(); cx.arc(s.x, s.y, s.r, 0, 7); cx.fill(); }
+  cx.globalAlpha = 1;
+
+  // إضاءة الأقسام حين يصلها الخيط
+  const chs = document.querySelectorAll(".ch");
+  anchors.forEach((a, i) => {
+    const reached = samples.length && head >= a.y;
+    chs[i].classList.toggle("lit", reached);
+    if (reached && i > lastLit) { lastLit = i; chime([880, 1318.5], .08, .045); }
+    if (!reached && i <= lastLit) lastLit = i - 1;
+  });
+  const done = lenNow > L - 4 && heartT;
+  if (done && !heartDone) { heartDone = true; chime([659.3, 880, 1046.5, 1318.5], .09, .05); }
+  if (!heartT) heartDone = false;
+  $("#end").classList.toggle("done", !!done);
+  requestAnimationFrame(frame);
+}
+
+function init() { sizeFx(); build(); }
+addEventListener("resize", init);
+document.fonts.ready.then(() => { init(); requestAnimationFrame(frame); });
+setTimeout(init, 1500);
+})();
 
 route();
 </script>
