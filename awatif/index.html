@@ -288,7 +288,7 @@
     <div class="kicker">ملف الإنجاز الوظيفي · 2026</div>
     <p class="quote" id="quote" aria-live="polite"></p>
     <div class="sign"><i></i><h1 class="name">عواطف الجهني</h1><i></i></div>
-    <div class="role">مساعد إداري ممارس ثاني · الإعلام المدرسي · الابتدائية ١٦٥ بجدة</div>
+    <div class="role">مساعد إداري ممارس ثاني · الإعلام المدرسي · الابتدائية 165 بجدة</div>
   </div>
   <div class="arc" id="arc" role="listbox" aria-label="أقسام الموقع" tabindex="0"></div>
   <div class="nav">
@@ -361,89 +361,97 @@ const svg = n => `<svg viewBox="0 0 24 24">${I[n]}</svg>`;
 /* ======================= المحتوى (التعديل هنا فقط) ======================= */
 const D = "https://drive.google.com/file/d/";
 const SECTIONS = [
-  { id:"about", icon:"user", bg:"linear-gradient(150deg,#f3e2bd,#d8bd8a)", fg:"#2b1830", title:"نبذة عني", sub:"١٢ عامًا من العطاء",
+  { id:"about", icon:"user", bg:"linear-gradient(150deg,#f3e2bd,#d8bd8a)", fg:"#2b1830", title:"نبذة عني", sub:"12 عامًا من العطاء",
     desc:"أتعلّم الأداة، ثم أصنع بها الجمال.", custom:"about"},
-  { id:"tasks", icon:"clip", bg:"linear-gradient(150deg,#4a2c50,#2b1830)", fg:"#f7f1ec", title:"التكليفات", sub:"قريبًا",
-    desc:"التكليفات الرسمية والأعمال المسندة.", soon:"تُضاف التكليفات قريبًا"},
-  { id:"goals", icon:"target", bg:"linear-gradient(150deg,#d8bd8a,#b39660)", fg:"#2b1830", title:"الأهداف", sub:"٥ أهداف بأوزانها",
+  { id:"goals", icon:"target", bg:"linear-gradient(150deg,#d8bd8a,#b39660)", fg:"#2b1830", title:"الأهداف", sub:"5 أهداف بأوزانها",
     desc:"أهداف الأداء الوظيفي لعام 2026 ونسبة تحقق كل هدف.", custom:"goals",
     rows:[{icon:"doc", bg:"#a88a55", title:"ملف الأهداف 2026", desc:"أهداف الأداء الوظيفي والأوزان النسبية لكل هدف.", link:D+"1YlEwNcPSfCiaEdTpVrVzb-5THHgezUEW/view"}]},
-  { id:"media", icon:"camera", bg:"linear-gradient(150deg,#9b6b93,#5a3457)", fg:"#fff", title:"الإعلام", sub:"١٣ تقريرًا · المستهدف ٦",
-    desc:"تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.", goal:"الهدف الأول · الوزن ٣٠٪ · ١٣ تقريرًا من ٦ مستهدفة",
-    kpis:[["١٣ / ٦","تقريرًا منجزًا"],["+٧","فوق المستهدف"],["١٢","تغطية"]],
+  { id:"media", icon:"camera", bg:"linear-gradient(150deg,#9b6b93,#5a3457)", fg:"#fff", title:"الإعلام", sub:"14 تقريرًا · المستهدف 6",
+    desc:"تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.", goal:"الهدف الأول · الوزن 30% · 14 تقريرًا من 6 مستهدفة",
+    kpis:[["14 / 6","تقريرًا منجزًا"],["+8","فوق المستهدف"],["4","تقارير يومية للدراسة عن بُعد"]],
     items:[
       {icon:"flag",  bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", title:"يوم التأسيس 2026", desc:"توثيق فعاليات يوم التأسيس بالصور والمحتوى المرئي.", points:["تصوير ميداني","إعداد المحتوى المرئي","تقرير رسمي"], link:D+"1aj5UEewepr0U4OwcxAzQGqdFqlNvkL8n/view"},
       {icon:"book",  bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", title:"يوم اللغة العربية 2026", desc:"تغطية الاحتفاء باللغة العربية وفقراته.", points:["توثيق الفقرات","تقرير رسمي"], link:D+"1i5sJZ_cLtGG-qasuRKzMNmANpQZLug-e/view"},
-      {icon:"award", bg:"linear-gradient(150deg,#d9a5b3,#5a3457)", title:"اليوم العالمي للمدير 2026", desc:"احتفاء بمديرة المدرسة الأستاذة جازية السميري: فيديو «مديرتنا.. قائدة تصنع الفرق»، ومائدة إفطار جمعت منسوبات المدرسة.", points:["فيديو «مديرتنا.. قائدة تصنع الفرق» · الخميس ١٥ أكتوبر 2026","مائدة إفطار جمعت منسوبات المدرسة مع المديرة · الأربعاء ٢١ أكتوبر 2026","رسالة شكر وامتنان للقائدة على دعمها واهتمامها","«بكِ تزدهر مدرستنا، وبروح الفريق نواصل العطاء»","توثيق الفعالية ونشرها في قناة المدرسة"], link:D+"1wHbzvmwimkf2PJoCXAutdo9oOHHbj_wa/view", video:"https://t.me/almdrsa165b/862", yr:"١٤٤٨هـ"},
-      {icon:"flag", bg:"linear-gradient(150deg,#5a3457,#d8bd8a)", title:"اليوم الوطني 2026 · «عزنا بطبعنا»", desc:"من ٢١ إلى ٢٤ سبتمبر 2026: احتفاء الصفوف الأولية والعليا، و٨ مشاركات للطالبات، و١١ منشورًا في قناة المدرسة.", points:["احتفاء الصفوف الأولية (الأول والثاني والثالث) · الأحد ٢١ سبتمبر","احتفاء الصفوف العليا (الرابع والخامس والسادس) · الاثنين ٢٢ سبتمبر","مشاركة الكشافة في تحية العلم","٨ مشاركات للطالبات: لوحات وبطاقات وهدايا ورسم وطني ومشاركات مرئية","توثيق وتصوير ونشر ١١ منشورًا في قناة المدرسة على تيليجرام"], link:D+"16pw1VKyNx-DmxhG1AhGu6B9ro8ILeIJQ/view", video:"https://t.me/almdrsa165b/766", yr:"١٤٤٨هـ"},
-      {icon:"apple", bg:"linear-gradient(150deg,#d8bd8a,#9b6b93)", title:"يوم المعلم 2026 · «أنتِ الأساس»", desc:"الاثنين ٢٤ ربيع الآخر ١٤٤٨هـ · ٥ أكتوبر 2026: احتفاء بـ ٢٢ معلمة، وفيديو «رسائل الإداريات».", points:["قصيدة «قم للمعلم وفّه التبجيلا» على المسرح","عرض أسماء المعلمات على الشاشة تقديرًا لعطائهن","فقرة «شكرًا قدوتي.. شكرًا معلمتي»","فيديو «رسائل الإداريات» للمعلمات","ركن ضيافة وهدايا تقديرية","فيديو احترافي بهوية يوم المعلم، منشور في قناة المدرسة"], link:D+"12blVrNkVysWezQ9soPPSElzNzY2IiwJH/view", video:"https://t.me/almdrsa165b/827", yr:"١٤٤٨هـ"},
+      {icon:"award", bg:"linear-gradient(150deg,#d9a5b3,#5a3457)", title:"اليوم العالمي للمدير 2026", desc:"احتفاء بمديرة المدرسة الأستاذة جازية السميري: فيديو «مديرتنا.. قائدة تصنع الفرق»، ومائدة إفطار جمعت منسوبات المدرسة.", points:["فيديو «مديرتنا.. قائدة تصنع الفرق» · الخميس 15 أكتوبر 2026","مائدة إفطار جمعت منسوبات المدرسة مع المديرة · الأربعاء 21 أكتوبر 2026","رسالة شكر وامتنان للقائدة على دعمها واهتمامها","«بكِ تزدهر مدرستنا، وبروح الفريق نواصل العطاء»","توثيق الفعالية ونشرها في قناة المدرسة"], link:D+"1wHbzvmwimkf2PJoCXAutdo9oOHHbj_wa/view", video:"https://t.me/almdrsa165b/862", yr:"1448هـ"},
+      {icon:"flag", bg:"linear-gradient(150deg,#5a3457,#d8bd8a)", title:"اليوم الوطني 2026 · «عزنا بطبعنا»", desc:"من 21 إلى 24 سبتمبر 2026: احتفاء الصفوف الأولية والعليا، و8 مشاركات للطالبات، و11 منشورًا في قناة المدرسة.", points:["احتفاء الصفوف الأولية (الأول والثاني والثالث) · الأحد 21 سبتمبر","احتفاء الصفوف العليا (الرابع والخامس والسادس) · الاثنين 22 سبتمبر","مشاركة الكشافة في تحية العلم","8 مشاركات للطالبات: لوحات وبطاقات وهدايا ورسم وطني ومشاركات مرئية","توثيق وتصوير ونشر 11 منشورًا في قناة المدرسة على تيليجرام"], link:D+"16pw1VKyNx-DmxhG1AhGu6B9ro8ILeIJQ/view", video:"https://t.me/almdrsa165b/766", yr:"1448هـ"},
+      {icon:"apple", bg:"linear-gradient(150deg,#d8bd8a,#9b6b93)", title:"يوم المعلم 2026 · «أنتِ الأساس»", desc:"الاثنين 24 ربيع الآخر 1448هـ · 5 أكتوبر 2026: احتفاء بـ 22 معلمة، وفيديو «رسائل الإداريات».", points:["قصيدة «قم للمعلم وفّه التبجيلا» على المسرح","عرض أسماء المعلمات على الشاشة تقديرًا لعطائهن","فقرة «شكرًا قدوتي.. شكرًا معلمتي»","فيديو «رسائل الإداريات» للمعلمات","ركن ضيافة وهدايا تقديرية","فيديو احترافي بهوية يوم المعلم، منشور في قناة المدرسة"], link:D+"12blVrNkVysWezQ9soPPSElzNzY2IiwJH/view", video:"https://t.me/almdrsa165b/827", yr:"1448هـ"},
       {icon:"apple", bg:"linear-gradient(150deg,#d9a5b3,#9b6b93)", title:"يوم المعلم", desc:"توثيق مبادرات تكريم المعلمات في يومهن العالمي.", points:["تصوير وتوثيق","تقرير رسمي"], link:D+"1_l8x1ugDagOpNuglda_CXBY5vn_-XXPG/view"},
       {icon:"grad",  bg:"linear-gradient(150deg,#5a3457,#2b1830)", title:"حفل تخرج السادس 2026", desc:"تغطية شاملة لحفل تخرج الطالبات بالتصوير والمونتاج.", points:["تصوير","مونتاج","تقرير رسمي"], link:D+"1IQcr8BAjx6ge94JzLM4XdFDDsTaaS1lr/view"},
       {icon:"award", bg:"linear-gradient(150deg,#d8bd8a,#a88a55)", title:"ختام العام وتكريم المنسوبات", desc:"تكريم المعلمات والإداريات والموظفات وحارس المدرسة.", points:["توثيق ميداني","تغطية متسلسلة للفقرات","مونتاج مرئي للمناسبة"], link:D+"1p22JeGIRikLQc0fTyE37bcTmfsyie4Z8/view"},
       {icon:"clock", bg:"linear-gradient(150deg,#9b6b93,#d9a5b3)", title:"رسائل الانضباط للأسر", desc:"رسائل دورية مساء كل أحد وخميس عبر القنوات المعتمدة.", points:["تعزيز انتظام الطالبات","الحد من الغياب والتأخر","تواصل إيجابي مع الأسرة"], link:D+"1WueEldG6eIcIgqGcZC4ojoTIRMP1ry8V/view"},
-      {icon:"film", bg:"linear-gradient(150deg,#4a2c50,#9b6b93)", title:"التوثيق الإعلامي · اليوم الأول للدراسة عن بُعد", desc:"الأحد ٢١ جمادى الأولى ١٤٤٨هـ عبر منصة مدرستي: جمع المواد من المعلمات وأولياء الأمور والإدارة، ومعالجتها وإخراجها في ٣ مقاطع بهوية وزارة التعليم.", points:["٧ مواد دراسية، و٩ معلمات وُثّقت حصصهن","أكثر من ٣٠ صورة ومقطعًا عولجت بصريًا وصوتيًا","٣ مقاطع مرئية منتجة ومنشورة في قناة المدرسة","«حضور اليوم.. حصص عن بُعد» · «متابعة الإدارة المدرسية» · «حصص عن بُعد»","المونتاج والتصميم وفق دليل الهوية البصرية لوزارة التعليم"], link:D+"1X-kCxamv47OwY6udYpM_H9JpNrQMHizA/view", video:"https://t.me/almdrsa165b/908", yr:"١٤٤٨هـ"},
-      {icon:"film", bg:"linear-gradient(150deg,#5a3457,#b88aa8)", title:"التوثيق الإعلامي · اليوم الثاني للدراسة عن بُعد", desc:"الاثنين ٢٢ جمادى الأولى ١٤٤٨هـ: رصد الحصص الافتراضية، ومتابعة الإدارة، ومشاركات الطالبات وأولياء الأمور، في ٦ مقاطع منشورة.", points:["٨ مواد دراسية، و١٣ معلمة وُثّقت حصصهن","أكثر من ٥٠ صورة ومقطعًا عولجت بصريًا وصوتيًا","٦ مقاطع مرئية منتجة ومنشورة في قناة المدرسة","إذاعة «لحظة سلامة» ومشاركة أولياء الأمور في تعلّم بناتهم من المنزل","حذف الموسيقى كليًا عن مقاطع تلاوة القرآن الكريم احترامًا لها"], link:D+"1v9WbMHJUV5FjmgTHumWXCU0D9uV54IX5/view", video:"https://t.me/almdrsa165b/912", yr:"١٤٤٨هـ"},
-      {icon:"film", bg:"linear-gradient(150deg,#7d4f78,#d8bd8a)", title:"التوثيق الإعلامي · اليوم الثالث للدراسة عن بُعد", desc:"الثلاثاء ٢٣ جمادى الأولى ١٤٤٨هـ: الحصص الافتراضية، ومتابعة المديرة والوكيلة، ورسائل الشكر من المشرفات، في ٥ مقاطع منشورة.", points:["١٠ مواد دراسية، و١٨ معلمة وُثّقت حصصهن","أكثر من ٨٠ صورة ومقطعًا عولجت بصريًا وصوتيًا","٥ مقاطع مرئية منتجة ومنشورة في قناة المدرسة","توثيق رسائل الشكر والتقدير من المشرفات للمعلمات والطالبات","بدء اليوم الدراسي بالسلام الملكي بصوته الأصلي دون مؤثرات"], link:D+"17ISYniFJuJB9qydF7tRoApwC-_JR_Y8a/view", video:"https://t.me/almdrsa165b/918", yr:"١٤٤٨هـ"},
-      {icon:"film", bg:"linear-gradient(150deg,#9b6b93,#2b1830)", title:"التوثيق الإعلامي · اليوم الرابع للدراسة عن بُعد", desc:"الأربعاء ٢٤ جمادى الأولى ١٤٤٨هـ: الحصص الافتراضية، ومتابعة المديرة والوكيلة، ومشاركات الطالبات وأولياء الأمور، ورسائل التواصل مع الأسر، في ٧ منشورات.", points:["١٧ معلمة وُثّقت حصصهن، و٥ رسائل شكر وتقدير","أكثر من ١٠٠ صورة ومقطع عولجت بصريًا وصوتيًا","٧ منشورات في قناة المدرسة","رسالة إدارة تعليم جدة التوعوية لأولياء الأمور، ورسالة شكر من إدارة المدرسة","دعوة أولياء الأمور لإبداء رأيهم عبر رابط المشاركة"], link:D+"1amN8PAh6xuH2OPqf3bl1j0W13OmSV_PX/view", video:"https://t.me/almdrsa165b/925", yr:"١٤٤٨هـ"},
+      {icon:"film", bg:"linear-gradient(150deg,#4a2c50,#9b6b93)", title:"التوثيق الإعلامي · اليوم الأول للدراسة عن بُعد", desc:"الأحد 21 جمادى الأولى 1448هـ عبر منصة مدرستي: جمع المواد من المعلمات وأولياء الأمور والإدارة، ومعالجتها وإخراجها في 3 مقاطع بهوية وزارة التعليم.", points:["7 مواد دراسية، و9 معلمات وُثّقت حصصهن","أكثر من 30 صورة ومقطعًا عولجت بصريًا وصوتيًا","3 مقاطع مرئية منتجة ومنشورة في قناة المدرسة","«حضور اليوم.. حصص عن بُعد» · «متابعة الإدارة المدرسية» · «حصص عن بُعد»","المونتاج والتصميم وفق دليل الهوية البصرية لوزارة التعليم"], link:D+"1X-kCxamv47OwY6udYpM_H9JpNrQMHizA/view", video:"https://t.me/almdrsa165b/908", yr:"1448هـ"},
+      {icon:"film", bg:"linear-gradient(150deg,#5a3457,#b88aa8)", title:"التوثيق الإعلامي · اليوم الثاني للدراسة عن بُعد", desc:"الاثنين 22 جمادى الأولى 1448هـ: رصد الحصص الافتراضية، ومتابعة الإدارة، ومشاركات الطالبات وأولياء الأمور، في 6 مقاطع منشورة.", points:["8 مواد دراسية، و13 معلمة وُثّقت حصصهن","أكثر من 50 صورة ومقطعًا عولجت بصريًا وصوتيًا","6 مقاطع مرئية منتجة ومنشورة في قناة المدرسة","إذاعة «لحظة سلامة» ومشاركة أولياء الأمور في تعلّم بناتهم من المنزل","حذف الموسيقى كليًا عن مقاطع تلاوة القرآن الكريم احترامًا لها"], link:D+"1v9WbMHJUV5FjmgTHumWXCU0D9uV54IX5/view", video:"https://t.me/almdrsa165b/912", yr:"1448هـ"},
+      {icon:"film", bg:"linear-gradient(150deg,#7d4f78,#d8bd8a)", title:"التوثيق الإعلامي · اليوم الثالث للدراسة عن بُعد", desc:"الثلاثاء 23 جمادى الأولى 1448هـ: الحصص الافتراضية، ومتابعة المديرة والوكيلة، ورسائل الشكر من المشرفات، في 5 مقاطع منشورة.", points:["10 مواد دراسية، و18 معلمة وُثّقت حصصهن","أكثر من 80 صورة ومقطعًا عولجت بصريًا وصوتيًا","5 مقاطع مرئية منتجة ومنشورة في قناة المدرسة","توثيق رسائل الشكر والتقدير من المشرفات للمعلمات والطالبات","بدء اليوم الدراسي بالسلام الملكي بصوته الأصلي دون مؤثرات"], link:D+"17ISYniFJuJB9qydF7tRoApwC-_JR_Y8a/view", video:"https://t.me/almdrsa165b/918", yr:"1448هـ"},
+      {icon:"film", bg:"linear-gradient(150deg,#9b6b93,#2b1830)", title:"التوثيق الإعلامي · اليوم الرابع للدراسة عن بُعد", desc:"الأربعاء 24 جمادى الأولى 1448هـ: الحصص الافتراضية، ومتابعة المديرة والوكيلة، ومشاركات الطالبات وأولياء الأمور، ورسائل التواصل مع الأسر، في 7 منشورات.", points:["17 معلمة وُثّقت حصصهن، و5 رسائل شكر وتقدير","أكثر من 100 صورة ومقطع عولجت بصريًا وصوتيًا","7 منشورات في قناة المدرسة","رسالة إدارة تعليم جدة التوعوية لأولياء الأمور، ورسالة شكر من إدارة المدرسة","دعوة أولياء الأمور لإبداء رأيهم عبر رابط المشاركة"], link:D+"1amN8PAh6xuH2OPqf3bl1j0W13OmSV_PX/view", video:"https://t.me/almdrsa165b/925", yr:"1448هـ"},
+      {icon:"camera", bg:"linear-gradient(150deg,#d9a5b3,#7d4f78)", title:"نموذج موافقة التصوير · الصفوف 1–6", desc:"رسالة لأولياء أمور 12 فصلًا من الصف الأول إلى السادس لتعبئة نموذج الموافقة على تصوير الطالبات عبر رابط واحد، لتوثيق فعاليات المدرسة وفق الأصول.", points:["الإرسال لأولياء أمور 97 طالبة في 6 صفوف و12 فصلًا","رابط واحد للنموذج ورمز QR","الورقة لا تتضمن أسماء الطالبات حفاظًا على الخصوصية"], link:D+"126l5qQcV881h9lSepvGASDPL5aGIKhaS/view", yr:"1448هـ"},
     ],
     // الفيديوهات: كل فيديو {title, desc, id} و id هو رقم الملف في الدرايف
     videos:[
     ]},
-  { id:"service", icon:"users", bg:"linear-gradient(150deg,#d9a5b3,#b07a93)", fg:"#2b1830", title:"خدمة مستفيدين", sub:"١١ بندًا منفذًا من آرائكم",
-    desc:"قلتم فسمعنا، وسمعنا فعملنا، وعملنا فأخبرناكم.", goal:"الهدف الثاني · الوزن ٢٠٪ · مكتمل", custom:"service",
+  { id:"service", icon:"users", bg:"linear-gradient(150deg,#d9a5b3,#b07a93)", fg:"#2b1830", title:"خدمة مستفيدين", sub:"5 روابط · المستهدف 1",
+    desc:"قلتم فسمعنا، وسمعنا فعملنا، وعملنا فأخبرناكم.", goal:"الهدف الثاني · الوزن 20% · 5 روابط من رابط مستهدف", custom:"service",
     rows:[
-      {icon:"heart", bg:"#b07a93", title:"قياس الرضا: ماذا فعلنا لأجلكم؟ ١٤٤٨هـ", desc:"١١ بندًا منفذًا استجابة لآراء أولياء الأمور، و١٠ كلمات شكر، و٥ مبادرات ذاتية.", link:D+"1PrU8BrCY5xZlQd80yGJyKaNPT20ep-cU/view"},
-      {icon:"link",  bg:"#9b6b93", title:"رابط ما عملناه بآرائكم", desc:"صفحة المستفيدين: الإجراءات المنفذة بالصور والتفاصيل.", link:"https://qiyas-165-1448.web.app/#/amal"},
-      {icon:"chart", bg:"#7d4f78", title:"تقرير الأداء ورضا المستفيدين ١٤٤٧هـ", desc:"قراءة في ٢٤ ردًا: كفاءة الكادر ورضا أولياء الأمور ونقاط التحسين.", link:D+"14_hBsMAAzzTDaIniFyJh0c_ey0j1XnYU/view"},
-      {icon:"moon",  bg:"#5a3457", title:"الانضباط خلال شهر رمضان المبارك", desc:"تحليل مفصل لنسب الحضور والغياب من ٦ إلى ١٦ رمضان ١٤٤٧هـ.", link:D+"17fzMnUCt-SgT-Oj5Nu9nlsAxFZuBuaQ9/view"},
+      {icon:"link",  bg:"#9b6b93", title:"رابط «ماذا عملنا برأيكم؟»", desc:"كل ملاحظة كتبها أولياء الأمور، وماذا صنعت المدرسة تجاهها، بالصور.", link:"https://qiyas-165-1448.web.app/#/amal"},
+      {icon:"heart", bg:"#b07a93", title:"رابط «كلماتٌ طيبة وصلتنا منكم»", desc:"ثناء أولياء الأمور على المعلمات والمدرسة، كما كتبوه.", link:"https://qiyas-165-1448.web.app/#/shukr"},
+      {icon:"check", bg:"#7d4f78", title:"رابط «شاركونا · تمَّ الاطّلاع»", desc:"رابط أسبوعي لرأي أولياء الأمور الحر، والاسم فيه اختياري، بلا سجل مدني ولا بيانات شخصية.", link:"https://qiyas-165-1448.web.app/#/seen"},
+      {icon:"flag",  bg:"#5a3457", title:"رابط منصة «بفكرٍ واعٍ… لوطنٍ آمن»", desc:"منصة تستقبل مشاركات المستفيدين الوطنية برسالة أو مقطع، وتكرّمهم بشهادة شكر فورية.", link:"https://tooofa77ksa-hue.github.io/-/difaa/"},
+      {icon:"doc",   bg:"#a88a55", title:"تقرير خدمة المستفيدين: منصة الدفاع عن الوطن", desc:"54 مستفيدًا، و50 مشاركة معتمدة، و7 مقاطع مرئية، ونسبة اعتماد 93% حتى 24 جمادى الأولى 1448هـ (4 نوفمبر 2026م).", link:D+"11RG3ya9yC2rnMLMotyU2qr_NIRhy67D1/view"},
+      {icon:"doc",   bg:"#9b6b93", title:"تقرير رابط المشاركة الحرة 1448هـ", desc:"خلاصة ملاحظات أولياء الأمور ومقترحاتهم بلا أسماء، ووصولها إلى المعنيين بها.", link:D+"1E2h5c1ED-YDS2rtepBW2PzQiKx7CM19t/view"},
+      {icon:"chart", bg:"#7d4f78", title:"تقرير الأداء ورضا المستفيدين 1447هـ", desc:"قراءة في 24 ردًا: كفاءة الكادر ورضا أولياء الأمور ونقاط التحسين.", link:D+"14_hBsMAAzzTDaIniFyJh0c_ey0j1XnYU/view"},
+      {icon:"moon",  bg:"#5a3457", title:"الانضباط خلال شهر رمضان المبارك", desc:"تحليل مفصل لنسب الحضور والغياب من 6 إلى 16 رمضان 1447هـ.", link:D+"17fzMnUCt-SgT-Oj5Nu9nlsAxFZuBuaQ9/view"},
       {icon:"image", bg:"#a88a55", title:"الانضباط خلال شهر رمضان (إنفوجرافيك)", desc:"ملخص بصري لنتائج الانضباط في رمضان.", link:D+"1oORJrOp5rZbxDhws5Nh_1Yb3TuutStGF/view"},
     ]},
   { id:"qiyas", icon:"chart", bg:"linear-gradient(150deg,#9b6b93,#4a2c50)", fg:"#fff", title:"قياس اتجاه المتعلمين", sub:"من النماذج إلى المنصة",
-    desc:"عامان على نماذج تجمع الردود، وعام على منصة تقرأ الرأي وتحوّله إلى عمل.", goal:"الهدف الثالث · الوزن ٢٠٪ · مكتمل", custom:"qiyas",
+    desc:"عامان على نماذج تجمع الردود، وعام على منصة تقرأ الرأي وتحوّله إلى عمل.", goal:"الهدف الثالث · الوزن 20% · تقريران من تقريرين", custom:"qiyas",
     rows:[
-      {icon:"doc",   bg:"#9b6b93", title:"من النماذج إلى المنصة ١٤٤٨هـ", desc:"تطوّر قياس اتجاه المتعلمين عبر ١٤٤٦ و١٤٤٧ و١٤٤٨هـ.", link:D+"1sRBECdwJlwqp5pbZZhBoawRmF4MePnQ4/view"},
-      {icon:"link",  bg:"#7d4f78", title:"الاستبيان الذي وصل أولياء الأمور", desc:"الرابط نفسه الذي وصل كل أسرة.", link:"https://qiyas-165-1448.web.app/#/survey"},
-      {icon:"heart", bg:"#b07a93", title:"كلمات طيبة وصلتنا منكم", desc:"ما أثنى به أولياء الأمور على المدرسة بنصه.", link:"https://qiyas-165-1448.web.app/#/shukr"},
+      {icon:"doc",   bg:"#9b6b93", title:"من النماذج إلى المنصة 1448هـ", desc:"تطوّر قياس اتجاه المتعلمين عبر 1446 و1447 و1448هـ.", link:D+"1sRBECdwJlwqp5pbZZhBoawRmF4MePnQ4/view"},
+      {icon:"heart", bg:"#b07a93", title:"قياس الرضا: ماذا فعلنا لأجلكم؟ 1448هـ", desc:"نتائج القياس وما نُفّذ بناءً عليها: 11 بندًا منفذًا استجابة لآراء أولياء الأمور.", link:D+"1PrU8BrCY5xZlQd80yGJyKaNPT20ep-cU/view"},
     ]},
-  { id:"initiatives", icon:"spark", bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", fg:"#fff", title:"المبادرات", sub:"٣ مبادرات بأثر مقاس",
-    desc:"مبادرات أطلقتها لرفع جودة العمل ونواتج التعلم في المدرسة، وكل مبادرة بقياس قبلي وبعدي.", custom:"initiatives",
+  { id:"initiatives", icon:"spark", bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", fg:"#fff", title:"المبادرات", sub:"5 مبادرات",
+    desc:"مبادرات أطلقتها لرفع جودة العمل ونواتج التعلم وخدمة المستفيدين في المدرسة.", custom:"initiatives",
     rows:[
-      {icon:"spark", bg:"#b88aa8", title:"قياس أثر ورشة NotebookLM", desc:"ورشة للموظفات من الخطة التشغيلية ١٤٤٨هـ، بقياس قبلي وبعدي.", link:D+"13x387JsKyfuTnYUk6UTlnkCbmZX7uwfG/view"},
+      {icon:"spark", bg:"#b88aa8", title:"قياس أثر ورشة NotebookLM", desc:"ورشة للموظفات من الخطة التشغيلية 1448هـ، بقياس قبلي وبعدي.", link:D+"13x387JsKyfuTnYUk6UTlnkCbmZX7uwfG/view"},
       {icon:"chart", bg:"#9b6b93", title:"شواهد برنامج الخوارزمي · الحساب الذهني", desc:"التقرير القبلي والبعدي، وتقرير المدرب، والمنصة التفاعلية، وصور مشاركة الطالبات.", link:D+"1Gsr4knbdRdLpYlbntpi4FzYN4MJFRk0W/view"},
       {icon:"film",  bg:"#7d4f78", title:"مشاركة الطالبات في برنامج الحساب الذهني", desc:"لقطات من مشاركة الطالبات مع المدرب، منشورة في قناة المدرسة.", link:"https://t.me/almdrsa165b/804"},
-      {icon:"doc",   bg:"#a88a55", title:"تقرير مبادرة التحول الرقمي ١٤٤٨هـ", desc:"من الورق إلى المنصة: الخطتان في منصتين إلكترونيتين.", link:"reports/digital-transformation-1448.html"},
+      {icon:"doc",   bg:"#a88a55", title:"تقرير مبادرة التحول الرقمي 1448هـ", desc:"من الورق إلى المنصة: الخطتان في منصتين إلكترونيتين.", link:"reports/digital-transformation-1448.html"},
+      {icon:"book",  bg:"#9b6b93", title:"تقرير «من الفكرة إلى الأثر»", desc:"دليل رقمي تفاعلي يوثّق طريقة بناء الحلول الرقمية بأدوات الذكاء الاصطناعي، من الفكرة إلى موقع يعمل.", link:D+"16WKlgwmGCtiYOOiXuzp_OXM6KEzyYz5O/view"},
+      {icon:"flag",  bg:"#5a3457", title:"منصة «بفكرٍ واعٍ… لوطنٍ آمن»", desc:"منصة رقمية لمشاركات المستفيدين في الوعي الفكري والانتماء الوطني، بشهادات شكر فورية.", link:"https://tooofa77ksa-hue.github.io/-/difaa/"},
     ]},
-  { id:"reports", icon:"doc", bg:"linear-gradient(150deg,#5a3457,#3a2140)", fg:"#f7f1ec", title:"التقارير", sub:"٢٠ تقريرًا أسبوعيًا",
-    desc:"تقرير أسبوعي بالأعمال المنفذة وأهمية كل إجراء، من مارس إلى سبتمبر 2026.", goal:"الهدف الخامس · الوزن ١٥٪ · مكتمل ٢٠ من ٢٠", custom:"reports",
-    rows:[{icon:"doc", bg:"#7d4f78", title:"التقارير الأسبوعية 2026", desc:"ملف واحد يضم التقارير الأسبوعية العشرين بأعمالها وأهميتها وشواهدها.", link:D+"1LcC50B8KHy6_b1GY-6RaK5ZQG_Mv3wZJ/view"}]},
+  { id:"reports", icon:"doc", bg:"linear-gradient(150deg,#5a3457,#3a2140)", fg:"#f7f1ec", title:"التقارير", sub:"21 تقريرًا · المستهدف 20",
+    desc:"تقرير أسبوعي بالأعمال المنفذة وأهمية كل إجراء خلال عام 2026.", goal:"الهدف الخامس · الوزن 15% · 21 تقريرًا من 20", custom:"reports",
+    rows:[{icon:"doc", bg:"#7d4f78", title:"التقارير الأسبوعية 2026", desc:"ملف يضم التقارير الأسبوعية بأعمالها وأهميتها وشواهدها.", link:D+"1LcC50B8KHy6_b1GY-6RaK5ZQG_Mv3wZJ/view"}]},
   { id:"self", icon:"check", bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", fg:"#f7f1ec", title:"التقويم الذاتي", sub:"منصة وخطتان",
-    desc:"التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات إلكترونية بدل الورق.", goal:"الهدف الرابع · الوزن ١٥٪ · مكتمل", custom:"self",
+    desc:"التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات إلكترونية بدل الورق.", goal:"الهدف الرابع · الوزن 15% · ملفان من ملف مستهدف", custom:"self",
     rows:[
-      {icon:"check", bg:"#7d4f78", title:"منصة التقويم الذاتي ١٤٤٧ و١٤٤٨هـ", desc:"المجالات الأربعة ومعاييرها وشواهدها في منصة واحدة.", link:"https://readdy.cc/preview/ccfdd1a6-911c-47e7-84c5-b2436ac6f7ed/14579353/"},
+      {icon:"check", bg:"#7d4f78", title:"منصة التقويم الذاتي 1447 و1448هـ", desc:"المجالات الأربعة ومعاييرها وشواهدها في منصة واحدة.", link:"https://readdy.cc/preview/ccfdd1a6-911c-47e7-84c5-b2436ac6f7ed/14579353/"},
       {icon:"doc",   bg:"#9b6b93", title:"التقويم الذاتي: من الورق إلى المنصة", desc:"كيف تحوّلت الاستمارة الورقية إلى منصة تُفتح من أي جهاز.", link:D+"15lfy749UtfBBEF5w11IwYa2ocwVrjyKr/view"},
-      {icon:"doc",   bg:"#7d4f78", title:"تقرير التحول الرقمي: من الورق إلى المنصة ١٤٤٨هـ", desc:"منصتان، و١٢ استمارة محوّلة، و١٤٢ جدولًا إلكترونيًا، متاحة على مدار الساعة.", link:"reports/digital-transformation-1448.html"},
-      {icon:"award", bg:"#a88a55", title:"تقرير منجزات المدرسة · للتقويم الخارجي", desc:"ملخص في صفحة: ٧ شهادات شكر، و٣ مراكز في «قادمون»، و٤ معلمات مكرّمات، و٤ مرافق طُوّرت، وباركود لفيديو المنجزات.", link:D+"1IyTRs_Sc02ovknwPigx8PeaU2K1AGWOC/view"},
+      {icon:"doc",   bg:"#7d4f78", title:"تقرير التحول الرقمي: من الورق إلى المنصة 1448هـ", desc:"منصتان، و12 استمارة محوّلة، و142 جدولًا إلكترونيًا، متاحة على مدار الساعة.", link:"reports/digital-transformation-1448.html"},
+      {icon:"award", bg:"#a88a55", title:"تقرير منجزات المدرسة · للتقويم الخارجي", desc:"ملخص في صفحة: 7 شهادات شكر، و3 مراكز في «قادمون»، و4 معلمات مكرّمات، و4 مرافق طُوّرت، وباركود لفيديو المنجزات.", link:D+"1IyTRs_Sc02ovknwPigx8PeaU2K1AGWOC/view"},
       {icon:"doc",   bg:"#9b6b93", title:"تقرير منجزات المدرسة كاملًا", desc:"شهادات المدرسة، وإنجازات المعلمات والطالبات، والموهبة، والمبادرات الداخلية، وقبل وبعد.", link:D+"1Fwf-F9dJyTl9UdLZYw8fCuBs3RtwharE/view"},
       {icon:"film",  bg:"#5a3457", title:"فيديو منجزات المدرسة", desc:"العرض الذي قُدّم لفريق التقويم الخارجي.", link:D+"1zXhRJEYBJnUu-i16lsktK1O5m8F651el/view"},
-      {icon:"target",bg:"#a88a55", title:"منصة خطة التحسين ١٤٤٨هـ", desc:"الاستمارات الاثنتا عشرة المعتمدة بجداولها، قابلة للتحرير والحفظ.", link:"https://khutta-165.web.app/#/dashboard"},
-      {icon:"cal",   bg:"#5a3457", title:"الخطة التشغيلية ١٤٤٨هـ", desc:"الوثيقة كاملة: الرؤية والرسالة، والقضايا، والتحليل الرباعي، والجدول الزمني، والتقويم الدراسي.", link:"https://khutta-165.web.app/#/operational-plan"},
-      {icon:"book",  bg:"#4a2c50", title:"رؤية وزارة التعليم وأهدافها الاستراتيجية", desc:"مرجع: الرؤية والرسالة والمحاور والأهداف.", link:D+"1ZxbS51QLwcSyC2g9Dly6HO06u25Oolxw/view"},
+      {icon:"target",bg:"#a88a55", title:"منصة خطة التحسين 1448هـ", desc:"الاستمارات الاثنتا عشرة المعتمدة بجداولها، قابلة للتحرير والحفظ.", link:"https://khutta-165.web.app/#/dashboard"},
+      {icon:"cal",   bg:"#5a3457", title:"الخطة التشغيلية 1448هـ", desc:"الوثيقة كاملة: الرؤية والرسالة، والقضايا، والتحليل الرباعي، والجدول الزمني، والتقويم الدراسي.", link:"https://khutta-165.web.app/#/operational-plan"},
+      {icon:"spark", bg:"#9b6b93", title:"مرحلة الأفكار والتخطيط · تقرير التقويم الذاتي المدرسي 2026", desc:"تصميم NotebookLM · أبريل 2026: المقدمة، ومفهوم التقويم الذاتي والخارجي، وارتباطه برؤية 2030.", link:D+"1SKcWqJf5M2JhAYfUoZSf0oqqjoXmHo_s/view"},
+      {icon:"spark", bg:"#7d4f78", title:"مرحلة الأفكار والتخطيط · ملف بيانات المدرسة 2026", desc:"تصميم NotebookLM · أبريل 2026: البيانات الأساسية للمدرسة والمتعلمين والفصول.", link:D+"1rDKgn2wPowhNIXu7K7rzRvDnOxhCz3Ik/view"},
+      {icon:"spark", bg:"#a88a55", title:"مرحلة الأفكار والتخطيط · خارطة طريق تحسين المدرسة", desc:"تصميم NotebookLM · أبريل 2026: من تشخيص التقويم الذاتي إلى بناء خطة التحسين ورفعها واستدامتها.", link:D+"1B3h6BdmGy-6bSim__A4H-NQPhfZkHjTL/view"},
+      {icon:"book",  bg:"#4a2c50", title:"مرحلة الأفكار والتخطيط · رؤية وزارة التعليم وأهدافها الاستراتيجية", desc:"تصميم NotebookLM · أبريل 2026: الرؤية والرسالة والمحاور والقيم والأهداف العشرة.", link:D+"1ZxbS51QLwcSyC2g9Dly6HO06u25Oolxw/view"},
     ]},
-  { id:"certs", icon:"award", bg:"linear-gradient(150deg,#f7f1ec,#e6d6cc)", fg:"#2b1830", title:"شهادات الورشات والدورات", sub:"دورة إلزامية",
+  { id:"certs", icon:"award", bg:"linear-gradient(150deg,#f7f1ec,#e6d6cc)", fg:"#2b1830", title:"شهادات الورشات والدورات", sub:"الدورات الإلزامية وورشة الإسعافات",
     desc:"الدورات والورشات التدريبية التي حضرتها.",
-    rows:[{icon:"award", bg:"#a88a55", title:"الدورات الإلزامية", desc:"شهادات الدورات الإلزامية.", link:D+"1EEqAlApHPVVUimD3ZgDPhLhUy-DOM6iO/view"}]},
+    rows:[{icon:"award", bg:"#a88a55", title:"الدورات الإلزامية", desc:"شهادات الدورات الإلزامية.", link:D+"1EEqAlApHPVVUimD3ZgDPhLhUy-DOM6iO/view"},
+      {icon:"heart", bg:"#b07a93", title:"ورشة عمل الثمان الأولى للإسعافات الأولية", desc:"البرنامج الإلزامي غير المتزامن · منصة أبعاد · 30 أكتوبر 2026 · ساعتان.", link:D+"18SqZkBPDfapY8XpJtOuJJvEY59l1Itw3/view"}]},
 ];
 const GOALS = [
-  ["جودة وانتظام العمل الإعلامي المدرسي",30,13,6,"media"],
-  ["تنظيم وتطوير روابط خدمة المستفيد",20,1,1,"service"],
+  ["جودة وانتظام العمل الإعلامي المدرسي",30,14,6,"media"],
+  ["تنظيم وتطوير روابط خدمة المستفيد",20,5,1,"service"],
   ["قياس اتجاه المتعلمين",20,2,2,"qiyas"],
-  ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,1,1,"self"],
-  ["تقرير أسبوعي بالأعمال المنفذة",15,20,20,"reports"],
+  ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,2,1,"self"],
+  ["تقرير أسبوعي بالأعمال المنفذة",15,21,20,"reports"],
 ];
 /* ======================================================================= */
 
 const $ = s => document.querySelector(s);
-const ar = n => String(n).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+const ar = n => String(n).replace(/\d/g, d => "0123456789"[d]);
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ======================= الصوت: طقّات ونغمات ناعمة ======================= */
@@ -518,7 +526,7 @@ setTimeout(() => $("#quote").firstChild.classList.add("on"), 350);
 /* ======================= القوس الدوّار ======================= */
 const arc = $("#arc"), N = SECTIONS.length;
 arc.innerHTML = SECTIONS.map((s, i) => `<button class="card" role="option" data-i="${i}" style="background:${s.bg};color:${s.fg}" aria-label="${s.title}">
-  <span class="no">٠${ar(i + 1)}</span><span class="ico">${svg(s.icon)}</span><span><h3>${s.title}</h3><small>${s.sub}</small></span>
+  <span class="no">0${ar(i + 1)}</span><span class="ico">${svg(s.icon)}</span><span><h3>${s.title}</h3><small>${s.sub}</small></span>
   <span class="open">${svg("arrow")}</span></button>`).join("");
 $("#dots").innerHTML = SECTIONS.map((s, i) => `<button data-i="${i}" aria-label="${s.title}"></button>`).join("");
 const cards = [...arc.children], dots = [...$("#dots").children];
@@ -596,41 +604,39 @@ function pageHTML(s) {
   if (s.rows && !s.custom) b += rows();
   if (s.soon) b += `<div class="soon rise"><b>قريبًا</b>${s.soon}</div>`;
   if (s.custom === "service") b += `
-    <div class="kpis"><div class="kpi rise" ${rise(0)}><b>١١</b><span>بندًا منفذًا من آرائكم</span></div><div class="kpi rise" ${rise(1)}><b>١٠</b><span>كلمات شكر وصلتنا</span></div><div class="kpi rise" ${rise(2)}><b>٥</b><span>مبادرات ذاتية</span></div></div>
-    <div class="h3">ماذا فعلنا لأجلكم؟ ١٤٤٨هـ</div>${rows()}
-    <div class="h3">رضا المستفيدين · الفصل الأول ١٤٤٧هـ</div>
-    <div class="box rise" ${rise(3)}>${meter("رضا أولياء الأمور",95.8)}${meter("كفاءة الموظفة وأسلوب التعامل",91.7)}${meter("سرعة الإنجاز",91.7)}${meter("طلبات القبول والتسجيل من إجمالي الخدمة",54.2)}</div>
-    <div class="h3">بيانات المعلمات والإداريات: من القديم إلى «كوادر ١٦٥»</div>
-    <div class="ba rise" ${rise(7)}>
-      <div class="side"><span class="lbl">قبل</span><h4>الطريقة السابقة</h4><ul><li>تُضاف التفاصيل قريبًا</li></ul></div>
-      <div class="mid">⇄</div>
-      <div class="side new"><span class="lbl">بعد</span><h4>كوادر ١٦٥</h4><ul><li>تُضاف التفاصيل قريبًا</li></ul></div>
-    </div>`;
+    <div class="kpis"><div class="kpi rise" ${rise(0)}><b>5</b><span>روابط لخدمة المستفيدين</span></div><div class="kpi rise" ${rise(1)}><b>54</b><span>مستفيدًا في منصة الدفاع عن الوطن</span></div><div class="kpi rise" ${rise(2)}><b>11</b><span>بندًا منفذًا من آراء أولياء الأمور</span></div></div>
+    <div class="h3">الروابط والتقارير</div>${rows()}
+    <div class="h3">رضا المستفيدين · الفصل الأول 1447هـ</div>
+    <div class="box rise" ${rise(3)}>${meter("رضا أولياء الأمور",95.8)}${meter("كفاءة الموظفة وأسلوب التعامل",91.7)}${meter("سرعة الإنجاز",91.7)}${meter("طلبات القبول والتسجيل من إجمالي الخدمة",54.2)}</div>`;
   const steps = (arr) => `<div class="steps">${arr.map((x, i) => `<div class="step rise" ${rise(i)}><span class="yr">${x[0]}</span><b>${x[1]}</b><small>${x[2]}</small></div>`).join('<span class="arr">←</span>')}</div>`;
-  if (s.custom === "qiyas") b += steps([["١٤٤٦هـ","نماذج إلكترونية","تجمع الردود وتقف عندها"],["١٤٤٧هـ","نماذج إلكترونية","تفريغ يدوي في جدول"],["١٤٤٨هـ","منصة متكاملة","تقرأ الرأي وتحوّله إلى عمل"]]) + `<div class="h3">الشواهد والروابط</div>${rows()}`;
-  if (s.custom === "self") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>٢</b><span>منصتان إلكترونيتان</span></div><div class="kpi rise" ${rise(1)}><b>١٢</b><span>استمارة محوّلة رقميًا</span></div><div class="kpi rise" ${rise(2)}><b>١٤٢</b><span>جدولًا إلكترونيًا</span></div></div>
+  if (s.custom === "qiyas") b += steps([["1446هـ","نماذج إلكترونية","تجمع الردود وتقف عندها"],["1447هـ","نماذج إلكترونية","تفريغ يدوي في جدول"],["1448هـ","منصة متكاملة","تقرأ الرأي وتحوّله إلى عمل"]]) + `<div class="h3">التقارير</div>${rows()}`;
+  if (s.custom === "self") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>2</b><span>منصتان إلكترونيتان</span></div><div class="kpi rise" ${rise(1)}><b>12</b><span>استمارة محوّلة رقميًا</span></div><div class="kpi rise" ${rise(2)}><b>142</b><span>جدولًا إلكترونيًا</span></div></div>
     <div class="ba rise" ${rise(3)} style="margin-bottom:26px">
       <div class="side"><span class="lbl">قبل</span><h4>الخطة ورقية</h4><ul><li>تعديل سطر يعني إعادة طباعة الملف كاملًا</li><li>نسخة واحدة في مكان واحد</li><li>لا يُعرف من عدّل ومتى، والمحذوف لا يُسترجع</li></ul></div>
       <div class="mid">⇄</div>
       <div class="side new"><span class="lbl">بعد</span><h4>الخطة منصّة</h4><ul><li>التعديل يُحفظ ويظهر للجميع فورًا</li><li>رابط يُفتح من أي جهاز ومكان</li><li>سجلّ للتعديلات وسلّة تُرجع المحذوف</li><li>طباعة رسمية وتصدير PDF وExcel</li></ul></div>
-    </div>` + steps([["١","التقويم الذاتي","نعرف أين نحن"],["٢","خطة التحسين","نعالج نقاط الضعف"],["٣","الخطة التشغيلية","ننفّذ خلال العام"]]) + `<div class="h3">المنصات والشواهد</div>${rows()}`;
-  if (s.custom === "reports") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>٢٠ / ٢٠</b><span>تقريرًا أسبوعيًا</span></div><div class="kpi rise" ${rise(1)}><b>١٠٠٪</b><span>تحقق الهدف</span></div><div class="kpi rise" ${rise(2)}><b>٧ أشهر</b><span>مارس ← سبتمبر 2026</span></div></div>
+    </div>` + steps([["1","التقويم الذاتي","نعرف أين نحن"],["2","خطة التحسين","نعالج نقاط الضعف"],["3","الخطة التشغيلية","ننفّذ خلال العام"]]) + `<div class="h3">المنصات والشواهد</div>${rows()}`;
+  if (s.custom === "reports") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>21 / 20</b><span>تقريرًا أسبوعيًا</span></div><div class="kpi rise" ${rise(1)}><b>+1</b><span>فوق المستهدف</span></div><div class="kpi rise" ${rise(2)}><b>7 أشهر</b><span>مارس ← سبتمبر 2026</span></div></div>
     <div class="h3">أبرز ما تضمّنته التقارير</div>
     <div class="skills">${[["clock","رسائل الانضباط مساء الأحد والخميس"],["camera","تصوير الإذاعة المدرسية وتوثيقها يوميًا"],["link","إرسال التوثيق لإدارة تعليم جدة أولًا بأول"],["chart","قياس اتجاه المتعلمين لجميع الصفوف"],["film","فيديوهات التخرج وتكريم المتقاعدات واستقبال المعلمات"],["spark","ورشة NotebookLM للموظفات"],["users","رابط موافقات التصوير بلوحة بيانات"],["flag","توثيق حفلَي اليوم الوطني"],["target","دعم الاستعداد لاختبارات نافس"]].map((k, i) => `<div class="skill rise" ${rise(i + 3)}><span class="si">${svg(k[0])}</span>${k[1]}</div>`).join("")}</div>
     <div class="h3">الملف</div>${rows()}`;
   if (s.custom === "initiatives") b += `
-    <div class="h3">١. ورشة NotebookLM للموظفات</div>
-    <div class="kpis"><div class="kpi rise" ${rise(0)}><b>٣٥٪</b><span>قبل الورشة · ٢٠ استجابة</span></div><div class="kpi rise" ${rise(1)}><b>٨٣.٣٪</b><span>بعد الورشة · ٢٢ استجابة</span></div><div class="kpi rise" ${rise(2)}><b>+٤٨.٣</b><span>نقطة تحسّن · تحقق المؤشر</span></div></div>
-    <div class="box rise" ${rise(3)}>${meter("كفاءة الموظفات قبل الورشة",35,"٣٥٪")}${meter("كفاءة الموظفات بعد الورشة",83.3,"٨٣.٣٪")}${meter("الوصول إلى الاستخدام بثقة واستقلالية",63.6,"٦٣.٦٪")}</div>
-    <div class="h3">٢. برنامج الخوارزمي · الحساب الذهني (شراكة مجتمعية)</div>
-    <div class="kpis"><div class="kpi rise" ${rise(4)}><b>٧٤٪</b><span>القياس القبلي · ٢٨ سبتمبر</span></div><div class="kpi rise" ${rise(5)}><b>٨٤٪</b><span>القياس البعدي · ٦ أكتوبر</span></div><div class="kpi rise" ${rise(6)}><b>+١٠</b><span>نقاط تحسّن · تحقق المؤشر</span></div></div>
-    <div class="box rise" ${rise(7)}>${meter("دقة المهارات الحسابية قبل البرنامج",74,"٧٤٪")}${meter("دقة المهارات الحسابية بعد البرنامج",84,"٨٤٪")}<p style="color:var(--muted);margin-top:6px">تحسّنت دقة ١٧ طالبة، و٧ طالبات حققن ٩٠٪ فأكثر ومؤهلات للترشيح لبرنامج الكشف عن الموهبة.</p></div>
-    <div class="h3">٣. التحول الرقمي: من الورق إلى المنصة</div>
-    <div class="hobby rise" ${rise(8)}><span class="si">${svg("doc")}</span><div><b>الخطتان في منصتين إلكترونيتين</b><p>منصتان، و١٢ استمارة، و١٤٢ جدولًا إلكترونيًا. التفاصيل في قسم «التقويم الذاتي».</p></div></div>
+    <div class="h3">1. ورشة NotebookLM للموظفات</div>
+    <div class="kpis"><div class="kpi rise" ${rise(0)}><b>35%</b><span>قبل الورشة · 20 استجابة</span></div><div class="kpi rise" ${rise(1)}><b>83.3%</b><span>بعد الورشة · 22 استجابة</span></div><div class="kpi rise" ${rise(2)}><b>+48.3</b><span>نقطة تحسّن · تحقق المؤشر</span></div></div>
+    <div class="box rise" ${rise(3)}>${meter("كفاءة الموظفات قبل الورشة",35,"35%")}${meter("كفاءة الموظفات بعد الورشة",83.3,"83.3%")}${meter("الوصول إلى الاستخدام بثقة واستقلالية",63.6,"63.6%")}</div>
+    <div class="h3">2. برنامج الخوارزمي · الحساب الذهني (شراكة مجتمعية)</div>
+    <div class="kpis"><div class="kpi rise" ${rise(4)}><b>74%</b><span>القياس القبلي · 28 سبتمبر</span></div><div class="kpi rise" ${rise(5)}><b>84%</b><span>القياس البعدي · 6 أكتوبر</span></div><div class="kpi rise" ${rise(6)}><b>+10</b><span>نقاط تحسّن · تحقق المؤشر</span></div></div>
+    <div class="box rise" ${rise(7)}>${meter("دقة المهارات الحسابية قبل البرنامج",74,"74%")}${meter("دقة المهارات الحسابية بعد البرنامج",84,"84%")}<p style="color:var(--muted);margin-top:6px">تحسّنت دقة 17 طالبة، و7 طالبات حققن 90% فأكثر ومؤهلات للترشيح لبرنامج الكشف عن الموهبة.</p></div>
+    <div class="h3">3. التحول الرقمي: من الورق إلى المنصة</div>
+    <div class="hobby rise" ${rise(8)}><span class="si">${svg("doc")}</span><div><b>الخطتان في منصتين إلكترونيتين</b><p>منصتان، و12 استمارة، و142 جدولًا إلكترونيًا. التفاصيل في قسم «التقويم الذاتي».</p></div></div>
+    <div class="h3">4. من الفكرة إلى الأثر</div>
+    <div class="hobby rise" ${rise(9)}><span class="si">${svg("book")}</span><div><b>دليل رقمي تفاعلي</b><p>يوثّق كيف تُبنى الحلول الرقمية بأدوات الذكاء الاصطناعي خطوة بخطوة، بشواهد من مشروعات منفذة في المدرسة.</p></div></div>
+    <div class="h3">5. بفكرٍ واعٍ… لوطنٍ آمن</div>
+    <div class="kpis"><div class="kpi rise" ${rise(10)}><b>54</b><span>مستفيدًا شاركوا</span></div><div class="kpi rise" ${rise(11)}><b>50</b><span>مشاركة معتمدة · 7 مقاطع</span></div><div class="kpi rise" ${rise(12)}><b>93%</b><span>نسبة الاعتماد</span></div></div>
     <div class="h3">الشواهد</div>${rows()}`;
   if (s.custom === "about") b += aboutHTML();
   if (s.custom === "goals") b += `<div class="box rise">${GOALS.map(g => { const p = Math.round(Math.min(1, g[2] / g[3]) * 100);
-      return `<a href="#${g[4]}" style="display:block">${meter(`${g[0]} <small style="color:var(--muted)">· الوزن ${ar(g[1])}٪</small>`, Math.max(p, 2), ar(p) + "٪")}</a>`; }).join("")}</div>
+      return `<a href="#${g[4]}" style="display:block">${meter(`${g[0]} <small style="color:var(--muted)">· الوزن ${ar(g[1])}%</small>`, Math.max(p, 2), ar(g[2]) + " / " + ar(g[3]))}</a>`; }).join("")}</div>
     <div class="h3">الملف</div>${rows()}`;
   return `<div class="phead wrap"><div class="ico rise">${svg(s.icon)}</div><h2 class="rise" ${rise(1)}>${s.title}</h2><p class="rise" ${rise(2)}>${s.desc}</p>${s.goal ? `<span class="goal rise" ${rise(3)}>${s.goal}</span>` : ""}</div>
           <div class="wrap pbody">${b}</div>`;
@@ -639,7 +645,7 @@ function pageHTML(s) {
 function aboutHTML() {
   const skills = [["pen","تصميم الهويات والمواقع"],["camera","التصوير والتوثيق الإعلامي"],["film","المونتاج وصناعة المحتوى المرئي"],["spark","توظيف أدوات الذكاء الاصطناعي"],["code","بناء المواقع والبرمجة"],["chart","إعداد التقارير وتحليل البيانات"]];
   const lines = ["لا أتوقف عند حدود ما أعرفه؛ أتعلّم الأداة، ثم أصنع بها الجمال.","أجرّب، وأُعيد، وأُتقن… حتى يخرج العمل كما أحلم به.","أؤمن أن الإصرار يحوّل الفكرة إلى أثر.","في كل تفصيلة أرى فرصة لإبهارٍ جديد."];
-  return `<div class="kpis"><div class="kpi rise" ${rise(0)}><b><span class="cnt" data-to="12">٠</span></b><span>عامًا من الخبرة</span></div>
+  return `<div class="kpis"><div class="kpi rise" ${rise(0)}><b><span class="cnt" data-to="12">0</span></b><span>عامًا من الخبرة</span></div>
       <div class="kpi rise" ${rise(1)}><b>بكالوريوس</b><span>المؤهل الدراسي</span></div>
       <div class="kpi rise" ${rise(2)}><b>∞</b><span>شغف لا ينتهي</span></div></div>
     <div class="h3">عني بكلماتي</div>
@@ -686,7 +692,7 @@ $("#page").addEventListener("click", e => {
   $("#mCv").classList.remove("vid"); $("#mCv").style.setProperty("--bg", it.bg); $("#mCv").innerHTML = svg(it.icon);
   $("#mT").textContent = it.title; $("#mD").textContent = it.desc;
   $("#mP").innerHTML = it.points.map(p => `<li>${p}</li>`).join("");
-  $("#mW").innerHTML = `<span>إعداد: عواطف الجهني</span><span>العام الدراسي ${it.yr || "١٤٤٧هـ"}</span>`;
+  $("#mW").innerHTML = `<span>إعداد: عواطف الجهني</span><span>العام الدراسي ${it.yr || "1447هـ"}</span>`;
   $("#mL").href = it.link; $("#mV").hidden = !it.video; if (it.video) $("#mV").href = it.video;
   $("#modal").classList.add("on"); SND.open(); $("#mX").focus();
 });
@@ -701,16 +707,15 @@ document.addEventListener("pointerdown", e => { if (e.target.closest(".ic-btn,.i
 (() => {
 const home = $("#home");
 const CH = [
-  ["نبذة عني","١٢ عامًا من العطاء، وبكالوريوس، وشغفٌ بالتصميم لا ينتهي. أتعلّم الأداة، ثم أصنع بها الجمال.",["١٢ عامًا","بكالوريوس","حب التصميم"],"about"],
-  ["التكليفات","التكليفات الرسمية والأعمال المسندة.",["قريبًا"],"tasks"],
-  ["الأهداف","خمسة أهداف للأداء الوظيفي لعام 2026، لكل هدف وزنه ومستهدفه.",["٥ أهداف","فترة التقييم 2026"],"goals"],
-  ["الإعلام","تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.",["١٣ تقريرًا","المستهدف ٦"],"media"],
-  ["خدمة مستفيدين","قلتم فسمعنا، وسمعنا فعملنا، وعملنا فأخبرناكم.",["١١ بندًا منفذًا","١٠ كلمات شكر"],"service"],
-  ["قياس اتجاه المتعلمين","من النماذج إلى المنصة: عامان على نماذج، وعام على منصة تحوّل الرأي إلى عمل.",["١٤٤٦","١٤٤٧","١٤٤٨"],"qiyas"],
-  ["المبادرات","ورشة NotebookLM، والحساب الذهني بشراكة مجتمعية، والتحول الرقمي للخطط.",["٣ مبادرات","+٤٨.٣ و+١٠ نقاط"],"initiatives"],
-  ["التقارير","تقرير كل أسبوع بالأعمال المنفذة وأهميتها، من مارس إلى سبتمبر 2026.",["٢٠ / ٢٠","مكتمل"],"reports"],
-  ["التقويم الذاتي","التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات بدل الورق.",["٣ منصات","مكتمل"],"self"],
-  ["شهادات الورشات والدورات","الدورات والورشات التدريبية التي حضرتها.",["الدورات الإلزامية"],"certs"],
+  ["نبذة عني","12 عامًا من العطاء، وبكالوريوس، وشغفٌ بالتصميم لا ينتهي. أتعلّم الأداة، ثم أصنع بها الجمال.",["12 عامًا","بكالوريوس","حب التصميم"],"about"],
+  ["الأهداف","خمسة أهداف للأداء الوظيفي لعام 2026، لكل هدف وزنه ومستهدفه.",["5 أهداف","فترة التقييم 2026"],"goals"],
+  ["الإعلام","تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.",["14 تقريرًا","المستهدف 6"],"media"],
+  ["خدمة مستفيدين","قلتم فسمعنا، وسمعنا فعملنا، وعملنا فأخبرناكم.",["5 روابط","المستهدف 1"],"service"],
+  ["قياس اتجاه المتعلمين","من النماذج إلى المنصة: عامان على نماذج، وعام على منصة تحوّل الرأي إلى عمل.",["1446","1447","1448"],"qiyas"],
+  ["المبادرات","ورشة NotebookLM، والحساب الذهني، والتحول الرقمي، ومن الفكرة إلى الأثر، وبفكرٍ واعٍ… لوطنٍ آمن.",["5 مبادرات","+48.3 و+10 نقاط"],"initiatives"],
+  ["التقارير","تقرير كل أسبوع بالأعمال المنفذة وأهميتها، من مارس إلى سبتمبر 2026.",["21 / 20","فوق المستهدف"],"reports"],
+  ["التقويم الذاتي","التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات بدل الورق.",["3 منصات","مكتمل"],"self"],
+  ["شهادات الورشات والدورات","الدورات والورشات التدريبية التي حضرتها.",["الدورات الإلزامية","الإسعافات الأولية"],"certs"],
 ];
 $("#chapters").innerHTML = CH.map((c, i) => `<section class="ch"><div class="in">
   <div class="num"><span class="halo"></span><svg viewBox="0 0 92 92"><circle cx="46" cy="46" r="45" transform="rotate(-90 46 46)"/></svg><b>${ar(String(i + 1).padStart(2, "0"))}</b></div>
