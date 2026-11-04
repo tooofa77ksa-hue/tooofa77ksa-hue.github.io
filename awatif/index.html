@@ -291,11 +291,34 @@
   #journey .end.done h2,#journey .end.done .sig,#journey .end.done .yr{opacity:1;transform:none}
 
   @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}}
+  /* ===== أجواء الطبيعة ===== */
+  .ic-btn.amb{position:fixed;bottom:16px;right:16px;z-index:70;height:42px;border-radius:99px;background:rgba(43,24,48,.8);backdrop-filter:blur(6px);width:auto;padding:0 12px;gap:6px;font-size:13px;color:var(--gold);display:inline-flex;align-items:center}
+  .ic-btn.amb.on{background:rgba(216,189,138,.18)}
+  .pquote{font-family:"El Messiri";color:var(--gold-2,#f3e2bd);font-size:clamp(1.1rem,2.6vw,1.35rem);margin-top:14px;opacity:.95}
+  .pquote::before,.pquote::after{content:"❀";font-size:.8em;color:var(--rose);margin:0 10px;opacity:.8}
+  #birds{position:fixed;inset:0;pointer-events:none;z-index:3;overflow:hidden}
+  .bird{position:absolute;width:26px;height:12px;left:-40px;animation:fly linear forwards;opacity:.75}
+  .bird svg{width:100%;height:100%;fill:none;stroke:#e8d6b0;stroke-width:2.2;stroke-linecap:round;animation:flap .5s ease-in-out infinite alternate;transform-origin:50% 60%}
+  @keyframes fly{to{transform:translate(calc(100vw + 80px),var(--dy))}}
+  @keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(.45)}}
+  .petal{position:fixed;top:-20px;width:12px;height:9px;border-radius:70% 0 70% 0;background:linear-gradient(135deg,#fbe3ea,#d9a5b3);opacity:.8;pointer-events:none;z-index:4;animation:fall linear forwards}
+  @keyframes fall{to{transform:translate(var(--dx),110vh) rotate(540deg)}}
+  .meadow{position:relative;border-radius:22px;overflow:hidden;margin:0 0 26px;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .meadow img{display:block;width:100%;height:auto;animation:drift 18s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:scale(1.02)}to{transform:scale(1.08) translateX(-1.5%)}}
+  .meadow figcaption{padding:14px 18px;text-align:center;font-family:"El Messiri";font-size:clamp(1.05rem,3vw,1.45rem);color:var(--gold);background:rgba(43,24,48,.6)}
+  .meadow .im{overflow:hidden}
+  .bfly{display:inline-block;margin-inline-start:8px;animation:bf 3s ease-in-out infinite}
+  @keyframes bf{0%,100%{transform:translate(0,0) rotate(-8deg)}50%{transform:translate(-6px,-6px) rotate(8deg)}}
+  @media (prefers-reduced-motion: reduce){#birds,.petal{display:none}.meadow img{animation:none}}
+
+  .ic-btn.amb{display:none}
+  body.about .ic-btn.amb{display:inline-flex}
 </style>
 </head>
 <body>
 
-<canvas id="sky" aria-hidden="true"></canvas>
+<canvas id="sky" aria-hidden="true"></canvas><div id="birds" aria-hidden="true"></div><button class="ic-btn amb" id="amb" aria-pressed="false" aria-label="أصوات الطبيعة">🎧 أجواء</button>
 <div class="glow g1"></div><div class="glow g2"></div>
 
 <header class="top">
@@ -612,6 +635,7 @@ addEventListener("keydown", e => {
 const rise = i => `style="animation-delay:${150 + i * 80}ms"`;
 const meter = (t, v, label) => `<div class="m"><div class="t"><span>${t}</span><b>${label ?? v + "%"}</b></div><div class="tr"><span data-w="${v}"></span></div></div>`;
 
+const PQ={"about":"أتعلّم كل يوم شيئًا… لأُضيف أثرًا جديدًا"};
 function pageHTML(s) {
   let b = "";
   if (s.kpis) b += `<div class="kpis">${s.kpis.map((k, i) => `<div class="kpi rise" ${rise(i)}><b>${k[0]}</b><span>${k[1]}</span></div>`).join("")}</div>`;
@@ -675,14 +699,14 @@ function pageHTML(s) {
       <li>التوسع في قياس أثر المبادرات على الطالبات بمؤشرات رقمية.</li>
       <li>نقل التجربة الرقمية لزميلاتي في المدرسة.</li></ul></div></div>
     <div class="h3">الملف</div>${rows()}`;
-  return `<div class="phead wrap"><div class="ico rise">${svg(s.icon)}</div><h2 class="rise" ${rise(1)}>${s.title}</h2><p class="rise" ${rise(2)}>${s.desc}</p>${s.goal ? `<span class="goal rise" ${rise(3)}>${s.goal}</span>` : ""}</div>
+  return `<div class="phead wrap"><div class="ico rise">${svg(s.icon)}</div><h2 class="rise" ${rise(1)}>${s.title}</h2><p class="rise" ${rise(2)}>${s.desc}</p>${s.goal ? `<span class="goal rise" ${rise(3)}>${s.goal}</span>` : ""}${PQ[s.id] ? `<p class="pquote rise" ${rise(4)}>${PQ[s.id]}</p>` : ""}</div>
           <div class="wrap pbody">${b}</div>`;
 }
 
 function aboutHTML() {
   const skills = [["pen","تصميم الهويات والمواقع"],["camera","التصوير والتوثيق الإعلامي"],["film","المونتاج وصناعة المحتوى المرئي"],["spark","توظيف أدوات الذكاء الاصطناعي"],["code","بناء المواقع والبرمجة"],["chart","إعداد التقارير وتحليل البيانات"]];
   const lines = ["لا أتوقف عند حدود ما أعرفه؛ أتعلّم الأداة، ثم أصنع بها الجمال.","أجرّب، وأُعيد، وأُتقن… حتى يخرج العمل كما أحلم به.","أؤمن أن الإصرار يحوّل الفكرة إلى أثر.","في كل تفصيلة أرى فرصة لإبهارٍ جديد."];
-  return `<div class="kpis"><div class="kpi rise" ${rise(0)}><b><span class="cnt" data-to="12">0</span></b><span>عامًا من الخبرة</span></div>
+  return `<figure class="meadow rise" ${rise(0)}><div class="im"><img src="img/meadow.jpg" alt="لوحة بالألوان المائية: امرأة في حقل زهور تحمل كاميرا"></div></figure><div class="kpis"><div class="kpi rise" ${rise(0)}><b><span class="cnt" data-to="12">0</span></b><span>عامًا من الخبرة</span></div>
       <div class="kpi rise" ${rise(1)}><b>بكالوريوس</b><span>المؤهل الدراسي</span></div>
       <div class="kpi rise" ${rise(2)}><b>∞</b><span>شغف لا ينتهي</span></div></div>
     <div class="h3">عني بكلماتي</div>
@@ -698,7 +722,7 @@ function aboutHTML() {
       ["spark","تجربة أدوات الذكاء الاصطناعي","درّبت نفسي على استخدامها وإضافة مهاراتها خطوة بخطوة، حتى صارت مساعدي في كل عمل."]
     ].map((h, i) => `<div class="hobby rise" ${rise(12 + i)}><span class="si">${svg(h[0])}</span><div><b>${h[1]}</b><p>${h[2]}</p></div></div>`).join("")}</div>
     <p class="line rise" ${rise(17)} style="text-align:center;margin-top:18px;border:0;background:none;font-family:El Messiri;color:var(--gold);font-size:1.25rem">«هوايتي أن أتعلّم… فكل مهارة جديدة بابٌ لأثرٍ جديد.»</p>
-    <div class="h3">شغفٌ مستمر</div>
+    <div class="h3">شغفٌ مستمر<span class="bfly" aria-hidden="true">🦋</span></div>
     <p class="rise" ${rise(18)} style="color:var(--muted);margin:-4px 0 16px">أعمال صنعتها بشغف خارج مهامي اليومية، لمدارس وجهات أخرى.</p>
     <div class="pgal">${[
       ["img/passion/tamayuz.jpg","إذاعة مدرسة التميز","إذاعة مدرسية متكاملة بلمسة إبداعية وتقنيات الذكاء الاصطناعي: مونتاج، ومذيعة بصوت مولّد، ومقطع توعوي كرتوني متحرك."],
@@ -869,6 +893,55 @@ setTimeout(init, 1500);
 })();
 
 route();
+</script>
+<script>
+/* ===== عصافير وبتلات وأصوات طبيعة ===== */
+(function(){
+  const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const box = document.getElementById("birds");
+  const B = '<svg viewBox="0 0 26 12"><path d="M1 3 Q7 0 13 8 Q19 0 25 3"/></svg>';
+  function flock(){
+    if (RM || document.hidden || location.hash!=="#about") return;
+    const n = 3 + Math.floor(Math.random()*3), top = 8 + Math.random()*30, dur = 16 + Math.random()*8;
+    for (let i=0;i<n;i++){ const b=document.createElement("div"); b.className="bird"; b.innerHTML=B;
+      b.style.top=(top+Math.random()*6)+"vh"; b.style.setProperty("--dy",(-8+Math.random()*16)+"vh");
+      b.style.animationDuration=dur+"s"; b.style.animationDelay=(i*.35)+"s"; const sc=.7+Math.random()*.5; b.style.width=26*sc+"px"; b.style.height=12*sc+"px";
+      box.appendChild(b); setTimeout(()=>b.remove(),(dur+3)*1000); }
+  }
+  setInterval(flock,12000);
+  function petals(){
+    if (RM || location.hash!=="#about") return;
+    const p=document.createElement("div"); p.className="petal"; p.style.left=Math.random()*100+"vw";
+    p.style.setProperty("--dx",(Math.random()*30-15)+"vw"); const d=9+Math.random()*7; p.style.animationDuration=d+"s";
+    document.body.appendChild(p); setTimeout(()=>p.remove(),d*1000+200);
+  }
+  setInterval(petals,900);
+  /* أصوات طبيعة مولّدة في المتصفح: نسمة هادئة وزقزقة متفرقة (لا تعمل إلا بالضغط) */
+  let ctx=null, on=false, timer=null, wind=null, master=null;
+  const btn=document.getElementById("amb");
+  function chirp(){
+    if(!on) return; const t=ctx.currentTime, n=2+Math.floor(Math.random()*4), base=2600+Math.random()*1800;
+    for(let i=0;i<n;i++){ const o=ctx.createOscillator(), g=ctx.createGain(), st=t+i*(.09+Math.random()*.05);
+      o.type="sine"; o.frequency.setValueAtTime(base*(1+Math.random()*.15),st); o.frequency.exponentialRampToValueAtTime(base*(1.35+Math.random()*.3),st+.06);
+      g.gain.setValueAtTime(0,st); g.gain.linearRampToValueAtTime(.05+Math.random()*.04,st+.01); g.gain.exponentialRampToValueAtTime(.0001,st+.09);
+      const pan=ctx.createStereoPanner?ctx.createStereoPanner():null; if(pan){pan.pan.value=Math.random()*1.6-.8; o.connect(g).connect(pan).connect(master);} else o.connect(g).connect(master);
+      o.start(st); o.stop(st+.12); }
+    timer=setTimeout(chirp,900+Math.random()*3200);
+  }
+  function start(){
+    ctx=ctx||new (window.AudioContext||window.webkitAudioContext)(); ctx.resume();
+    master=ctx.createGain(); master.gain.value=0; master.connect(ctx.destination); master.gain.linearRampToValueAtTime(1,ctx.currentTime+1.5);
+    const len=ctx.sampleRate*4, buf=ctx.createBuffer(1,len,ctx.sampleRate), d=buf.getChannelData(0); let last=0;
+    for(let i=0;i<len;i++){ last=(last+.02*(Math.random()*2-1))/1.02; d[i]=last*3.5; }
+    wind=ctx.createBufferSource(); wind.buffer=buf; wind.loop=true; const f=ctx.createBiquadFilter(); f.type="lowpass"; f.frequency.value=500;
+    const wg=ctx.createGain(); wg.gain.value=.35; const lfo=ctx.createOscillator(), lg=ctx.createGain(); lfo.frequency.value=.08; lg.gain.value=.2; lfo.connect(lg).connect(wg.gain); lfo.start();
+    wind.connect(f).connect(wg).connect(master); wind.start(); chirp();
+  }
+  function stop(){ clearTimeout(timer); if(master){ const m=master; m.gain.linearRampToValueAtTime(0,ctx.currentTime+.8); setTimeout(()=>{try{wind.stop()}catch(e){} m.disconnect()},900);} }
+  const sync=()=>{ const inA=location.hash==="#about"; document.body.classList.toggle("about",inA); if(!inA&&on){ on=false; btn.classList.remove("on"); btn.setAttribute("aria-pressed",false); btn.textContent="🎧 أجواء"; stop(); } if(inA) setTimeout(flock,1200); };
+  addEventListener("hashchange",sync); sync();
+  btn.onclick=()=>{ on=!on; btn.classList.toggle("on",on); btn.setAttribute("aria-pressed",on); btn.textContent=on?"🎧 إيقاف الأجواء":"🎧 أجواء"; on?start():stop(); };
+})();
 </script>
 </body>
 </html>
