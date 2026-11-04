@@ -147,6 +147,15 @@
   .skill:hover{transform:translateY(-4px);border-color:rgba(216,189,138,.55);box-shadow:0 0 24px rgba(216,189,138,.15)}
   .si{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),#e6cfa5);color:var(--plum)}
   .si svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .comp{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media (max-width:760px){.comp{grid-template-columns:1fr}}
+  .cc{border:1px solid var(--line);background:var(--glass);border-radius:20px;padding:18px 20px;position:relative}
+  .cc .w{position:absolute;left:18px;top:16px;font-size:13px;color:var(--muted)}
+  .cc h4{font-family:"El Messiri";font-size:1.2rem;color:var(--gold);margin-bottom:2px}
+  .cc .lv{display:flex;gap:5px;margin:6px 0 8px}.cc .lv i{width:22px;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--gold),#f3e2bd)}
+  .cc p{color:var(--muted);font-size:.95rem;line-height:1.8}
+  .sw{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:760px){.sw{grid-template-columns:1fr}}
+  .sw .box h4{font-family:"El Messiri";color:var(--gold);margin-bottom:8px}.sw .box li{margin:6px 0;color:var(--cream)}.sw .box ul{padding-right:18px}
   .hobby{display:flex;gap:16px;align-items:center;border:1px solid rgba(216,189,138,.4);background:var(--glass);border-radius:22px;padding:20px}
   .hobby .si{width:56px;height:56px;background:linear-gradient(135deg,var(--rose),var(--mauve));color:#fff;animation:beatS 1.8s ease-in-out infinite}
   @keyframes beatS{0%,100%{transform:scale(1)}20%{transform:scale(1.1)}40%{transform:scale(.97)}}
@@ -364,7 +373,7 @@ const SECTIONS = [
   { id:"about", icon:"user", bg:"linear-gradient(150deg,#f3e2bd,#d8bd8a)", fg:"#2b1830", title:"نبذة عني", sub:"12 عامًا من العطاء",
     desc:"أتعلّم الأداة، ثم أصنع بها الجمال.", custom:"about"},
   { id:"goals", icon:"target", bg:"linear-gradient(150deg,#d8bd8a,#b39660)", fg:"#2b1830", title:"الأهداف", sub:"5 أهداف بأوزانها",
-    desc:"أهداف الأداء الوظيفي لعام 2026 ونسبة تحقق كل هدف.", custom:"goals",
+    desc:"أهداف الأداء الوظيفي لعام 2026: المنجز من المستهدف في كل هدف، والجدارات، ونقاط القوة.", custom:"goals",
     rows:[{icon:"doc", bg:"#a88a55", title:"ملف الأهداف 2026", desc:"أهداف الأداء الوظيفي والأوزان النسبية لكل هدف.", link:D+"1YlEwNcPSfCiaEdTpVrVzb-5THHgezUEW/view"}]},
   { id:"media", icon:"camera", bg:"linear-gradient(150deg,#9b6b93,#5a3457)", fg:"#fff", title:"الإعلام", sub:"14 تقريرًا · المستهدف 6",
     desc:"تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.", goal:"الهدف الأول · الوزن 30% · 14 تقريرًا من 6 مستهدفة",
@@ -401,11 +410,12 @@ const SECTIONS = [
       {icon:"moon",  bg:"#5a3457", title:"الانضباط خلال شهر رمضان المبارك", desc:"تحليل مفصل لنسب الحضور والغياب من 6 إلى 16 رمضان 1447هـ.", link:D+"17fzMnUCt-SgT-Oj5Nu9nlsAxFZuBuaQ9/view"},
       {icon:"image", bg:"#a88a55", title:"الانضباط خلال شهر رمضان (إنفوجرافيك)", desc:"ملخص بصري لنتائج الانضباط في رمضان.", link:D+"1oORJrOp5rZbxDhws5Nh_1Yb3TuutStGF/view"},
     ]},
-  { id:"qiyas", icon:"chart", bg:"linear-gradient(150deg,#9b6b93,#4a2c50)", fg:"#fff", title:"قياس اتجاه المتعلمين", sub:"من النماذج إلى المنصة",
-    desc:"عامان على نماذج تجمع الردود، وعام على منصة تقرأ الرأي وتحوّله إلى عمل.", goal:"الهدف الثالث · الوزن 20% · تقريران من تقريرين", custom:"qiyas",
+  { id:"qiyas", icon:"chart", bg:"linear-gradient(150deg,#9b6b93,#4a2c50)", fg:"#fff", title:"قياس اتجاه المتعلمين", sub:"3 تقارير · المستهدف 2",
+    desc:"عامان على نماذج تجمع الردود، وعام على منصة تقرأ الرأي وتحوّله إلى عمل.", goal:"الهدف الثالث · الوزن 20% · 3 تقارير من تقريرين", custom:"qiyas",
     rows:[
       {icon:"doc",   bg:"#9b6b93", title:"من النماذج إلى المنصة 1448هـ", desc:"تطوّر قياس اتجاه المتعلمين عبر 1446 و1447 و1448هـ.", link:D+"1sRBECdwJlwqp5pbZZhBoawRmF4MePnQ4/view"},
       {icon:"heart", bg:"#b07a93", title:"قياس الرضا: ماذا فعلنا لأجلكم؟ 1448هـ", desc:"نتائج القياس وما نُفّذ بناءً عليها: 11 بندًا منفذًا استجابة لآراء أولياء الأمور.", link:D+"1PrU8BrCY5xZlQd80yGJyKaNPT20ep-cU/view"},
+      {icon:"chart", bg:"#7d4f78", title:"تقرير نتائج قياس اتجاه المتعلمين 1447هـ", desc:"الصفوف من الأول إلى السادس · 291 طالبة · نسبة استجابة 96% · مؤشر الاتجاه الإيجابي 81%، مع المقارنة بين الصفوف ومقترحات أولياء الأمور.", link:D+"1dChIOL23eJamRkR-d0CYyoW77yu-s_uA/view"},
     ]},
   { id:"initiatives", icon:"spark", bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", fg:"#fff", title:"المبادرات", sub:"5 مبادرات",
     desc:"مبادرات أطلقتها لرفع جودة العمل ونواتج التعلم وخدمة المستفيدين في المدرسة.", custom:"initiatives",
@@ -444,7 +454,7 @@ const SECTIONS = [
 const GOALS = [
   ["جودة وانتظام العمل الإعلامي المدرسي",30,14,6,"media"],
   ["تنظيم وتطوير روابط خدمة المستفيد",20,5,1,"service"],
-  ["قياس اتجاه المتعلمين",20,2,2,"qiyas"],
+  ["قياس اتجاه المتعلمين",20,3,2,"qiyas"],
   ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,2,1,"self"],
   ["تقرير أسبوعي بالأعمال المنفذة",15,21,20,"reports"],
 ];
@@ -637,6 +647,19 @@ function pageHTML(s) {
   if (s.custom === "about") b += aboutHTML();
   if (s.custom === "goals") b += `<div class="box rise">${GOALS.map(g => { const p = Math.round(Math.min(1, g[2] / g[3]) * 100);
       return `<a href="#${g[4]}" style="display:block">${meter(`${g[0]} <small style="color:var(--muted)">· الوزن ${ar(g[1])}%</small>`, Math.max(p, 2), ar(g[2]) + " / " + ar(g[3]))}</a>`; }).join("")}</div>
+    <div class="h3">الجدارات</div>
+    <div class="comp">${[["المسؤولية",20,"تحمّل المسؤولية الفردية لتحقيق الأهداف بالجودة المطلوبة وفي الوقت المحدد: 21 تقريرًا أسبوعيًا دون انقطاع، وتقرير توثيق يومي لكل يوم دراسة عن بُعد."],["العمل الجماعي",25,"العمل بروح الفريق مع الإدارة والمعلمات والإداريات: توثيق حصص 18 معلمة في يوم واحد، والتنسيق مع الموجّهة الطلابية وأولياء الأمور."],["المرونة للتغيير",30,"التكيّف مع تحويل الدراسة إلى عن بُعد خلال يوم واحد، ونقل القياس والخطط من الورق إلى منصات رقمية."],["المبادرة",25,"مهام إضافية دون طلب: 5 مبادرات نوعية، ومنصات إلكترونية لخدمة المستفيدين، وورشة NotebookLM للموظفات."]].map((c, i) => `<div class="cc rise" ${rise(i)}><span class="w">الوزن ${c[1]}%</span><h4>${c[0]}</h4><div class="lv">${"<i></i>".repeat(5)}</div><p>${c[2]}</p></div>`).join("")}</div>
+    <div class="h3">نقاط القوة ومجالات التطوير</div>
+    <div class="sw"><div class="box rise" ${rise(4)}><h4>نقاط القوة</h4><ul>
+      <li>توظيف التقنية والذكاء الاصطناعي في العمل الإداري.</li>
+      <li>بناء منصات إلكترونية لخدمة المستفيدين وقياس اتجاه المتعلمين.</li>
+      <li>نقل التقويم الذاتي وخطط المدرسة من الورق إلى منصات رقمية.</li>
+      <li>الانتظام في التوثيق الإعلامي والتقارير اليومية والأسبوعية.</li>
+      <li>المرونة والإنجاز أثناء الدراسة عن بُعد، والعمل بروح الفريق.</li></ul></div>
+    <div class="box rise" ${rise(5)}><h4>مجالات التطوير</h4><ul>
+      <li>مواصلة التطوير المهني في التحول الرقمي وتحليل البيانات.</li>
+      <li>التوسع في قياس أثر المبادرات على الطالبات بمؤشرات رقمية.</li>
+      <li>نقل التجربة الرقمية لزميلاتي في المدرسة.</li></ul></div></div>
     <div class="h3">الملف</div>${rows()}`;
   return `<div class="phead wrap"><div class="ico rise">${svg(s.icon)}</div><h2 class="rise" ${rise(1)}>${s.title}</h2><p class="rise" ${rise(2)}>${s.desc}</p>${s.goal ? `<span class="goal rise" ${rise(3)}>${s.goal}</span>` : ""}</div>
           <div class="wrap pbody">${b}</div>`;
@@ -708,10 +731,10 @@ document.addEventListener("pointerdown", e => { if (e.target.closest(".ic-btn,.i
 const home = $("#home");
 const CH = [
   ["نبذة عني","12 عامًا من العطاء، وبكالوريوس، وشغفٌ بالتصميم لا ينتهي. أتعلّم الأداة، ثم أصنع بها الجمال.",["12 عامًا","بكالوريوس","حب التصميم"],"about"],
-  ["الأهداف","خمسة أهداف للأداء الوظيفي لعام 2026، لكل هدف وزنه ومستهدفه.",["5 أهداف","فترة التقييم 2026"],"goals"],
+  ["الأهداف","خمسة أهداف للأداء الوظيفي لعام 2026، لكل هدف وزنه ومستهدفه.",["5 أهداف","كلها متحققة"],"goals"],
   ["الإعلام","تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.",["14 تقريرًا","المستهدف 6"],"media"],
   ["خدمة مستفيدين","قلتم فسمعنا، وسمعنا فعملنا، وعملنا فأخبرناكم.",["5 روابط","المستهدف 1"],"service"],
-  ["قياس اتجاه المتعلمين","من النماذج إلى المنصة: عامان على نماذج، وعام على منصة تحوّل الرأي إلى عمل.",["1446","1447","1448"],"qiyas"],
+  ["قياس اتجاه المتعلمين","من النماذج إلى المنصة: عامان على نماذج، وعام على منصة تحوّل الرأي إلى عمل.",["3 تقارير","المستهدف 2"],"qiyas"],
   ["المبادرات","ورشة NotebookLM، والحساب الذهني، والتحول الرقمي، ومن الفكرة إلى الأثر، وبفكرٍ واعٍ… لوطنٍ آمن.",["5 مبادرات","+48.3 و+10 نقاط"],"initiatives"],
   ["التقارير","تقرير كل أسبوع بالأعمال المنفذة وأهميتها، من مارس إلى سبتمبر 2026.",["21 / 20","فوق المستهدف"],"reports"],
   ["التقويم الذاتي","التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات بدل الورق.",["3 منصات","مكتمل"],"self"],
