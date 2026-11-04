@@ -156,6 +156,7 @@
   .cc p{color:var(--muted);font-size:.95rem;line-height:1.8}
   .sw{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:760px){.sw{grid-template-columns:1fr}}
   .sw .box h4{font-family:"El Messiri";color:var(--gold);margin-bottom:8px}.sw .box li{margin:6px 0;color:var(--cream)}.sw .box ul{padding-right:18px}
+  .hobbies{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:760px){.hobbies{grid-template-columns:1fr}}
   .hobby{display:flex;gap:16px;align-items:center;border:1px solid rgba(216,189,138,.4);background:var(--glass);border-radius:22px;padding:20px}
   .hobby .si{width:56px;height:56px;background:linear-gradient(135deg,var(--rose),var(--mauve));color:#fff;animation:beatS 1.8s ease-in-out infinite}
   @keyframes beatS{0%,100%{transform:scale(1)}20%{transform:scale(1.1)}40%{transform:scale(.97)}}
@@ -675,8 +676,15 @@ function aboutHTML() {
     <div class="lines">${lines.map((l, i) => `<p class="line rise" ${rise(i + 3)}>${l}</p>`).join("")}</div>
     <div class="h3">مهاراتي</div>
     <div class="skills">${skills.map((k, i) => `<div class="skill rise" ${rise(i + 6)}><span class="si">${svg(k[0])}</span>${k[1]}</div>`).join("")}</div>
-    <div class="h3">هوايتي</div>
-    <div class="hobby rise" ${rise(12)}><span class="si">${svg("heart")}</span><div><b>حب التصميم</b><p>أستمتع بتحويل الأفكار إلى تصاميم ومواقع جميلة، وأتعلّم كل يوم أداة جديدة.</p></div></div>`;
+    <div class="h3">هواياتي</div>
+    <div class="hobbies">${[
+      ["book","أعلّم نفسي","لم أنتظر دورة تعلّمني؛ أبحث، وأجرّب، وأخطئ، وأعيد، حتى أفهم. وهكذا تعلّمت كل ما أعمل به اليوم."],
+      ["pen","التصميم","أحب أن أرى الفكرة تأخذ شكلها؛ لونًا، وخطًا، وترتيبًا يريح العين قبل أن يُقرأ."],
+      ["film","صناعة المقاطع","أجمع اللقطات الصغيرة من يوم المدرسة، فأصنع منها قصة تُبقي اللحظة حيّة."],
+      ["code","بناء المواقع","أبدأ بفكرة في رأسي، وأنتهي برابط يفتحه الجميع… وفي كل مرة أدهش نفسي قبل غيري."],
+      ["spark","تجربة أدوات الذكاء الاصطناعي","درّبت نفسي على استخدامها وإضافة مهاراتها خطوة بخطوة، حتى صارت مساعدي في كل عمل."]
+    ].map((h, i) => `<div class="hobby rise" ${rise(12 + i)}><span class="si">${svg(h[0])}</span><div><b>${h[1]}</b><p>${h[2]}</p></div></div>`).join("")}</div>
+    <p class="line rise" ${rise(17)} style="text-align:center;margin-top:18px;border:0;background:none;font-family:El Messiri;color:var(--gold);font-size:1.25rem">«هوايتي أن أتعلّم… فكل مهارة جديدة بابٌ لأثرٍ جديد.»</p>`;
 }
 
 function openSection(id) { if (location.hash !== "#" + id) location.hash = id; }
