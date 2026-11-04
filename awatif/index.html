@@ -165,7 +165,8 @@
   .pg:hover img{transform:scale(1.06)}
   .pg b{font-family:"El Messiri";color:var(--gold);font-size:1.12rem;padding:12px 16px 2px}
   .pg small{color:var(--muted);font-size:.92rem;line-height:1.75;padding:0 16px 16px}
-  .pg.game .ph{display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#9b6b93,#2b1830 70%)}
+  .pg.game .ph{position:relative}
+  .pg .dev{position:absolute;top:10px;right:10px;font-style:normal;font-size:12px;font-weight:700;background:rgba(43,24,48,.85);color:#f3d9a4;padding:3px 10px;border-radius:99px;border:1px solid rgba(243,217,164,.5)}
   .pg .gm{font-size:64px;filter:drop-shadow(0 10px 20px rgba(0,0,0,.4));animation:float 4s ease-in-out infinite}
   @keyframes float{50%{transform:translateY(-8px) rotate(4deg)}}
   .hobbies{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:760px){.hobbies{grid-template-columns:1fr}}
@@ -706,7 +707,7 @@ function aboutHTML() {
       ["img/passion/portfolio.jpg","«إنجازي يحكي»","ملف إنجاز إلكتروني لطالبات الصف الرابع: 8 طالبات، و10 معلمات، و10 مواد، و91 مشروعًا."],
       ["img/passion/guide.jpg","دليل «من الفكرة إلى الأثر»","طريقتي في بناء تطبيقاتي بلا خبرة برمجية سابقة، أُرسل لإدارة تعليم جدة."]
     ].map((g, i) => `<a class="pg rise" ${rise(19 + i)} href="${g[0]}" target="_blank" rel="noopener"><span class="ph"><img src="${g[0]}" alt="${g[1]}" loading="lazy"></span><b>${g[1]}</b><small>${g[2]}</small></a>`).join("")}
-      <div class="pg game rise" ${rise(24)}><span class="ph"><span class="gm">🎮</span></span><b>لعبة «عجاج» على Roblox</b><small>بنيت الماب من الصفر، وكتبت أكوادها بمساعدة Claude Code؛ قصة وألغاز يحلّها اللاعب.</small></div>
+      <a class="pg game rise" ${rise(24)} href="img/passion/ajaj.jpg" target="_blank" rel="noopener"><span class="ph"><img src="img/passion/ajaj.jpg" alt="لعبة عجاج" loading="lazy"><em class="dev">قيد التطوير</em></span><b>لعبة «عجاج» على Roblox</b><small>بنيت الماب من الصفر، وكتبت أكوادها بمساعدة Claude Code؛ قصة وألغاز يحلّها اللاعب. ما زالت في مرحلة التعديل والتجربة قبل النشر.</small></a>
     </div>`;
 }
 
