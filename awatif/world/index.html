@@ -82,12 +82,16 @@
   .pol{position:fixed;z-index:2;width:46px;padding:4px 4px 12px;background:#fbf6e9;box-shadow:0 6px 12px rgba(0,0,0,.35);pointer-events:none;animation:pdrop linear forwards}
   .pol img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
   @keyframes pdrop{0%{opacity:1;transform:translate(0,0) rotate(0)}70%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(1)}}
-  .flash{position:fixed;z-index:6;width:70px;height:70px;margin:-35px 0 0 -35px;pointer-events:none;animation:flash .9s ease-out forwards}
+  .flash{position:fixed;z-index:6;width:56px;height:56px;margin:-28px 0 0 -28px;pointer-events:none;animation:flash .9s ease-out forwards}
   .flash svg{width:100%;height:100%;fill:#fff3c2;filter:drop-shadow(0 0 10px #ffe9a0) drop-shadow(0 0 22px #e8c46a)}
   .flash::before{content:"";position:absolute;inset:-60%;border-radius:50%;background:radial-gradient(circle,rgba(255,246,210,.85),rgba(255,236,170,0) 65%)}
   @keyframes flash{0%{opacity:0;transform:scale(.1) rotate(0)}18%{opacity:1;transform:scale(1.15) rotate(25deg)}100%{opacity:0;transform:scale(.4) rotate(70deg)}}
   .pol{animation-name:pout,pdrop;animation-timing-function:ease-out,linear;animation-fill-mode:both,forwards}
-  @keyframes pout{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+  @keyframes pout{from{transform:scale(.08);opacity:.2}to{transform:scale(1);opacity:1}}
+  .flash.in-swing{position:absolute;left:11.9%;top:80.2%;z-index:5}
+  .pol.emerge{position:absolute;left:11.9%;top:80.2%;margin:-26px 0 0 -23px;transform-origin:50% 50%;animation:pout .9s ease-out forwards;z-index:4}
+  .swing .pol img{position:static;inset:auto;width:100%;height:auto;aspect-ratio:1;object-fit:cover;filter:none}
+  .pol.fly{position:fixed;animation-name:pdrop;animation-timing-function:linear;animation-fill-mode:forwards}
   /* أوراق الخريف تتساقط */
   .leaf{position:fixed;top:-60px;z-index:1;pointer-events:none;animation:fall linear forwards}
   .leaf img{width:100%;display:block;animation:spinL 4s ease-in-out infinite alternate}
@@ -117,7 +121,7 @@
   <div class="title"><h1>فاستمرّ… <span>فاستمرّ</span></h1><p>خلف العمل… قلبٌ يحب أن يتعلّم</p></div>
   <div class="dove"><img src="img2/dove.webp" alt=""></div>
   <img class="school" src="img2/school.webp" alt="مدرسة 165B">
-  <div class="swing" id="swing"><img src="img2/swing-open.webp" alt="لوحة مائية: TOFA على مرجيحة معلّقة من الهلال"><img class="eyes" id="eyes" src="img2/swing-closed.webp" alt=""></div>
+  <div class="swing" id="swing"><img src="img2/swing-open.webp" alt="لوحة مائية: TOFA على مرجيحة معلّقة من الهلال"><img class="eyes" id="eyes" src="img2/swing-closed.webp" alt=""><i id="lens" style="position:absolute;left:11.9%;top:80.2%;width:2px;height:2px;margin:-1px"></i></div>
   <div class="cue">↓ انزل لترى عالمي</div>
 </header>
 
@@ -155,11 +159,13 @@
   const STAR='<svg viewBox="0 0 24 24"><path d="M12 0c.6 5.6 2.4 9.8 12 12-9.6 2.2-11.4 6.4-12 12-.6-5.6-2.4-9.8-12-12C9.6 9.8 11.4 5.6 12 0z"/></svg>';
   let wi=0;
   function shot(){ if(RM||document.hidden) return; const r=sw.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight) return;
-    const x=r.left+r.width*.13, y=r.top+r.height*.74;
-    const f=document.createElement('div'); f.className='flash'; f.style.left=x+'px'; f.style.top=y+'px'; f.innerHTML=STAR; document.body.appendChild(f); setTimeout(()=>f.remove(),950);
-    setTimeout(()=>{ const w=works[wi++%works.length][0]; const d=document.createElement('div'); d.className='pol'; const t=8+Math.random()*3;
-      d.style.cssText=`left:${x-23}px;top:${y+10}px;animation-duration:.9s,${t}s;animation-delay:0s,.6s;--dx:${-(60+Math.random()*220)}px;--dy:${280+Math.random()*220}px;--r:${Math.random()*50-25}deg`;
-      d.innerHTML=`<img src="img2/${w}.jpg" alt="">`; document.body.appendChild(d); setTimeout(()=>d.remove(),(t+1)*1000); },380);
+    const f=document.createElement('div'); f.className='flash in-swing'; f.innerHTML=STAR; sw.appendChild(f); setTimeout(()=>f.remove(),950);
+    setTimeout(()=>{ const w=works[wi++%works.length][0]; const d=document.createElement('div'); d.className='pol emerge';
+      d.innerHTML=`<img src="img2/${w}.jpg" alt="">`; sw.appendChild(d);
+      setTimeout(()=>{ const q=d.getBoundingClientRect(); d.remove(); const t=8+Math.random()*3; const e=document.createElement('div'); e.className='pol fly';
+        e.style.cssText=`left:${q.left}px;top:${q.top}px;animation-duration:${t}s;--dx:${-(60+Math.random()*220)}px;--dy:${280+Math.random()*220}px;--r:${Math.random()*50-25}deg`;
+        e.innerHTML=`<img src="img2/${w}.jpg" alt="">`; document.body.appendChild(e); setTimeout(()=>e.remove(),t*1000+200); },900);
+    },300);
   }
   setTimeout(shot,2600); setInterval(shot,5200);
   /* الأنشودة */
@@ -169,7 +175,7 @@
   function play(){ au.play().then(ui).catch(()=>ui()); }
   au.addEventListener('play',ui); au.addEventListener('pause',ui);
   play();
-  const first=()=>{ if(wanted && au.paused) play(); removeEventListener('pointerdown',first,true); removeEventListener('keydown',first,true); };
+  const first=(e)=>{ if(e && e.target && e.target.closest && e.target.closest('#snd')) return; if(wanted && au.paused) play(); removeEventListener('pointerdown',first,true); removeEventListener('keydown',first,true); };
   addEventListener('pointerdown',first,true); addEventListener('keydown',first,true);
   sb.addEventListener('click',e=>{ e.stopPropagation(); if(au.paused){wanted=true;play();} else {wanted=false;au.pause();} });
   const eyes=document.getElementById('eyes');
