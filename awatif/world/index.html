@@ -71,8 +71,8 @@
   .fr:nth-child(odd){animation-delay:-2.5s}.fr:nth-child(3n){animation-duration:6s}
   @keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
   .fbox{position:relative}
-  .fbox .ph{position:absolute;left:10.4%;right:10.3%;top:44.8%;bottom:9%;overflow:hidden;background:#e9e0cc}
-  .fbox .ph img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+  .fbox .ph{position:absolute;left:11.6%;right:11.4%;top:46.4%;bottom:10.6%;overflow:hidden;background:#f7f0e0;padding:3%}
+  .fbox .ph img{width:100%;height:100%;object-fit:contain;display:block}
   .fbox .frm{position:relative;width:100%;display:block;pointer-events:none;filter:drop-shadow(0 16px 20px rgba(20,10,30,.45))}
   .fr b{display:block;text-align:center;font-family:"El Messiri";font-size:1.12rem;color:var(--gold);margin-top:2px}
   .fr small{display:block;text-align:center;color:#e6d8e2;font-size:.9rem;padding:0 10px}
@@ -142,7 +142,7 @@
 </main>
 <script>
 (function(){
-  const works=[["tamayuz","إذاعة مدرسة التميز","مونتاج، ومذيعة بصوت مولّد، ومقطع توعوي كرتوني."],["principal-day","اليوم العالمي للمدير","فيديو إهداء بأسلوب القصاصات الورقية المتحركة."],["teacher-day","يوم المعلم العالمي","تكريم 28 معلمة على أنشودة يوم المعلم."],["nahrawan","منصة خطة التحسين","منصة رقمية لخطة التحسين 1448هـ."],["portfolio","«إنجازي يحكي»","8 طالبات، و10 معلمات، و91 مشروعًا."],["guide","«من الفكرة إلى الأثر»","دليل بناء تطبيق بلا خبرة برمجية."],["ajaj","لعبة «عجاج» على Roblox","ماب وقصة وألغاز بنيتها من الصفر.",1]];
+  const works=[["tamayuz","إذاعة مدرسة التميز","مونتاج، ومذيعة بصوت مولّد، ومقطع توعوي كرتوني."],["principal-day","اليوم العالمي للمدير","فيديو إهداء بأسلوب القصاصات الورقية المتحركة."],["teacher-day","يوم المعلم العالمي","تكريم 28 معلمة على أنشودة يوم المعلم."],["nahrawan","منصة خطة التحسين","منصة رقمية لخطة التحسين 1448هـ."],["portfolio","«إنجازي يحكي»","8 طالبات، و10 معلمات، و91 مشروعًا."],["guide","«من الفكرة إلى الأثر»","دليل بناء تطبيق بلا خبرة برمجية."],["bebras","نهر القندس","ألغاز تفكير بنفس أنواع أسئلة بيبراس، لعب فردي أو أونلاين مع الأصدقاء."],["mawhiba","أبطال موهبة","مقياس موهبة في صورة لعبة: 4 مبانٍ وزومبي يتحدّى كل طالب."],["ajaj","لعبة «عجاج» على Roblox","ماب وقصة وألغاز بنيتها من الصفر.",1]];
   document.getElementById('gal').innerHTML=works.map(w=>`<a class="fr" href="img2/${w[0]}.jpg" target="_blank" rel="noopener"><div class="fbox"><div class="ph"><img src="img2/${w[0]}.jpg" alt="${w[1]}" loading="lazy"></div><img class="frm" src="img2/frame.webp" alt="">${w[3]?'<span class="dev">قيد التطوير</span>':''}</div><b>${w[1]}</b><small>${w[2]}</small></a>`).join('');
   const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const tw=document.getElementById('twinkles');
