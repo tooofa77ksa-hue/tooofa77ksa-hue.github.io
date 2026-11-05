@@ -81,7 +81,13 @@
   .end small{display:block;font-family:"El Messiri";font-size:1rem;color:var(--gold);margin-top:6px}
   .pol{position:fixed;z-index:2;width:46px;padding:4px 4px 12px;background:#fbf6e9;box-shadow:0 6px 12px rgba(0,0,0,.35);pointer-events:none;animation:pdrop linear forwards}
   .pol img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
-  @keyframes pdrop{0%{opacity:0;transform:translate(0,0) rotate(0) scale(.4)}8%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(1)}}
+  @keyframes pdrop{0%{opacity:1;transform:translate(0,0) rotate(0)}70%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(1)}}
+  .flash{position:fixed;z-index:6;width:70px;height:70px;margin:-35px 0 0 -35px;pointer-events:none;animation:flash .9s ease-out forwards}
+  .flash svg{width:100%;height:100%;fill:#fff3c2;filter:drop-shadow(0 0 10px #ffe9a0) drop-shadow(0 0 22px #e8c46a)}
+  .flash::before{content:"";position:absolute;inset:-60%;border-radius:50%;background:radial-gradient(circle,rgba(255,246,210,.85),rgba(255,236,170,0) 65%)}
+  @keyframes flash{0%{opacity:0;transform:scale(.1) rotate(0)}18%{opacity:1;transform:scale(1.15) rotate(25deg)}100%{opacity:0;transform:scale(.4) rotate(70deg)}}
+  .pol{animation-name:pout,pdrop;animation-timing-function:ease-out,linear;animation-fill-mode:both,forwards}
+  @keyframes pout{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
   /* أوراق الخريف تتساقط */
   .leaf{position:fixed;top:-60px;z-index:1;pointer-events:none;animation:fall linear forwards}
   .leaf img{width:100%;display:block;animation:spinL 4s ease-in-out infinite alternate}
@@ -146,12 +152,16 @@
     d.innerHTML=`<img src="img2/leaf${Math.floor(Math.random()*6)}.webp" alt="" style="animation-duration:${2+Math.random()*3}s">`;document.body.appendChild(d);setTimeout(()=>d.remove(),t*1000+300);}
   /* صور أعمالي تطير من الكاميرا */
   const sw=document.getElementById('swing');
-  function pol(){ if(RM||document.hidden) return; const r=sw.getBoundingClientRect(); if(r.bottom<0) return;
-    const x=r.left+r.width*.12, y=r.top+r.height*.72; const w=works[Math.floor(Math.random()*works.length)][0];
-    const d=document.createElement('div'); d.className='pol'; const t=7+Math.random()*4;
-    d.style.cssText=`left:${x}px;top:${y}px;animation-duration:${t}s;--dx:${-(80+Math.random()*260)}px;--dy:${260+Math.random()*240}px;--r:${Math.random()*60-30}deg`;
-    d.innerHTML=`<img src="img2/${w}.jpg" alt="">`; document.body.appendChild(d); setTimeout(()=>d.remove(),t*1000+200); }
-  setTimeout(pol,2500); setInterval(pol,4200);
+  const STAR='<svg viewBox="0 0 24 24"><path d="M12 0c.6 5.6 2.4 9.8 12 12-9.6 2.2-11.4 6.4-12 12-.6-5.6-2.4-9.8-12-12C9.6 9.8 11.4 5.6 12 0z"/></svg>';
+  let wi=0;
+  function shot(){ if(RM||document.hidden) return; const r=sw.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight) return;
+    const x=r.left+r.width*.13, y=r.top+r.height*.74;
+    const f=document.createElement('div'); f.className='flash'; f.style.left=x+'px'; f.style.top=y+'px'; f.innerHTML=STAR; document.body.appendChild(f); setTimeout(()=>f.remove(),950);
+    setTimeout(()=>{ const w=works[wi++%works.length][0]; const d=document.createElement('div'); d.className='pol'; const t=8+Math.random()*3;
+      d.style.cssText=`left:${x-23}px;top:${y+10}px;animation-duration:.9s,${t}s;animation-delay:0s,.6s;--dx:${-(60+Math.random()*220)}px;--dy:${280+Math.random()*220}px;--r:${Math.random()*50-25}deg`;
+      d.innerHTML=`<img src="img2/${w}.jpg" alt="">`; document.body.appendChild(d); setTimeout(()=>d.remove(),(t+1)*1000); },380);
+  }
+  setTimeout(shot,2600); setInterval(shot,5200);
   /* الأنشودة */
   const au=document.getElementById('nash'), sb=document.getElementById('snd'), st=document.getElementById('sndt'), eq=document.getElementById('eq');
   au.volume=.9; let wanted=true;
