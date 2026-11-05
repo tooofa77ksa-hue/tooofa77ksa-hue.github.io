@@ -330,6 +330,14 @@
   .ic-btn,.back{background:rgba(43,24,48,.72)!important}
   body.scrolled .top{background:linear-gradient(rgba(43,24,48,.97),rgba(43,24,48,.9) 70%,transparent)}
   .card:not(.on){opacity:.92}
+  .i3{width:auto;height:112px;max-width:72%;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(20,10,30,.35));animation:i3f 5s ease-in-out infinite;will-change:transform}
+  .item:nth-child(3n+2) .i3{animation-delay:-1.7s}.item:nth-child(3n) .i3{animation-delay:-3.3s}
+  .i3.sm{height:46px;max-width:none;animation:none;filter:drop-shadow(0 4px 6px rgba(20,10,30,.35))}
+  .row .ri:has(.i3){background:rgba(247,241,236,.08)}
+  .sheet .cv .i3{height:140px}
+  @keyframes i3f{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
+  @media (max-width:560px){.i3{height:96px}.i3.sm{height:40px}}
+  @media (prefers-reduced-motion:reduce){.i3{animation:none}}
 </style>
 </head>
 <body>
@@ -488,8 +496,8 @@ const SECTIONS = [
     desc:"تقرير أسبوعي بالأعمال المنفذة وأهمية كل إجراء خلال عام 2026.", goal:"الهدف الخامس · الوزن 15% · 22 تقريرًا من 20", custom:"reports",
     rows:[{icon:"doc", bg:"#7d4f78", title:"التقارير الأسبوعية 2026", desc:"ملف يضم التقارير الأسبوعية بأعمالها وأهميتها وشواهدها.", link:D+"1LcC50B8KHy6_b1GY-6RaK5ZQG_Mv3wZJ/view"},
       {icon:"doc", bg:"#9b6b93", title:"التقرير الأسبوعي رقم 22 · أسبوع الدراسة عن بُعد", desc:"من الأحد 21 إلى الخميس 25 جمادى الأولى 1448هـ (1–5 نوفمبر 2026م): 5 تقارير توثيق يومية، وأكثر من 260 صورة ومقطعًا.", link:D+"1q9AI9FAQmQjv3phNDeWOpbRLyNJ4ABqd/view"}]},
-  { id:"self", icon:"check", bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", fg:"#f7f1ec", title:"التقويم الذاتي", sub:"منصة وخطتان",
-    desc:"التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات إلكترونية بدل الورق.", goal:"الهدف الرابع · الوزن 15% · ملفان من ملف مستهدف", custom:"self",
+  { id:"self", icon:"check", bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", fg:"#f7f1ec", title:"التقويم الذاتي", sub:"3 ملفات · المستهدف 1",
+    desc:"التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات إلكترونية بدل الورق.", goal:"الهدف الرابع · الوزن 15% · 3 ملفات من ملف مستهدف", custom:"self",
     rows:[
       {icon:"check", bg:"#7d4f78", title:"منصة التقويم الذاتي 1447 و1448هـ", desc:"المجالات الأربعة ومعاييرها وشواهدها في منصة واحدة.", link:"https://readdy.cc/preview/ccfdd1a6-911c-47e7-84c5-b2436ac6f7ed/14579353/"},
       {icon:"doc",   bg:"#9b6b93", title:"التقويم الذاتي: من الورق إلى المنصة", desc:"كيف تحوّلت الاستمارة الورقية إلى منصة تُفتح من أي جهاز.", link:D+"15lfy749UtfBBEF5w11IwYa2ocwVrjyKr/view"},
@@ -513,7 +521,7 @@ const GOALS = [
   ["جودة وانتظام العمل الإعلامي المدرسي",30,15,6,"media"],
   ["تنظيم وتطوير روابط خدمة المستفيد",20,5,1,"service"],
   ["قياس اتجاه المتعلمين",20,4,2,"qiyas"],
-  ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,2,1,"self"],
+  ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,3,1,"self"],
   ["تقرير أسبوعي بالأعمال المنفذة",15,22,20,"reports"],
 ];
 /* ======================================================================= */
@@ -662,11 +670,15 @@ const rise = i => `style="animation-delay:${150 + i * 80}ms"`;
 const meter = (t, v, label) => `<div class="m"><div class="t"><span>${t}</span><b>${label ?? v + "%"}</b></div><div class="tr"><span data-w="${v}"></span></div></div>`;
 
 const PQ={"about":"أتعلّم كل يوم شيئًا… لأُضيف أثرًا جديدًا"};
+
+/* ===== أيقونات ثلاثية الأبعاد للبطاقات ===== */
+const IC3 = [["إنفوجرافيك","infographic"],["يوم التأسيس","founding-day"],["يوم اللغة العربية","arabic-day"],["اليوم العالمي للمدير","principal-day"],["اليوم الوطني","national-day"],["يوم المعلم","teacher-day"],["تخرج","graduation"],["ختام العام","year-end"],["رسائل الانضباط","discipline"],["للدراسة عن بُعد","remote-day"],["موافقة التصوير","consent"],["ماذا عملنا","link-amal"],["كلماتٌ طيبة","link-shukr"],["شاركونا","link-seen"],["بفكرٍ واعٍ","watani"],["الدفاع عن الوطن","watani"],["بوابة الكادر","kadar"],["دورة الأربعاء","parents-cycle"],["المشاركة الحرة","report-doc"],["رضا","satisfaction"],["رمضان","ramadan"],["التقرير النهائي لقياس","qiyas-final"],["نتائج قياس","qiyas-final"],["من النماذج إلى المنصة","forms-to-platform"],["من الورق إلى المنصة","forms-to-platform"],["NotebookLM","notebooklm"],["الحساب الذهني","mental-math"],["التحول الرقمي","digital"],["من الفكرة إلى الأثر","guide"],["أسبوعي","weekly"],["الأسبوعية","weekly"],["منصة التقويم الذاتي","self-eval"],["منجزات المدرسة","school-achievements"],["خطة التحسين","improvement"],["الخطة التشغيلية","operational"],["رؤية","vision"],["مرحلة الأفكار","planning"],["الدورات الإلزامية","courses"],["الإسعافات","first-aid"],["ملف الأهداف","goals-file"]];
+function ic3(t, icon, cls) { const k = (IC3.find(x => (t || "").includes(x[0])) || [])[1]; return k ? `<img class="i3 ${cls || ""}" src="img/ic3d/${k}.webp" alt="" loading="lazy" decoding="async">` : svg(icon); }
 function pageHTML(s) {
   let b = "";
   if (s.kpis) b += `<div class="kpis">${s.kpis.map((k, i) => `<div class="kpi rise" ${rise(i)}><b>${k[0]}</b><span>${k[1]}</span></div>`).join("")}</div>`;
   if (s.items) b += `<div class="grid">${s.items.map((it, i) => `<button class="item rise" ${rise(i + 2)} data-i="${i}">
-      <div class="cv" style="--bg:${it.bg}">${svg(it.icon)}</div>
+      <div class="cv" style="--bg:${it.bg}">${ic3(it.title, it.icon)}</div>
       <div class="tx"><h3>${it.title}</h3><p>${it.desc}</p><div class="ft"><span class="ok">✓ منجز</span><span class="go">التفاصيل ←</span></div></div></button>`).join("")}</div>`;
   if (s.videos) b += `<div class="h3">الفيديوهات والمقاطع</div>` + (s.videos.length
     ? `<div class="grid">${s.videos.map((v, i) => `<button class="item rise" ${rise(i)} data-v="${i}">
@@ -674,7 +686,7 @@ function pageHTML(s) {
         <div class="tx"><h3>${v.title}</h3><p>${v.desc || ""}</p><div class="ft"><span class="ok">فيديو</span><span class="go">تشغيل ←</span></div></div></button>`).join("")}</div>`
     : `<div class="hobby rise"><span class="si">${svg("film")}</span><div><b>الفيديوهات داخل التقارير</b><p>كل فيديو صممته مرفق داخل تقريره، ويُفتح من زر «مشاهدة الفيديو» أو بمسح الباركود في التقرير.</p></div></div>`);
   const rows = () => `<div class="rows">${s.rows.map((r, i) => `<a class="row rise" ${rise(i)} href="${r.link}" target="_blank" rel="noopener">
-      <span class="ri" style="--bg:${r.bg}">${svg(r.icon)}</span><div><h3>${r.title}</h3><p>${r.desc}</p></div><span class="go">فتح ←</span></a>`).join("")}</div>`;
+      <span class="ri" style="--bg:${r.bg}">${ic3(r.title, r.icon, "sm")}</span><div><h3>${r.title}</h3><p>${r.desc}</p></div><span class="go">فتح ←</span></a>`).join("")}</div>`;
   if (s.rows && !s.custom) b += rows();
   if (s.soon) b += `<div class="soon rise"><b>قريبًا</b>${s.soon}</div>`;
   if (s.custom === "service") b += `
@@ -684,7 +696,7 @@ function pageHTML(s) {
     <div class="box rise" ${rise(3)}>${meter("رضا أولياء الأمور",95.8)}${meter("كفاءة الموظفة وأسلوب التعامل",91.7)}${meter("سرعة الإنجاز",91.7)}${meter("طلبات القبول والتسجيل من إجمالي الخدمة",54.2)}</div>`;
   const steps = (arr) => `<div class="steps">${arr.map((x, i) => `<div class="step rise" ${rise(i)}><span class="yr">${x[0]}</span><b>${x[1]}</b><small>${x[2]}</small></div>`).join('<span class="arr">←</span>')}</div>`;
   if (s.custom === "qiyas") b += steps([["1446هـ","نماذج إلكترونية","تجمع الردود وتقف عندها"],["1447هـ","نماذج إلكترونية","تفريغ يدوي في جدول"],["1448هـ","منصة متكاملة","تقرأ الرأي وتحوّله إلى عمل"]]) + `<div class="h3">التقارير</div>${rows()}`;
-  if (s.custom === "self") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>2</b><span>منصتان إلكترونيتان</span></div><div class="kpi rise" ${rise(1)}><b>12</b><span>استمارة محوّلة رقميًا</span></div><div class="kpi rise" ${rise(2)}><b>142</b><span>جدولًا إلكترونيًا</span></div></div>
+  if (s.custom === "self") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>3</b><span>منصات إلكترونية</span></div><div class="kpi rise" ${rise(1)}><b>12</b><span>استمارة محوّلة رقميًا</span></div><div class="kpi rise" ${rise(2)}><b>142</b><span>جدولًا إلكترونيًا</span></div></div>
     <div class="ba rise" ${rise(3)} style="margin-bottom:26px">
       <div class="side"><span class="lbl">قبل</span><h4>الخطة ورقية</h4><ul><li>تعديل سطر يعني إعادة طباعة الملف كاملًا</li><li>نسخة واحدة في مكان واحد</li><li>لا يُعرف من عدّل ومتى، والمحذوف لا يُسترجع</li></ul></div>
       <div class="mid">⇄</div>
@@ -775,7 +787,7 @@ $("#page").addEventListener("click", e => {
   }
   const c = e.target.closest(".item[data-i]"); if (!c) return;
   const it = sec.items[+c.dataset.i];
-  $("#mCv").classList.remove("vid"); $("#mCv").style.setProperty("--bg", it.bg); $("#mCv").innerHTML = svg(it.icon);
+  $("#mCv").classList.remove("vid"); $("#mCv").style.setProperty("--bg", it.bg); $("#mCv").innerHTML = ic3(it.title, it.icon);
   $("#mT").textContent = it.title; $("#mD").textContent = it.desc;
   $("#mP").innerHTML = it.points.map(p => `<li>${p}</li>`).join("");
   $("#mW").innerHTML = `<span>إعداد: عواطف الجهني</span><span>العام الدراسي ${it.yr || "1447هـ"}</span>`;
