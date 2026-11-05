@@ -338,6 +338,26 @@
   @keyframes i3f{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
   @media (max-width:560px){.i3{height:96px}.i3.sm{height:40px}}
   @media (prefers-reduced-motion:reduce){.i3{animation:none}}
+  /* ===== نجمة بدء الرحلة ===== */
+  .go-star{border:0;background:none;cursor:pointer;font:inherit;color:var(--cream);margin-top:18px;gap:4px;position:relative;-webkit-tap-highlight-color:transparent}
+  .go-star .gs-star{width:46px;height:46px;filter:drop-shadow(0 0 10px rgba(232,201,127,.75)) drop-shadow(0 0 22px rgba(216,189,138,.4));animation:gsPulse 2.4s ease-in-out infinite;transition:transform .25s}
+  .go-star:hover .gs-star{transform:scale(1.12) rotate(12deg)}
+  .go-star .gs-ring{position:absolute;top:-6px;left:50%;width:58px;height:58px;margin-left:-29px;border:1px solid rgba(216,189,138,.55);border-radius:50%;animation:gsRing 2.4s ease-out infinite;pointer-events:none}
+  .go-star .gs-ring.r2{animation-delay:1.2s}
+  .go-star .gs-t{font-family:"El Messiri";font-size:15px;color:var(--gold);letter-spacing:.3px;margin-top:6px}
+  .go-star .gs-s{font-size:11.5px;color:var(--muted)}
+  @keyframes gsPulse{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.08) rotate(8deg)}}
+  @keyframes gsRing{0%{transform:scale(.7);opacity:.9}100%{transform:scale(1.9);opacity:0}}
+  .go-star.burst .gs-star{animation:gsBoom .55s cubic-bezier(.2,.8,.2,1) forwards}
+  .go-star.burst .gs-ring{animation:none;opacity:0}
+  @keyframes gsBoom{0%{transform:scale(1)}35%{transform:scale(1.7) rotate(40deg);opacity:1}100%{transform:scale(.2) rotate(90deg);opacity:0}}
+  .gs-p{position:fixed;width:7px;height:7px;border-radius:50%;pointer-events:none;z-index:9999;background:radial-gradient(circle,#fff6de,#e8c97f 60%,transparent 70%);animation:gsFly .9s cubic-bezier(.15,.7,.3,1) forwards}
+  .gs-p.st{width:12px;height:12px;border-radius:0;background:none}
+  .gs-p.st::before{content:"";position:absolute;inset:0;background:#f3e2bd;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+  @keyframes gsFly{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--x),var(--y)) scale(.2) rotate(var(--r));opacity:0}}
+  .gs-flash{position:fixed;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;pointer-events:none;z-index:9998;background:radial-gradient(circle,rgba(255,246,222,.95),rgba(232,201,127,.35) 45%,transparent 70%);animation:gsFl .6s ease-out forwards}
+  @keyframes gsFl{to{transform:scale(14);opacity:0}}
+  @media (prefers-reduced-motion:reduce){.go-star .gs-star,.go-star .gs-ring{animation:none}}
 </style>
 </head>
 <body>
@@ -367,7 +387,11 @@
     <button class="ic-btn" id="next" aria-label="التالي"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
   </div>
   <div class="hint">اسحبي البطاقات أو اضغطي عليها</div>
-  <div class="cue" aria-hidden="true"><span></span>انزلي لتبدأ الرحلة</div>
+  <button class="cue go-star" id="goStar" type="button" aria-label="ابدئي رحلة الإنجاز">
+    <span class="gs-ring"></span><span class="gs-ring r2"></span>
+    <svg class="gs-star" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gsg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3d2"/><stop offset=".55" stop-color="#e8c97f"/><stop offset="1" stop-color="#b8924f"/></linearGradient></defs><path d="M12 1.5c.7 5.9 2.6 8.9 10.5 10.5C14.6 13.6 12.7 16.6 12 22.5c-.7-5.9-2.6-8.9-10.5-10.5C9.4 10.4 11.3 7.4 12 1.5z" fill="url(#gsg)"/></svg>
+    <b class="gs-t">ابدئي رحلة الإنجاز</b><small class="gs-s">اضغطي النجمة</small>
+  </button>
 </div>
 <section class="story" id="journey" aria-label="رحلة الإنجاز">
   <svg id="thread" aria-hidden="true">
@@ -966,6 +990,26 @@ route();
   const sync=()=>{ const inA=location.hash==="#about"; document.body.classList.toggle("about",inA); if(!inA&&on){ on=false; btn.classList.remove("on"); btn.setAttribute("aria-pressed",false); btn.textContent="🎧 أجواء"; stop(); } if(inA) setTimeout(flock,1200); };
   addEventListener("hashchange",sync); sync();
   btn.onclick=()=>{ on=!on; btn.classList.toggle("on",on); btn.setAttribute("aria-pressed",on); btn.textContent=on?"🎧 إيقاف الأجواء":"🎧 أجواء"; on?start():stop(); };
+})();
+</script>
+<script>
+/* ===== نجمة بدء الرحلة: انفجار ثم نزول ===== */
+(function(){
+  const b = document.getElementById("goStar"); if (!b) return;
+  b.addEventListener("click", () => {
+    const st = b.querySelector(".gs-star").getBoundingClientRect(), cx = st.left + st.width / 2, cy = st.top + st.height / 2;
+    try { chime([880, 1174.7, 1568], .06, .05); } catch (e) {}
+    if (!reduced) {
+      const f = document.createElement("i"); f.className = "gs-flash"; f.style.left = cx + "px"; f.style.top = cy + "px"; document.body.appendChild(f); setTimeout(() => f.remove(), 650);
+      for (let i = 0; i < 26; i++) { const p = document.createElement("i"); p.className = "gs-p" + (i % 3 === 0 ? " st" : "");
+        const a = Math.random() * Math.PI * 2, d = 60 + Math.random() * 120;
+        p.style.cssText = `left:${cx - 4}px;top:${cy - 4}px;--x:${Math.cos(a) * d}px;--y:${Math.sin(a) * d}px;--r:${Math.random() * 360}deg;animation-delay:${Math.random() * .06}s`;
+        document.body.appendChild(p); setTimeout(() => p.remove(), 1100); }
+      b.classList.add("burst"); setTimeout(() => b.classList.remove("burst"), 1400);
+    }
+    const j = document.getElementById("journey");
+    setTimeout(() => document.getElementById("home").scrollTo({ top: j.offsetTop - 10, behavior: reduced ? "auto" : "smooth" }), reduced ? 0 : 380);
+  });
 })();
 </script>
 </body>
