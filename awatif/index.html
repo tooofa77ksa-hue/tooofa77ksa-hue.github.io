@@ -323,6 +323,8 @@
   .wd-tx i{display:block;font-style:normal;margin-top:8px;color:var(--rose)}
   @media (max-width:560px){.world-door{grid-template-columns:1fr;text-align:center}.wd-img{aspect-ratio:16/10}}
   body.about .ic-btn.amb{display:none!important}
+  body.scrolled .top{background:linear-gradient(rgba(43,24,48,.96),rgba(43,24,48,.85) 70%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .top{transition:background .3s}
 </style>
 </head>
 <body>
@@ -421,9 +423,9 @@ const SECTIONS = [
   { id:"goals", icon:"target", bg:"linear-gradient(150deg,#d8bd8a,#b39660)", fg:"#2b1830", title:"الأهداف", sub:"5 أهداف بأوزانها",
     desc:"أهداف الأداء الوظيفي لعام 2026: المنجز من المستهدف في كل هدف، والجدارات، ونقاط القوة.", custom:"goals",
     rows:[{icon:"doc", bg:"#a88a55", title:"ملف الأهداف 2026", desc:"أهداف الأداء الوظيفي والأوزان النسبية لكل هدف.", link:D+"1YlEwNcPSfCiaEdTpVrVzb-5THHgezUEW/view"}]},
-  { id:"media", icon:"camera", bg:"linear-gradient(150deg,#9b6b93,#5a3457)", fg:"#fff", title:"الإعلام", sub:"15 تقريرًا · المستهدف 6",
-    desc:"تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.", goal:"الهدف الأول · الوزن 30% · 15 تقريرًا من 6 مستهدفة",
-    kpis:[["15 / 6","تقريرًا منجزًا"],["+9","فوق المستهدف"],["5","تقارير يومية للدراسة عن بُعد"]],
+  { id:"media", icon:"camera", bg:"linear-gradient(150deg,#9b6b93,#5a3457)", fg:"#fff", title:"الإعلام", sub:"14 تقريرًا · المستهدف 6",
+    desc:"تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.", goal:"الهدف الأول · الوزن 30% · 14 تقريرًا من 6 مستهدفة",
+    kpis:[["14 / 6","تقريرًا منجزًا"],["+8","فوق المستهدف"],["4","تقارير يومية للدراسة عن بُعد"]],
     items:[
       {icon:"flag",  bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", title:"يوم التأسيس 2026", desc:"توثيق فعاليات يوم التأسيس بالصور والمحتوى المرئي.", points:["تصوير ميداني","إعداد المحتوى المرئي","تقرير رسمي"], link:D+"1aj5UEewepr0U4OwcxAzQGqdFqlNvkL8n/view"},
       {icon:"book",  bg:"linear-gradient(150deg,#b88aa8,#7d4f78)", title:"يوم اللغة العربية 2026", desc:"تغطية الاحتفاء باللغة العربية وفقراته.", points:["توثيق الفقرات","تقرير رسمي"], link:D+"1i5sJZ_cLtGG-qasuRKzMNmANpQZLug-e/view"},
@@ -438,7 +440,6 @@ const SECTIONS = [
       {icon:"film", bg:"linear-gradient(150deg,#5a3457,#b88aa8)", title:"التوثيق الإعلامي · اليوم الثاني للدراسة عن بُعد", desc:"الاثنين 22 جمادى الأولى 1448هـ: رصد الحصص الافتراضية، ومتابعة الإدارة، ومشاركات الطالبات وأولياء الأمور، في 6 مقاطع منشورة.", points:["8 مواد دراسية، و13 معلمة وُثّقت حصصهن","أكثر من 50 صورة ومقطعًا عولجت بصريًا وصوتيًا","6 مقاطع مرئية منتجة ومنشورة في قناة المدرسة","إذاعة «لحظة سلامة» ومشاركة أولياء الأمور في تعلّم بناتهم من المنزل","حذف الموسيقى كليًا عن مقاطع تلاوة القرآن الكريم احترامًا لها"], link:D+"1v9WbMHJUV5FjmgTHumWXCU0D9uV54IX5/view", video:"https://t.me/almdrsa165b/912", yr:"1448هـ"},
       {icon:"film", bg:"linear-gradient(150deg,#7d4f78,#d8bd8a)", title:"التوثيق الإعلامي · اليوم الثالث للدراسة عن بُعد", desc:"الثلاثاء 23 جمادى الأولى 1448هـ: الحصص الافتراضية، ومتابعة المديرة والوكيلة، ورسائل الشكر من المشرفات، في 5 مقاطع منشورة.", points:["10 مواد دراسية، و18 معلمة وُثّقت حصصهن","أكثر من 80 صورة ومقطعًا عولجت بصريًا وصوتيًا","5 مقاطع مرئية منتجة ومنشورة في قناة المدرسة","توثيق رسائل الشكر والتقدير من المشرفات للمعلمات والطالبات","بدء اليوم الدراسي بالسلام الملكي بصوته الأصلي دون مؤثرات"], link:D+"17ISYniFJuJB9qydF7tRoApwC-_JR_Y8a/view", video:"https://t.me/almdrsa165b/918", yr:"1448هـ"},
       {icon:"film", bg:"linear-gradient(150deg,#9b6b93,#2b1830)", title:"التوثيق الإعلامي · اليوم الرابع للدراسة عن بُعد", desc:"الأربعاء 24 جمادى الأولى 1448هـ: الحصص الافتراضية، ومتابعة المديرة والوكيلة، ومشاركات الطالبات وأولياء الأمور، ورسائل التواصل مع الأسر، في 7 منشورات.", points:["17 معلمة وُثّقت حصصهن، و5 رسائل شكر وتقدير","أكثر من 100 صورة ومقطع عولجت بصريًا وصوتيًا","7 منشورات في قناة المدرسة","رسالة إدارة تعليم جدة التوعوية لأولياء الأمور، ورسالة شكر من إدارة المدرسة","دعوة أولياء الأمور لإبداء رأيهم عبر رابط المشاركة"], link:D+"1amN8PAh6xuH2OPqf3bl1j0W13OmSV_PX/view", video:"https://t.me/almdrsa165b/925", yr:"1448هـ"},
-      {icon:"film", bg:"linear-gradient(150deg,#7d4f78,#2b1830)", title:"التوثيق الإعلامي · اليوم الخامس للدراسة عن بُعد", desc:"الخميس 25 جمادى الأولى 1448هـ: ختام أسبوع الدراسة عن بُعد، ومتابعة المديرة والوكيلة للحصص، ومشاركات الطالبات وأولياء الأمور، وإطلاق ريلز حملة ترشيد استهلاك الكهرباء.", points:["15 معلمة وُثّقت حصصهن، و3 رسائل شكر وتقدير","أكثر من 90 صورة ومقطع عولجت بصريًا وصوتيًا","7 منشورات في قناة المدرسة","ريلز حملة ترشيد استهلاك الكهرباء «بترشيدنا اليوم.. نصنع استدامة الغد»","تكريم «نجوم منصتنا هذا الأسبوع»"], link:D+"1awgD5uWGS_NvZbnA8fSUV6kp2f8_3vTy/view", video:"https://t.me/almdrsa165b/935", yr:"1448هـ"},
       {icon:"camera", bg:"linear-gradient(150deg,#d9a5b3,#7d4f78)", title:"نموذج موافقة التصوير · الصفوف 1–6", desc:"رسالة لأولياء أمور 12 فصلًا من الصف الأول إلى السادس لتعبئة نموذج الموافقة على تصوير الطالبات عبر رابط واحد، لتوثيق فعاليات المدرسة وفق الأصول.", points:["الإرسال لأولياء أمور 97 طالبة في 6 صفوف و12 فصلًا","رابط واحد للنموذج ورمز QR","الورقة لا تتضمن أسماء الطالبات حفاظًا على الخصوصية"], link:D+"126l5qQcV881h9lSepvGASDPL5aGIKhaS/view", yr:"1448هـ"},
     ],
     // الفيديوهات: كل فيديو {title, desc, id} و id هو رقم الملف في الدرايف
@@ -453,7 +454,6 @@ const SECTIONS = [
       {icon:"flag",  bg:"#5a3457", title:"رابط منصة «بفكرٍ واعٍ… لوطنٍ آمن»", desc:"منصة تستقبل مشاركات المستفيدين الوطنية برسالة أو مقطع، وتكرّمهم بشهادة شكر فورية.", link:"https://tooofa77ksa-hue.github.io/-/difaa/"},
       {icon:"users", bg:"#7d4f78", title:"بوابة الكادر 165", desc:"منصة رقمية تجمع بيانات المعلمات والإداريات في لوحة واحدة مرتبة ومحدثة. أدخلتُ بيانات المنسوبات فيها، وتتيح البوابة أيضًا أن تعبّئ كل موظفة بياناتها بنفسها من جوالها عبر رابط أو رمز QR.", link:D+"1dd4_gOKcDWEXT-cd4Wma1-V3Hhv6T_24/view"},
       {icon:"doc",   bg:"#a88a55", title:"تقرير خدمة المستفيدين: منصة الدفاع عن الوطن", desc:"54 مستفيدًا، و50 مشاركة معتمدة، و7 مقاطع مرئية، ونسبة اعتماد 93% حتى 24 جمادى الأولى 1448هـ (4 نوفمبر 2026م).", link:D+"11RG3ya9yC2rnMLMotyU2qr_NIRhy67D1/view"},
-      {icon:"heart", bg:"#b07a93", title:"تقرير دورة الأربعاء والخميس مع أولياء الأمور", desc:"من 11 إلى 25 جمادى الأولى 1448هـ: كل أربعاء نفتح الباب لأولياء الأمور، وكل خميس نردّ بكلماتهم الطيبة وبطاقات الشكر، وتُوجَّه الملاحظات إلى التوجيه الطلابي بسرية.", link:D+"1xm4RS0BjAlS41bRjUpwjL2rznD4gAhC0/view"},
       {icon:"doc",   bg:"#9b6b93", title:"تقرير رابط المشاركة الحرة 1448هـ", desc:"خلاصة ملاحظات أولياء الأمور ومقترحاتهم بلا أسماء، ووصولها إلى المعنيين بها.", link:D+"1E2h5c1ED-YDS2rtepBW2PzQiKx7CM19t/view"},
       {icon:"chart", bg:"#7d4f78", title:"تقرير الأداء ورضا المستفيدين 1447هـ", desc:"قراءة في 24 ردًا: كفاءة الكادر ورضا أولياء الأمور ونقاط التحسين.", link:D+"14_hBsMAAzzTDaIniFyJh0c_ey0j1XnYU/view"},
       {icon:"moon",  bg:"#5a3457", title:"الانضباط خلال شهر رمضان المبارك", desc:"تحليل مفصل لنسب الحضور والغياب من 6 إلى 16 رمضان 1447هـ.", link:D+"17fzMnUCt-SgT-Oj5Nu9nlsAxFZuBuaQ9/view"},
@@ -477,10 +477,9 @@ const SECTIONS = [
       {icon:"book",  bg:"#9b6b93", title:"تقرير «من الفكرة إلى الأثر»", desc:"دليل رقمي تفاعلي يوثّق طريقة بناء الحلول الرقمية بأدوات الذكاء الاصطناعي، من الفكرة إلى موقع يعمل. أُرسل إلى قسم الإعلام والتواصل المؤسسي بالإدارة العامة للتعليم بمحافظة جدة.", link:D+"16WKlgwmGCtiYOOiXuzp_OXM6KEzyYz5O/view"},
       {icon:"flag",  bg:"#5a3457", title:"منصة «بفكرٍ واعٍ… لوطنٍ آمن»", desc:"منصة رقمية لمشاركات المستفيدين في الوعي الفكري والانتماء الوطني، بشهادات شكر فورية.", link:"https://tooofa77ksa-hue.github.io/-/difaa/"},
     ]},
-  { id:"reports", icon:"doc", bg:"linear-gradient(150deg,#5a3457,#3a2140)", fg:"#f7f1ec", title:"التقارير", sub:"22 تقريرًا · المستهدف 20",
-    desc:"تقرير أسبوعي بالأعمال المنفذة وأهمية كل إجراء خلال عام 2026.", goal:"الهدف الخامس · الوزن 15% · 22 تقريرًا من 20", custom:"reports",
-    rows:[{icon:"doc", bg:"#7d4f78", title:"التقارير الأسبوعية 2026", desc:"ملف يضم التقارير الأسبوعية بأعمالها وأهميتها وشواهدها.", link:D+"1LcC50B8KHy6_b1GY-6RaK5ZQG_Mv3wZJ/view"},
-      {icon:"doc", bg:"#9b6b93", title:"التقرير الأسبوعي رقم 22 · أسبوع الدراسة عن بُعد", desc:"من الأحد 21 إلى الخميس 25 جمادى الأولى 1448هـ (1–5 نوفمبر 2026م): 5 تقارير توثيق يومية، وأكثر من 260 صورة ومقطعًا.", link:D+"1q9AI9FAQmQjv3phNDeWOpbRLyNJ4ABqd/view"}]},
+  { id:"reports", icon:"doc", bg:"linear-gradient(150deg,#5a3457,#3a2140)", fg:"#f7f1ec", title:"التقارير", sub:"21 تقريرًا · المستهدف 20",
+    desc:"تقرير أسبوعي بالأعمال المنفذة وأهمية كل إجراء خلال عام 2026.", goal:"الهدف الخامس · الوزن 15% · 21 تقريرًا من 20", custom:"reports",
+    rows:[{icon:"doc", bg:"#7d4f78", title:"التقارير الأسبوعية 2026", desc:"ملف يضم التقارير الأسبوعية بأعمالها وأهميتها وشواهدها.", link:D+"1LcC50B8KHy6_b1GY-6RaK5ZQG_Mv3wZJ/view"}]},
   { id:"self", icon:"check", bg:"linear-gradient(150deg,#7d4f78,#4a2c50)", fg:"#f7f1ec", title:"التقويم الذاتي", sub:"منصة وخطتان",
     desc:"التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات إلكترونية بدل الورق.", goal:"الهدف الرابع · الوزن 15% · ملفان من ملف مستهدف", custom:"self",
     rows:[
@@ -503,11 +502,11 @@ const SECTIONS = [
       {icon:"heart", bg:"#b07a93", title:"ورشة عمل الثمان الأولى للإسعافات الأولية", desc:"البرنامج الإلزامي غير المتزامن · منصة أبعاد · 30 أكتوبر 2026 · ساعتان.", link:D+"18SqZkBPDfapY8XpJtOuJJvEY59l1Itw3/view"}]},
 ];
 const GOALS = [
-  ["جودة وانتظام العمل الإعلامي المدرسي",30,15,6,"media"],
+  ["جودة وانتظام العمل الإعلامي المدرسي",30,14,6,"media"],
   ["تنظيم وتطوير روابط خدمة المستفيد",20,5,1,"service"],
   ["قياس اتجاه المتعلمين",20,4,2,"qiyas"],
   ["ملف التقويم الذاتي وتحسين خطة المدرسة",15,2,1,"self"],
-  ["تقرير أسبوعي بالأعمال المنفذة",15,22,20,"reports"],
+  ["تقرير أسبوعي بالأعمال المنفذة",15,21,20,"reports"],
 ];
 /* ======================================================================= */
 
@@ -554,10 +553,11 @@ sndIcon();
   function size() {
     dpr = Math.min(devicePixelRatio || 1, 2); W = c.width = innerWidth * dpr; H = c.height = innerHeight * dpr;
     c.style.width = innerWidth + "px"; c.style.height = innerHeight + "px";
-    stars = Array.from({ length: Math.round(innerWidth * innerHeight / 9000) }, () => ({
+    stars = Array.from({ length: Math.round(innerWidth * innerHeight / (innerWidth < 700 ? 14000 : 9000)) }, () => ({
       x: Math.random() * W, y: Math.random() * H, r: (Math.random() * 1.1 + .3) * dpr, p: Math.random() * 6.28, s: .4 + Math.random() * 1.2, gold: Math.random() < .25, v: (Math.random() * .04 + .01) * dpr }));
   }
-  size(); addEventListener("resize", size);
+  let lw = innerWidth, lh = innerHeight;
+  size(); addEventListener("resize", () => { if (innerWidth !== lw || Math.abs(innerHeight - lh) > 160) { lw = innerWidth; lh = innerHeight; size(); } });
   let shoot = null, last = 0;
   (function frame(t) {
     x.clearRect(0, 0, W, H);
@@ -610,9 +610,11 @@ function layout() {
   if (idx !== lastIdx) { lastIdx = idx; tick(); dots.forEach((d, i) => d.classList.toggle("on", i === idx)); }
 }
 dots[0].classList.add("on");
+let laidPos = NaN, laidW = 0;
 (function anim() {
   if (!dragging) { const d = target - pos; pos += Math.abs(d) < .001 ? d : d * (reduced ? 1 : .12); }
-  layout(); requestAnimationFrame(anim);
+  if (pos !== laidPos || innerWidth !== laidW) { laidPos = pos; laidW = innerWidth; layout(); }
+  requestAnimationFrame(anim);
 })();
 const go = i => { target = i; };
 const goTo = i => { const t = Math.round(target); go(t + (mod(i - t + N / 2, N) - N / 2)); };
@@ -678,7 +680,7 @@ function pageHTML(s) {
       <div class="mid">⇄</div>
       <div class="side new"><span class="lbl">بعد</span><h4>الخطة منصّة</h4><ul><li>التعديل يُحفظ ويظهر للجميع فورًا</li><li>رابط يُفتح من أي جهاز ومكان</li><li>سجلّ للتعديلات وسلّة تُرجع المحذوف</li><li>طباعة رسمية وتصدير PDF وExcel</li></ul></div>
     </div>` + steps([["1","التقويم الذاتي","نعرف أين نحن"],["2","خطة التحسين","نعالج نقاط الضعف"],["3","الخطة التشغيلية","ننفّذ خلال العام"]]) + `<div class="h3">المنصات والشواهد</div>${rows()}`;
-  if (s.custom === "reports") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>22 / 20</b><span>تقريرًا أسبوعيًا</span></div><div class="kpi rise" ${rise(1)}><b>+2</b><span>فوق المستهدف</span></div><div class="kpi rise" ${rise(2)}><b>9 أشهر</b><span>مارس ← نوفمبر 2026</span></div></div>
+  if (s.custom === "reports") b += `<div class="kpis"><div class="kpi rise" ${rise(0)}><b>21 / 20</b><span>تقريرًا أسبوعيًا</span></div><div class="kpi rise" ${rise(1)}><b>+1</b><span>فوق المستهدف</span></div><div class="kpi rise" ${rise(2)}><b>7 أشهر</b><span>مارس ← سبتمبر 2026</span></div></div>
     <div class="h3">أبرز ما تضمّنته التقارير</div>
     <div class="skills">${[["clock","رسائل الانضباط مساء الأحد والخميس"],["camera","تصوير الإذاعة المدرسية وتوثيقها يوميًا"],["link","إرسال التوثيق لإدارة تعليم جدة أولًا بأول"],["chart","قياس اتجاه المتعلمين لجميع الصفوف"],["film","فيديوهات التخرج وتكريم المتقاعدات واستقبال المعلمات"],["spark","ورشة NotebookLM للموظفات"],["users","رابط موافقات التصوير بلوحة بيانات"],["flag","توثيق حفلَي اليوم الوطني"],["target","دعم الاستعداد لاختبارات نافس"]].map((k, i) => `<div class="skill rise" ${rise(i + 3)}><span class="si">${svg(k[0])}</span>${k[1]}</div>`).join("")}</div>
     <div class="h3">الملف</div>${rows()}`;
@@ -700,7 +702,7 @@ function pageHTML(s) {
   if (s.custom === "goals") b += `<div class="box rise">${GOALS.map(g => { const p = Math.round(Math.min(1, g[2] / g[3]) * 100);
       return `<a href="#${g[4]}" style="display:block">${meter(`${g[0]} <small style="color:var(--muted)">· الوزن ${ar(g[1])}%</small>`, Math.max(p, 2), ar(g[2]) + " / " + ar(g[3]))}</a>`; }).join("")}</div>
     <div class="h3">الجدارات</div>
-    <div class="comp">${[["المسؤولية",20,"تحمّل المسؤولية الفردية لتحقيق الأهداف بالجودة المطلوبة وفي الوقت المحدد: 22 تقريرًا أسبوعيًا دون انقطاع، وتقرير توثيق يومي لكل يوم دراسة عن بُعد."],["العمل الجماعي",25,"العمل بروح الفريق مع الإدارة والمعلمات والإداريات: توثيق حصص 18 معلمة في يوم واحد، والتنسيق مع الموجّهة الطلابية وأولياء الأمور."],["المرونة للتغيير",30,"التكيّف مع تحويل الدراسة إلى عن بُعد خلال يوم واحد، ونقل القياس والخطط من الورق إلى منصات رقمية."],["المبادرة",25,"مهام إضافية دون طلب: 5 مبادرات نوعية، ومنصات إلكترونية لخدمة المستفيدين، وورشة NotebookLM للموظفات."]].map((c, i) => `<div class="cc rise" ${rise(i)}><span class="w">الوزن ${c[1]}%</span><h4>${c[0]}</h4><p>${c[2]}</p></div>`).join("")}</div>
+    <div class="comp">${[["المسؤولية",20,"تحمّل المسؤولية الفردية لتحقيق الأهداف بالجودة المطلوبة وفي الوقت المحدد: 21 تقريرًا أسبوعيًا دون انقطاع، وتقرير توثيق يومي لكل يوم دراسة عن بُعد."],["العمل الجماعي",25,"العمل بروح الفريق مع الإدارة والمعلمات والإداريات: توثيق حصص 18 معلمة في يوم واحد، والتنسيق مع الموجّهة الطلابية وأولياء الأمور."],["المرونة للتغيير",30,"التكيّف مع تحويل الدراسة إلى عن بُعد خلال يوم واحد، ونقل القياس والخطط من الورق إلى منصات رقمية."],["المبادرة",25,"مهام إضافية دون طلب: 5 مبادرات نوعية، ومنصات إلكترونية لخدمة المستفيدين، وورشة NotebookLM للموظفات."]].map((c, i) => `<div class="cc rise" ${rise(i)}><span class="w">الوزن ${c[1]}%</span><h4>${c[0]}</h4><p>${c[2]}</p></div>`).join("")}</div>
     <div class="h3">نقاط القوة ومجالات التطوير</div>
     <div class="sw"><div class="box rise" ${rise(4)}><h4>نقاط القوة</h4><ul>
       <li>توظيف التقنية والذكاء الاصطناعي في العمل الإداري.</li>
@@ -783,11 +785,11 @@ const home = $("#home");
 const CH = [
   ["نبذة عني","12 عامًا من العطاء، وبكالوريوس، وشغفٌ بالتصميم لا ينتهي. أتعلّم الأداة، ثم أصنع بها الجمال.",["12 عامًا","بكالوريوس","حب التصميم"],"about"],
   ["الأهداف","خمسة أهداف للأداء الوظيفي لعام 2026، لكل هدف وزنه ومستهدفه.",["5 أهداف","كلها متحققة"],"goals"],
-  ["الإعلام","تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.",["15 تقريرًا","المستهدف 6"],"media"],
+  ["الإعلام","تغطيات المناسبات المدرسية بالتصوير والتوثيق والمونتاج والتقارير الرسمية.",["14 تقريرًا","المستهدف 6"],"media"],
   ["خدمة مستفيدين","قلتم فسمعنا، وسمعنا فعملنا، وعملنا فأخبرناكم.",["5 روابط","المستهدف 1"],"service"],
   ["قياس اتجاه المتعلمين","من النماذج إلى المنصة: عامان على نماذج، وعام على منصة تحوّل الرأي إلى عمل.",["4 تقارير","المستهدف 2"],"qiyas"],
   ["المبادرات","ورشة NotebookLM، والحساب الذهني، والتحول الرقمي، ومن الفكرة إلى الأثر، وبفكرٍ واعٍ… لوطنٍ آمن.",["5 مبادرات","+48.3 و+10 نقاط"],"initiatives"],
-  ["التقارير","تقرير كل أسبوع بالأعمال المنفذة وأهميتها، من مارس إلى نوفمبر 2026.",["22 / 20","فوق المستهدف"],"reports"],
+  ["التقارير","تقرير كل أسبوع بالأعمال المنفذة وأهميتها، من مارس إلى سبتمبر 2026.",["21 / 20","فوق المستهدف"],"reports"],
   ["التقويم الذاتي","التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات بدل الورق.",["3 منصات","مكتمل"],"self"],
   ["شهادات الورشات والدورات","الدورات والورشات التدريبية التي حضرتها.",["الدورات الإلزامية","الإسعافات الأولية"],"certs"],
 ];
@@ -840,8 +842,11 @@ function lenForY(y) {   // أبعد نقطة على المسار لم تتجاو
 const fx = $("#fx"), cx = fx.getContext("2d"); let dpr = 1, sparks = [];
 function sizeFx() { dpr = Math.min(devicePixelRatio || 1, 2); fx.width = innerWidth * dpr; fx.height = innerHeight * dpr; fx.style.width = innerWidth + "px"; fx.style.height = innerHeight + "px"; }
 
+let chs = null, idleTop = -1;
 function frame() {
   if (document.body.classList.contains("inner")) { cx.clearRect(0, 0, fx.width, fx.height); requestAnimationFrame(frame); return; }
+  if (home.scrollTop === idleTop && !sparks.length && Math.abs(lenTarget - lenNow) < .3 && !(heartT && !heartDone)) { requestAnimationFrame(frame); return; }
+  idleTop = -1;
   const head = home.scrollTop + innerHeight * .58 - storyTop;
   // حين يصل الخيط لأعلى القلب، يرسم القلب وحده خلال ثانيتين
   if (head >= heartY && samples.length) { if (!heartT) heartT = performance.now(); const k = Math.min(1, (performance.now() - heartT) / 2000); lenTarget = L0 + (L - L0) * (1 - Math.pow(1 - k, 3)); }
@@ -867,7 +872,7 @@ function frame() {
   cx.globalAlpha = 1;
 
   // إضاءة الأقسام حين يصلها الخيط
-  const chs = document.querySelectorAll(".ch");
+  if (!chs) chs = document.querySelectorAll(".ch");
   anchors.forEach((a, i) => {
     const reached = samples.length && head >= a.y;
     chs[i].classList.toggle("lit", reached);
@@ -878,11 +883,14 @@ function frame() {
   if (done && !heartDone) { heartDone = true; chime([659.3, 880, 1046.5, 1318.5], .09, .05); }
   if (!heartT) heartDone = false;
   $("#end").classList.toggle("done", !!done);
+  if (!sparks.length && Math.abs(lenTarget - lenNow) < .3) idleTop = home.scrollTop;
   requestAnimationFrame(frame);
 }
 
-function init() { sizeFx(); build(); }
-addEventListener("resize", init);
+let iw = 0, ih = 0, rt = 0;
+home.addEventListener("scroll", () => document.body.classList.toggle("scrolled", home.scrollTop > 40), { passive: true });
+function init() { iw = innerWidth; ih = innerHeight; sizeFx(); build(); chs = null; idleTop = -1; }
+addEventListener("resize", () => { if (innerWidth === iw && Math.abs(innerHeight - ih) < 160) return; clearTimeout(rt); rt = setTimeout(init, 250); });
 document.fonts.ready.then(() => { init(); requestAnimationFrame(frame); });
 setTimeout(init, 1500);
 })();
