@@ -357,6 +357,8 @@
   @keyframes gsFly{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--x),var(--y)) scale(.2) rotate(var(--r));opacity:0}}
   .gs-flash{position:fixed;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;pointer-events:none;z-index:9998;background:radial-gradient(circle,rgba(255,246,222,.95),rgba(232,201,127,.35) 45%,transparent 70%);animation:gsFl .6s ease-out forwards}
   @keyframes gsFl{to{transform:scale(14);opacity:0}}
+  .go-star .gs-arrow{width:18px;height:18px;margin-top:4px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;animation:gsArr 1.6s ease-in-out infinite}
+  @keyframes gsArr{0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(6px);opacity:1}}
   .go-star.hinted .gs-star{animation:gsPulse .6s ease-in-out 4}
   @media (prefers-reduced-motion:reduce){.go-star .gs-star,.go-star .gs-ring{animation:none}}
 </style>
@@ -391,7 +393,7 @@
   <button class="cue go-star" id="goStar" type="button" aria-label="ابدئي رحلة الإنجاز">
     <span class="gs-ring"></span><span class="gs-ring r2"></span>
     <svg class="gs-star" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gsg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3d2"/><stop offset=".55" stop-color="#e8c97f"/><stop offset="1" stop-color="#b8924f"/></linearGradient></defs><path d="M12 1.5c.7 5.9 2.6 8.9 10.5 10.5C14.6 13.6 12.7 16.6 12 22.5c-.7-5.9-2.6-8.9-10.5-10.5C9.4 10.4 11.3 7.4 12 1.5z" fill="url(#gsg)"/></svg>
-    <b class="gs-t">ابدئي رحلة الإنجاز</b><small class="gs-s">اضغطي النجمة</small>
+    <b class="gs-t">ابدئي رحلة الإنجاز</b><small class="gs-s">اضغطي النجمة، أو انزلي للأسفل لطفًا</small><svg class="gs-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg>
   </button>
 </div>
 <section class="story" id="journey" aria-label="رحلة الإنجاز">
