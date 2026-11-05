@@ -314,6 +314,15 @@
 
   .ic-btn.amb{display:none}
   body.about .ic-btn.amb{display:inline-flex}
+  .world-door{display:grid;grid-template-columns:180px 1fr;align-items:center;gap:18px;margin-top:34px;padding:14px;border-radius:22px;text-decoration:none;color:var(--cream);
+    background:linear-gradient(135deg,#4e3f5c,#7d6684);border:1px solid var(--line);box-shadow:0 18px 40px rgba(0,0,0,.35);transition:transform .3s}
+  .world-door:hover{transform:translateY(-4px)}
+  .wd-img{border-radius:16px;overflow:hidden;aspect-ratio:1;display:block}.wd-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .wd-tx b{display:block;font-family:"El Messiri";font-size:1.6rem;color:var(--gold)}
+  .wd-tx small{display:block;font-family:"El Messiri";font-size:1.05rem;color:#f3e2bd}
+  .wd-tx i{display:block;font-style:normal;margin-top:8px;color:var(--rose)}
+  @media (max-width:560px){.world-door{grid-template-columns:1fr;text-align:center}.wd-img{aspect-ratio:16/10}}
+  body.about .ic-btn.amb{display:none!important}
 </style>
 </head>
 <body>
@@ -708,34 +717,14 @@ function pageHTML(s) {
 function aboutHTML() {
   const skills = [["pen","تصميم الهويات والمواقع"],["camera","التصوير والتوثيق الإعلامي"],["film","المونتاج وصناعة المحتوى المرئي"],["spark","توظيف أدوات الذكاء الاصطناعي"],["code","بناء المواقع والبرمجة"],["chart","إعداد التقارير وتحليل البيانات"]];
   const lines = ["لا أتوقف عند حدود ما أعرفه؛ أتعلّم الأداة، ثم أصنع بها الجمال.","أجرّب، وأُعيد، وأُتقن… حتى يخرج العمل كما أحلم به.","أؤمن أن الإصرار يحوّل الفكرة إلى أثر.","في كل تفصيلة أرى فرصة لإبهارٍ جديد."];
-  return `<figure class="meadow rise" ${rise(0)}><div class="im"><img src="img/meadow.jpg" alt="لوحة بالألوان المائية: امرأة في حقل زهور تحمل كاميرا"></div></figure><div class="kpis"><div class="kpi rise" ${rise(0)}><b><span class="cnt" data-to="12">0</span></b><span>عامًا من الخبرة</span></div>
+  return `<div class="kpis"><div class="kpi rise" ${rise(0)}><b><span class="cnt" data-to="12">0</span></b><span>عامًا من الخبرة</span></div>
       <div class="kpi rise" ${rise(1)}><b>بكالوريوس</b><span>المؤهل الدراسي</span></div>
       <div class="kpi rise" ${rise(2)}><b>∞</b><span>شغف لا ينتهي</span></div></div>
     <div class="h3">عني بكلماتي</div>
     <div class="lines">${lines.map((l, i) => `<p class="line rise" ${rise(i + 3)}>${l}</p>`).join("")}</div>
     <div class="h3">مهاراتي</div>
     <div class="skills">${skills.map((k, i) => `<div class="skill rise" ${rise(i + 6)}><span class="si">${svg(k[0])}</span>${k[1]}</div>`).join("")}</div>
-    <div class="h3">هواياتي</div>
-    <div class="hobbies">${[
-      ["book","أعلّم نفسي","لم أنتظر دورة تعلّمني؛ أبحث، وأجرّب، وأخطئ، وأعيد، حتى أفهم. وهكذا تعلّمت كل ما أعمل به اليوم."],
-      ["pen","التصميم","أحب أن أرى الفكرة تأخذ شكلها؛ لونًا، وخطًا، وترتيبًا يريح العين قبل أن يُقرأ."],
-      ["film","صناعة المقاطع","أجمع اللقطات الصغيرة من يوم المدرسة، فأصنع منها قصة تُبقي اللحظة حيّة."],
-      ["code","بناء المواقع","أبدأ بفكرة في رأسي، وأنتهي برابط يفتحه الجميع… وفي كل مرة أدهش نفسي قبل غيري."],
-      ["spark","تجربة أدوات الذكاء الاصطناعي","درّبت نفسي على استخدامها وإضافة مهاراتها خطوة بخطوة، حتى صارت مساعدي في كل عمل."]
-    ].map((h, i) => `<div class="hobby rise" ${rise(12 + i)}><span class="si">${svg(h[0])}</span><div><b>${h[1]}</b><p>${h[2]}</p></div></div>`).join("")}</div>
-    <p class="line rise" ${rise(17)} style="text-align:center;margin-top:18px;border:0;background:none;font-family:El Messiri;color:var(--gold);font-size:1.25rem">«هوايتي أن أتعلّم… فكل مهارة جديدة بابٌ لأثرٍ جديد.»</p>
-    <div class="h3">شغفٌ مستمر<span class="bfly" aria-hidden="true">🦋</span></div>
-    <p class="rise" ${rise(18)} style="color:var(--muted);margin:-4px 0 16px">أعمال صنعتها بشغف خارج مهامي اليومية، لمدارس وجهات أخرى.</p>
-    <div class="pgal">${[
-      ["img/passion/tamayuz.jpg","إذاعة مدرسة التميز","إذاعة مدرسية متكاملة بلمسة إبداعية وتقنيات الذكاء الاصطناعي: مونتاج، ومذيعة بصوت مولّد، ومقطع توعوي كرتوني متحرك."],
-      ["img/passion/principal-day.jpg","اليوم العالمي للمدير","فيديو إهداء بأسلوب القصاصات الورقية المتحركة، للثانوية الأولى بمحافظة العلا."],
-      ["img/passion/teacher-day.jpg","يوم المعلم العالمي","فيديو تكريم لمعلمات الثانوية الأولى بالعلا على أنشودة يوم المعلم، تظهر فيه أسماء 28 معلمة متزامنة مع الغناء."],
-      ["img/passion/nahrawan.jpg","منصة خطة التحسين · ثانوية النهروان","منصة رقمية لخطة التحسين 1448هـ: تحليل الواقع، ومقارنة المجالات، وتصدير PDF وWord وExcel."],
-      ["img/passion/portfolio.jpg","«إنجازي يحكي»","ملف إنجاز إلكتروني لطالبات الصف الرابع: 8 طالبات، و10 معلمات، و10 مواد، و91 مشروعًا."],
-      ["img/passion/guide.jpg","دليل «من الفكرة إلى الأثر»","طريقتي في بناء تطبيقاتي بلا خبرة برمجية سابقة، أُرسل لإدارة تعليم جدة."]
-    ].map((g, i) => `<a class="pg rise" ${rise(19 + i)} href="${g[0]}" target="_blank" rel="noopener"><span class="ph"><img src="${g[0]}" alt="${g[1]}" loading="lazy"></span><b>${g[1]}</b><small>${g[2]}</small></a>`).join("")}
-      <a class="pg game rise" ${rise(25)} href="img/passion/ajaj.jpg" target="_blank" rel="noopener"><span class="ph"><img src="img/passion/ajaj.jpg" alt="لعبة عجاج" loading="lazy"><em class="dev">قيد التطوير</em></span><b>لعبة «عجاج» على Roblox</b><small>بنيت الماب من الصفر، وكتبت أكوادها بمساعدة Claude Code؛ قصة وألغاز يحلّها اللاعب. ما زالت في مرحلة التعديل والتجربة قبل النشر.</small></a>
-    </div>`;
+    <a class="world-door rise" ${rise(12)} href="world/"><span class="wd-img"><img src="world/img2/door.webp" alt="لوحة: TOFA على مرجيحة معلّقة من الهلال"></span><span class="wd-tx"><b>✨ شغفٌ مستمر</b><small>خلف العمل… قلبٌ يحب أن يتعلّم</small><i>هواياتي وأعمالي التي صنعتها بشغف ←</i></span></a>`;
 }
 
 function openSection(id) { if (location.hash !== "#" + id) location.hash = id; }

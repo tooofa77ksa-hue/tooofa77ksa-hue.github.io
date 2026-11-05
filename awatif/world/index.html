@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>عالمي · عواطف الجهني</title>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=El+Messiri:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--seam:#4e3f5c;--end:#6e5876;--cream:#f7efdc;--gold:#e8c46a;--ink:#2f2438;--ink2:#5b4c63}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Tajawal,sans-serif;color:var(--cream);overflow-x:hidden;line-height:1.8;background:var(--end)}
+  /* شريط التنقل */
+  .nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:80;display:flex;gap:4px;padding:5px;border-radius:99px;
+    background:rgba(60,45,75,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(20,10,30,.3);border:1px solid rgba(247,239,220,.18)}
+  .nav a{color:var(--cream);text-decoration:none;font-family:"El Messiri";font-size:15px;padding:6px 14px;border-radius:99px;white-space:nowrap}
+  .nav a.home{background:rgba(247,239,220,.92);color:var(--ink)}
+  .snd{font-family:"El Messiri";font-size:15px;background:rgba(232,196,106,.95);color:var(--ink);border:0;border-radius:99px;padding:6px 14px;cursor:pointer;display:inline-flex;align-items:center;white-space:nowrap}
+  .snd b{display:inline-flex;gap:3px;align-items:flex-end;height:14px;margin-inline-start:6px}
+  .snd b i{width:3px;background:#a8812c;border-radius:2px;animation:eq 1s ease-in-out infinite}.snd b i:nth-child(2){animation-delay:.2s}.snd b i:nth-child(3){animation-delay:.4s}
+  .snd b[hidden]{display:none}
+  @keyframes eq{0%,100%{height:4px}50%{height:14px}}
+  /* ===== الواجهة ===== */
+  .hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:var(--seam)}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:16%;background:linear-gradient(transparent,var(--seam));z-index:1;pointer-events:none}
+  .sky{position:absolute;inset:-3%;background:url(img2/sky-hero2.webp) center top/cover;animation:drift 40s ease-in-out infinite alternate}
+  @keyframes drift{to{transform:scale(1.05) translate(-1.2%,.6%)}}
+  .title{position:absolute;top:10%;left:0;right:0;text-align:center;z-index:5;text-shadow:0 3px 18px rgba(30,20,40,.6)}
+  .title h1{font-family:"Aref Ruqaa",serif;font-weight:700;font-size:clamp(2.8rem,9vw,6rem);line-height:1.15;animation:in 1.6s ease both}
+  .title h1 span{color:var(--gold)}
+  .title p{font-family:"El Messiri";font-size:clamp(1.05rem,2.8vw,1.6rem);color:#fff3d8;animation:in 1.6s ease .5s both}
+  @keyframes in{from{opacity:0;transform:translateY(18px);filter:blur(6px)}}
+  .swing{position:absolute;top:2%;height:86svh;aspect-ratio:587/1300;left:calc(86% - 86svh*.4515*.42);top:6%;transform-origin:42% 5%;animation:swingA 3.8s ease-in-out infinite;z-index:2}
+  .swing img{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 24px 30px rgba(25,15,35,.45))}
+  .swing .eyes{opacity:0;transition:opacity .08s}
+  .swing .eyes.on{opacity:1}
+  @keyframes swingA{0%,100%{transform:rotate(2deg)}50%{transform:rotate(-13deg)}}
+  .title{right:auto!important;left:4%!important;width:54%}
+  .float{position:absolute;left:50%;bottom:7%;width:min(84vw,940px,calc(62svh*1.71));transform:translateX(-50%);animation:float 7s ease-in-out infinite;z-index:2}
+  @keyframes float{0%,100%{transform:translate(-50%,0) rotate(-.5deg)}50%{transform:translate(-50%,-20px) rotate(.5deg)}}
+  .float .girl{width:100%;display:block;filter:drop-shadow(0 26px 34px rgba(25,15,35,.45))}
+  .camera{position:absolute;left:21%;top:76%;width:clamp(42px,6.2%,66px);transform-origin:50% 0;animation:swing 3.4s ease-in-out infinite}
+  .camera img{width:100%;display:block;filter:drop-shadow(0 10px 10px rgba(0,0,0,.3))}
+  @keyframes swing{0%,100%{transform:rotate(9deg)}50%{transform:rotate(-9deg)}}
+  .school{position:absolute;width:clamp(100px,13vw,190px);left:3%;bottom:17%;animation:bob 6s ease-in-out infinite .8s;z-index:4}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+  .dove{position:absolute;width:clamp(56px,6vw,90px);animation:fly 20s linear infinite;z-index:2}
+  .dove img{width:100%;transform:scaleX(-1);animation:flap .9s ease-in-out infinite alternate}
+  @keyframes flap{to{transform:scaleX(-1) scaleY(.78) translateY(4px)}}
+  @keyframes fly{0%{left:105%;top:34%}50%{top:24%}100%{left:-12%;top:30%}}
+  .tw{position:absolute;border-radius:50%;background:#fff6d8;box-shadow:0 0 10px 2px rgba(255,236,170,.8);animation:tw 3s ease-in-out infinite;pointer-events:none}
+  @keyframes tw{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1.2)}}
+  .cue{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:3;font-family:"El Messiri";font-size:14px;color:#fff3d8;animation:cue 2.4s ease-in-out infinite}
+  @keyframes cue{50%{transform:translate(-50%,8px)}}
+  /* ===== امتداد اللوحة ===== */
+  .world{position:relative;overflow:hidden;padding:30px 0 120px;
+    background:url(img2/sky-tall.webp) center top/100% auto no-repeat,linear-gradient(var(--seam),#5a4868 40%,var(--end))}
+  .wrap{width:min(1120px,100% - 32px);margin:0 auto;position:relative;z-index:3}
+  section{scroll-margin-top:70px}
+  .h2{text-align:center;font-family:"Aref Ruqaa",serif;font-size:clamp(2.1rem,5vw,3.1rem);margin-top:40px;text-shadow:0 3px 14px rgba(30,20,40,.5)}
+  .sub{text-align:center;color:#ecdfe8;font-family:"El Messiri";margin-bottom:30px}
+  .hobbies{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px 18px}
+  .hob{text-align:center;animation:hov 6s ease-in-out infinite}
+  .hob:nth-child(2){animation-delay:-1.2s}.hob:nth-child(3){animation-delay:-2.4s}.hob:nth-child(4){animation-delay:-3.6s}.hob:nth-child(5){animation-delay:-4.8s}
+  @keyframes hov{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .hob img{width:min(200px,80%);display:block;margin:0 auto -6px;filter:drop-shadow(0 16px 20px rgba(25,15,35,.4))}
+  .hob b{display:block;font-family:"El Messiri";font-size:1.2rem;color:var(--cream)}
+  .hob p{font-size:.93rem;color:#e6d8e2;padding:0 6px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px 30px;margin-top:20px}
+  .fr{position:relative;display:block;text-decoration:none;color:inherit;transform-origin:50% 4%;animation:sway 5s ease-in-out infinite}
+  .fr:nth-child(odd){animation-delay:-2.5s}.fr:nth-child(3n){animation-duration:6s}
+  @keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+  .fbox{position:relative}
+  .fbox .ph{position:absolute;left:10.4%;right:10.3%;top:44.8%;bottom:9%;overflow:hidden;background:#e9e0cc}
+  .fbox .ph img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+  .fbox .frm{position:relative;width:100%;display:block;pointer-events:none;filter:drop-shadow(0 16px 20px rgba(20,10,30,.45))}
+  .fr b{display:block;text-align:center;font-family:"El Messiri";font-size:1.12rem;color:var(--gold);margin-top:2px}
+  .fr small{display:block;text-align:center;color:#e6d8e2;font-size:.9rem;padding:0 10px}
+  .dev{position:absolute;top:46%;left:14%;z-index:3;background:#c9524a;color:#fff;font-family:"El Messiri";font-size:12px;padding:1px 10px;border-radius:99px;transform:rotate(-8deg)}
+  .end{text-align:center;margin-top:80px;font-family:"Aref Ruqaa",serif;font-size:clamp(1.5rem,4vw,2.3rem)}
+  .end small{display:block;font-family:"El Messiri";font-size:1rem;color:var(--gold);margin-top:6px}
+  .pol{position:fixed;z-index:2;width:46px;padding:4px 4px 12px;background:#fbf6e9;box-shadow:0 6px 12px rgba(0,0,0,.35);pointer-events:none;animation:pdrop linear forwards}
+  .pol img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+  @keyframes pdrop{0%{opacity:0;transform:translate(0,0) rotate(0) scale(.4)}8%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(1)}}
+  /* أوراق الخريف تتساقط */
+  .leaf{position:fixed;top:-60px;z-index:1;pointer-events:none;animation:fall linear forwards}
+  .leaf img{width:100%;display:block;animation:spinL 4s ease-in-out infinite alternate}
+  @keyframes fall{to{transform:translate(var(--dx),112vh)}}
+  @keyframes spinL{from{transform:rotate(-40deg) rotateY(0)}to{transform:rotate(60deg) rotateY(160deg)}}
+  @media (max-width:700px){
+    .sky{background-position:72% top}
+    .float{width:150vw;bottom:16%}
+    .swing{height:62svh;top:27%;left:calc(56% - 66svh*.4515*.42)}
+    .title{left:0!important;width:100%}
+    .title{top:13%}
+    .school{left:3%;right:auto;bottom:auto;top:74%;width:88px}
+    .title{top:15%}
+    .nav a,.snd{font-size:13px;padding:5px 9px}
+    .nav{gap:2px}
+  }
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}.leaf{display:none}}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="home" href="../index.html#about">→ ملفي</a><a href="#hobbies">هواياتي</a><a href="#works">من أعمالي</a><button class="snd" id="snd" aria-pressed="false"><span id="sndt">▶ الأنشودة</span><b id="eq" hidden><i></i><i></i><i></i></b></button></nav>
+<audio id="nash" src="audio/nasheed.mp3" loop preload="auto"></audio>
+
+<header class="hero" id="top">
+  <div class="sky"></div>
+  <div id="twinkles"></div>
+  <div class="title"><h1>فاستمرّ… <span>فاستمرّ</span></h1><p>خلف العمل… قلبٌ يحب أن يتعلّم</p></div>
+  <div class="dove"><img src="img2/dove.webp" alt=""></div>
+  <img class="school" src="img2/school.webp" alt="مدرسة 165B">
+  <div class="swing" id="swing"><img src="img2/swing-open.webp" alt="لوحة مائية: TOFA على مرجيحة معلّقة من الهلال"><img class="eyes" id="eyes" src="img2/swing-closed.webp" alt=""></div>
+  <div class="cue">↓ انزل لترى عالمي</div>
+</header>
+
+<main class="world">
+  <div class="wrap">
+    <section id="hobbies">
+      <h2 class="h2">هواياتي</h2><p class="sub">هوايتي أن أتعلّم… فكل مهارة جديدة بابٌ لأثرٍ جديد</p>
+      <div class="hobbies">
+        <div class="hob"><img src="img2/hob-learn.webp" alt=""><b>أعلّم نفسي</b><p>أبحث، وأجرّب، وأخطئ، وأعيد… حتى أفهم.</p></div>
+        <div class="hob"><img src="img2/hob-design.webp" alt=""><b>التصميم</b><p>لونٌ وخطٌّ وترتيب يريح العين قبل أن يُقرأ.</p></div>
+        <div class="hob"><img src="img2/hob-video.webp" alt=""><b>صناعة المقاطع</b><p>من لقطات يوم المدرسة أصنع قصة تُبقي اللحظة حيّة.</p></div>
+        <div class="hob"><img src="img2/hob-web.webp" alt=""><b>بناء المواقع</b><p>فكرة في رأسي… تنتهي برابط يفتحه الجميع.</p></div>
+        <div class="hob"><img src="img2/hob-ai.webp" alt=""><b>أدوات الذكاء الاصطناعي</b><p>درّبت نفسي عليها خطوة بخطوة حتى صارت مساعدي.</p></div>
+      </div>
+    </section>
+    <section id="works">
+      <h2 class="h2" style="margin-top:90px">من أعمالي</h2><p class="sub">أعمال صنعتها بشغف خارج مهامي اليومية</p>
+      <div class="gallery" id="gal"></div>
+    </section>
+    <p class="end">بتوفيق الله… ثم بشغفٍ لا ينطفئ<small>عواطف الجهني · TOFA</small></p>
+  </div>
+</main>
+<script>
+(function(){
+  const works=[["tamayuz","إذاعة مدرسة التميز","مونتاج، ومذيعة بصوت مولّد، ومقطع توعوي كرتوني."],["principal-day","اليوم العالمي للمدير","فيديو إهداء بأسلوب القصاصات الورقية المتحركة."],["teacher-day","يوم المعلم العالمي","تكريم 28 معلمة على أنشودة يوم المعلم."],["nahrawan","منصة خطة التحسين","منصة رقمية لخطة التحسين 1448هـ."],["portfolio","«إنجازي يحكي»","8 طالبات، و10 معلمات، و91 مشروعًا."],["guide","«من الفكرة إلى الأثر»","دليل بناء تطبيق بلا خبرة برمجية."],["ajaj","لعبة «عجاج» على Roblox","ماب وقصة وألغاز بنيتها من الصفر.",1]];
+  document.getElementById('gal').innerHTML=works.map(w=>`<a class="fr" href="img2/${w[0]}.jpg" target="_blank" rel="noopener"><div class="fbox"><div class="ph"><img src="img2/${w[0]}.jpg" alt="${w[1]}" loading="lazy"></div><img class="frm" src="img2/frame.webp" alt="">${w[3]?'<span class="dev">قيد التطوير</span>':''}</div><b>${w[1]}</b><small>${w[2]}</small></a>`).join('');
+  const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tw=document.getElementById('twinkles');
+  for(let i=0;i<34;i++){const s=document.createElement('i');s.className='tw';const z=2+Math.random()*3;s.style.cssText=`width:${z}px;height:${z}px;left:${Math.random()*100}%;top:${Math.random()*60}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;tw.appendChild(s);}
+  function leaf(){ if(RM||document.hidden) return; const d=document.createElement('div');d.className='leaf';const w=(innerWidth<700?14:22)+Math.random()*(innerWidth<700?14:26);const t=10+Math.random()*8;
+    d.style.cssText=`left:${Math.random()*100}vw;width:${w}px;animation-duration:${t}s;--dx:${Math.random()*30-15}vw`;
+    d.innerHTML=`<img src="img2/leaf${Math.floor(Math.random()*6)}.webp" alt="" style="animation-duration:${2+Math.random()*3}s">`;document.body.appendChild(d);setTimeout(()=>d.remove(),t*1000+300);}
+  /* صور أعمالي تطير من الكاميرا */
+  const sw=document.getElementById('swing');
+  function pol(){ if(RM||document.hidden) return; const r=sw.getBoundingClientRect(); if(r.bottom<0) return;
+    const x=r.left+r.width*.12, y=r.top+r.height*.72; const w=works[Math.floor(Math.random()*works.length)][0];
+    const d=document.createElement('div'); d.className='pol'; const t=7+Math.random()*4;
+    d.style.cssText=`left:${x}px;top:${y}px;animation-duration:${t}s;--dx:${-(80+Math.random()*260)}px;--dy:${260+Math.random()*240}px;--r:${Math.random()*60-30}deg`;
+    d.innerHTML=`<img src="img2/${w}.jpg" alt="">`; document.body.appendChild(d); setTimeout(()=>d.remove(),t*1000+200); }
+  setTimeout(pol,2500); setInterval(pol,4200);
+  /* الأنشودة */
+  const au=document.getElementById('nash'), sb=document.getElementById('snd'), st=document.getElementById('sndt'), eq=document.getElementById('eq');
+  au.volume=.9; let wanted=true;
+  function ui(){ const on=!au.paused; sb.setAttribute('aria-pressed',on); st.textContent=on?'⏸ الأنشودة':'▶ الأنشودة'; eq.hidden=!on; }
+  function play(){ au.play().then(ui).catch(()=>ui()); }
+  au.addEventListener('play',ui); au.addEventListener('pause',ui);
+  play();
+  const first=()=>{ if(wanted && au.paused) play(); removeEventListener('pointerdown',first,true); removeEventListener('keydown',first,true); };
+  addEventListener('pointerdown',first,true); addEventListener('keydown',first,true);
+  sb.addEventListener('click',e=>{ e.stopPropagation(); if(au.paused){wanted=true;play();} else {wanted=false;au.pause();} });
+  const eyes=document.getElementById('eyes');
+  function blink(){ if(RM) return; const long=Math.random()<.25; eyes.classList.add('on'); setTimeout(()=>eyes.classList.remove('on'), long?1300:170); setTimeout(blink, 2600+Math.random()*3200); }
+  setTimeout(blink,2000);
+  for(let i=0;i<5;i++) setTimeout(leaf,i*700); setInterval(leaf,1500);
+})();
+</script>
+</body>
+</html>
