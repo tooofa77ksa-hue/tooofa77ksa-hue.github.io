@@ -357,6 +357,7 @@
   @keyframes gsFly{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--x),var(--y)) scale(.2) rotate(var(--r));opacity:0}}
   .gs-flash{position:fixed;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;pointer-events:none;z-index:9998;background:radial-gradient(circle,rgba(255,246,222,.95),rgba(232,201,127,.35) 45%,transparent 70%);animation:gsFl .6s ease-out forwards}
   @keyframes gsFl{to{transform:scale(14);opacity:0}}
+  .go-star.hinted .gs-star{animation:gsPulse .6s ease-in-out 4}
   @media (prefers-reduced-motion:reduce){.go-star .gs-star,.go-star .gs-ring{animation:none}}
 </style>
 </head>
@@ -1010,6 +1011,23 @@ route();
     const j = document.getElementById("journey");
     setTimeout(() => document.getElementById("home").scrollTo({ top: j.offsetTop - 10, behavior: reduced ? "auto" : "smooth" }), reduced ? 0 : 380);
   });
+})();
+</script>
+<script>
+/* ===== تلميح النزول: إذا لم تتحرك الصفحة خلال 6 ثوانٍ تنزل قليلًا ثم تعود مرة واحدة ===== */
+(function(){
+  if (reduced) return;
+  const h = document.getElementById("home"); let moved = false, done = false;
+  const stop = () => { moved = true; };
+  h.addEventListener("scroll", () => { if (!done) moved = true; }, { passive: true });
+  ["pointerdown","keydown","wheel","touchstart"].forEach(e => addEventListener(e, stop, { passive: true, once: true }));
+  setTimeout(() => {
+    if (moved || done || document.body.classList.contains("inner") || h.scrollTop > 10) return;
+    done = true; const d = Math.round(innerHeight * .28);
+    h.scrollTo({ top: d, behavior: "smooth" });
+    setTimeout(() => { if (h.scrollTop <= d + 5) h.scrollTo({ top: 0, behavior: "smooth" }); }, 1100);
+    const g = document.getElementById("goStar"); if (g) { g.classList.add("hinted"); setTimeout(() => g.classList.remove("hinted"), 2600); }
+  }, 6000);
 })();
 </script>
 </body>
