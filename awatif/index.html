@@ -361,6 +361,10 @@
   @keyframes gsArr{0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(6px);opacity:1}}
   .go-star.hinted .gs-star{animation:gsPulse .6s ease-in-out 4}
   @media (prefers-reduced-motion:reduce){.go-star .gs-star,.go-star .gs-ring{animation:none}}
+  .card .ico.ico3{width:78px;height:78px;background:none;margin-top:4px}
+  .card .ico.ico3 img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(20,10,30,.35))}
+  @media (max-width:600px){.card .ico.ico3{width:66px;height:66px}}
+  .mono i.seal{border:0;width:44px;height:44px;background:url(img/ic3d/seal-ain.webp) center/contain no-repeat;color:transparent;filter:drop-shadow(0 4px 8px rgba(0,0,0,.35))}
 </style>
 </head>
 <body>
@@ -369,7 +373,7 @@
 <div class="glow g1"></div><div class="glow g2"></div>
 
 <header class="top">
-  <div class="mono"><i>ع</i><span>عواطف الجهني</span></div>
+  <div class="mono"><i class="seal" aria-hidden="true">ع</i><span>عواطف الجهني</span></div>
   <div class="ctrl"><button class="ic-btn" id="snd" aria-label="تشغيل الصوت أو إيقافه"></button></div>
 </header>
 <button class="back" id="back" aria-label="العودة للرئيسية"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>الرئيسية</button>
@@ -633,7 +637,7 @@ setTimeout(() => $("#quote").firstChild.classList.add("on"), 350);
 /* ======================= القوس الدوّار ======================= */
 const arc = $("#arc"), N = SECTIONS.length;
 arc.innerHTML = SECTIONS.map((s, i) => `<button class="card" role="option" data-i="${i}" style="background:${s.bg};color:${s.fg}" aria-label="${s.title}">
-  <span class="no">0${ar(i + 1)}</span><span class="ico">${svg(s.icon)}</span><span><h3>${s.title}</h3><small>${s.sub}</small></span>
+  <span class="no">0${ar(i + 1)}</span><span class="ico ico3"><img src="img/ic3d/main-${s.id}.webp" alt="" decoding="async" onerror="this.parentNode.innerHTML=svg('${s.icon}');this.parentNode.classList.remove('ico3')"></span><span><h3>${s.title}</h3><small>${s.sub}</small></span>
   <span class="open">${svg("arrow")}</span></button>`).join("");
 $("#dots").innerHTML = SECTIONS.map((s, i) => `<button data-i="${i}" aria-label="${s.title}"></button>`).join("");
 const cards = [...arc.children], dots = [...$("#dots").children];
