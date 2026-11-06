@@ -363,6 +363,11 @@
   @media (prefers-reduced-motion:reduce){.go-star .gs-star,.go-star .gs-ring{animation:none}}
   .card .ico.ico3{width:78px;height:78px;background:none;margin-top:4px}
   .card .ico.ico3 img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(20,10,30,.35))}
+  .card .ico.ico3 img{animation:i3card 4.5s ease-in-out infinite;will-change:transform}
+  .card:nth-child(2n) .ico.ico3 img{animation-delay:-1.5s}.card:nth-child(3n) .ico.ico3 img{animation-delay:-3s}
+  .card.on .ico.ico3 img{animation-duration:3.6s}
+  @keyframes i3card{0%,100%{transform:translateY(0) rotate(-3deg) scale(1)}50%{transform:translateY(-6px) rotate(3deg) scale(1.04)}}
+  @media (prefers-reduced-motion:reduce){.card .ico.ico3 img{animation:none}}
   @media (max-width:600px){.card .ico.ico3{width:66px;height:66px}}
   .mono i.seal{border:0;width:44px;height:44px;background:url(img/ic3d/seal-ain.webp) center/contain no-repeat;color:transparent;filter:drop-shadow(0 4px 8px rgba(0,0,0,.35))}
 </style>
