@@ -559,6 +559,9 @@ const SECTIONS = [
     desc:"الدورات والورشات التدريبية التي حضرتها.",
     rows:[{icon:"award", bg:"#a88a55", title:"الدورات الإلزامية", desc:"شهادات الدورات الإلزامية.", link:D+"1EEqAlApHPVVUimD3ZgDPhLhUy-DOM6iO/view"},
       {icon:"heart", bg:"#b07a93", title:"ورشة عمل الثمان الأولى للإسعافات الأولية", desc:"البرنامج الإلزامي غير المتزامن · منصة أبعاد · 30 أكتوبر 2026 · ساعتان.", link:D+"18SqZkBPDfapY8XpJtOuJJvEY59l1Itw3/view"}]},
+  { id:"honors", icon:"heart", bg:"linear-gradient(150deg,#e6cfa5,#b07a93)", fg:"#2b1830", title:"تكريم وشكر", sub:"شكر إدارة المدرسة",
+    desc:"ما أقدّمه للمدرسة خارج مهامي، وشكر الإدارة عليه.",
+    rows:[{icon:"heart", bg:"#b07a93", title:"شكر وتقدير على تغطية حصص الانتظار", desc:"شكر من إدارة المدرسة للإداريات على تعاونهن في تغطية حصص الانتظار، تطوعًا خارج المهام الإدارية، حرصًا على انتظام اليوم الدراسي وعدم ضياع وقت تعلّم الطالبات. منشور في قناة المدرسة · 9 جمادى الآخرة 1448هـ (19 نوفمبر 2026م).", link:"https://t.me/almdrsa165b/978"}]},
 ];
 const GOALS = [
   ["جودة وانتظام العمل الإعلامي المدرسي",30,15,6,"media"],
@@ -649,7 +652,7 @@ setTimeout(() => $("#quote").firstChild.classList.add("on"), 350);
 /* ======================= القوس الدوّار ======================= */
 const arc = $("#arc"), N = SECTIONS.length;
 arc.innerHTML = SECTIONS.map((s, i) => `<button class="card" role="option" data-i="${i}" style="background:${s.bg};color:${s.fg}" aria-label="${s.title}">
-  <span class="no">0${ar(i + 1)}</span><span class="ico ico3"><img src="img/ic3d/main-${s.id}.webp?v=2" alt="" decoding="async" onerror="this.parentNode.innerHTML=svg('${s.icon}');this.parentNode.classList.remove('ico3')"></span><span><h3>${s.title}</h3><small>${s.sub}</small></span>
+  <span class="no">0${ar(i + 1)}</span><span class="ico ico3"><img src="img/ic3d/main-${s.id}.webp?v=2" alt="" decoding="async" onerror="const p=this.parentNode;p.classList.remove('ico3');p.innerHTML=svg('${s.icon}')"></span><span><h3>${s.title}</h3><small>${s.sub}</small></span>
   <span class="open">${svg("arrow")}</span></button>`).join("");
 $("#dots").innerHTML = SECTIONS.map((s, i) => `<button data-i="${i}" aria-label="${s.title}"></button>`).join("");
 const cards = [...arc.children], dots = [...$("#dots").children];
@@ -858,6 +861,7 @@ const CH = [
   ["التقارير","تقرير كل أسبوع بالأعمال المنفذة وأهميتها، من مارس إلى نوفمبر 2026.",["22 / 20","فوق المستهدف"],"reports"],
   ["التقويم الذاتي","التقويم الذاتي، وخطة التحسين، والخطة التشغيلية: ثلاث منصات بدل الورق.",["3 منصات","مكتمل"],"self"],
   ["شهادات الورشات والدورات","الدورات والورشات التدريبية التي حضرتها.",["الدورات الإلزامية","الإسعافات الأولية"],"certs"],
+  ["تكريم وشكر","ما أقدّمه للمدرسة خارج مهامي، مثل تغطية حصص الانتظار، وشكر الإدارة عليه.",["حصص الانتظار","تطوعًا"],"honors"],
 ];
 $("#chapters").innerHTML = CH.map((c, i) => `<section class="ch"><div class="in">
   <div class="num"><span class="halo"></span><svg viewBox="0 0 92 92"><circle cx="46" cy="46" r="45" transform="rotate(-90 46 46)"/></svg><b>${ar(String(i + 1).padStart(2, "0"))}</b></div>
