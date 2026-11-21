@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>كلماتٌ وصلتني — عواطف الجهني</title>
+<meta name="theme-color" content="#2b1830">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=El+Messiri:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--plum:#2b1830;--plum2:#3a2140;--mauve:#9b6b93;--rose:#d9a5b3;--gold:#d8bd8a;--gold2:#f3e2bd;--cream:#f7f1ec;--muted:#c9b3c3;--line:rgba(216,189,138,.25)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1200px 700px at 85% -10%,rgba(216,189,138,.18),transparent 60%),radial-gradient(900px 700px at -10% 110%,rgba(155,107,147,.45),transparent 60%),var(--plum);background-attachment:fixed;color:var(--cream);font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;font-size:17px;line-height:1.9;min-height:100vh;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+.nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:rgba(43,24,48,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav a{text-decoration:none;font-family:"El Messiri";color:var(--gold);border:1px solid var(--line);padding:4px 14px;border-radius:99px;font-size:15px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px 70px}
+header{text-align:center;padding:60px 10px 26px}
+.env{font-size:46px;display:inline-block;animation:float 4s ease-in-out infinite}
+h1{font-family:"Aref Ruqaa",serif;font-size:clamp(42px,8vw,74px);line-height:1.25;background:linear-gradient(180deg,var(--gold2),var(--gold) 55%,var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:6px}
+header p{color:var(--muted);max-width:620px;margin:8px auto 0}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:26px 0 8px}
+.stat{border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:18px;padding:10px 20px;min-width:118px}
+.stat b{display:block;font-family:"El Messiri";font-size:30px;color:var(--gold);line-height:1.2}
+.stat span{font-size:13.5px;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:22px 0 30px}
+.tab{font:inherit;font-family:"El Messiri";font-size:15px;color:var(--cream);background:transparent;border:1px solid var(--line);border-radius:99px;padding:5px 16px;cursor:pointer;transition:.25s}
+.tab[aria-pressed=true]{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--plum);border-color:transparent}
+.grid{columns:3 300px;column-gap:20px}
+.card{break-inside:avoid;margin:0 0 20px;position:relative;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border-radius:22px;padding:26px 22px 18px;opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.card.in{opacity:1;transform:none}
+.card.edu{border-color:rgba(216,189,138,.6);background:linear-gradient(160deg,rgba(216,189,138,.18),rgba(255,255,255,.03))}
+.card:before{content:"”";position:absolute;top:-6px;left:16px;font-family:"Aref Ruqaa",serif;font-size:76px;line-height:1;color:var(--gold);opacity:.55}
+.badge{display:inline-block;font-family:"El Messiri";font-size:12.5px;padding:1px 12px;border-radius:99px;background:rgba(216,189,138,.16);color:var(--gold2);margin-bottom:10px}
+.card.edu .badge{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--plum)}
+.about{font-size:14px;color:var(--rose);margin:-4px 0 6px}
+.q{white-space:pre-line;font-size:16.5px}
+.q.cut{display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.more{font:inherit;font-size:14px;font-family:"El Messiri";background:none;border:0;color:var(--gold);cursor:pointer;margin-top:4px;padding:0}
+.who{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:2px}
+.who b{font-family:"El Messiri";color:var(--gold);font-size:16px}
+.who span{font-size:13.5px;color:var(--muted)}
+.src{font-size:12.5px;color:var(--muted);opacity:.85}
+.lnk{display:inline-block;margin-top:8px;font-family:"El Messiri";font-size:13.5px;text-decoration:none;color:var(--plum);background:linear-gradient(135deg,var(--gold2),var(--gold));padding:2px 14px;border-radius:99px}
+.cta{text-align:center;margin-top:30px;border:1px solid var(--line);border-radius:26px;padding:30px 18px;background:rgba(255,255,255,.04)}
+.cta h2{font-family:"El Messiri";color:var(--gold);font-size:24px}
+.cta p{color:var(--muted);font-size:15px}
+.cta a{display:inline-block;margin-top:14px;text-decoration:none;font-family:"El Messiri";color:var(--plum);background:linear-gradient(135deg,var(--gold2),var(--gold));padding:8px 26px;border-radius:99px;font-size:17px}
+.upd{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
+.foot{text-align:center;margin-top:34px;font-family:"El Messiri";color:var(--gold)}
+.foot small{display:block;color:var(--muted);font-family:"IBM Plex Sans Arabic";font-size:13px}
+@keyframes float{50%{transform:translateY(-8px) rotate(-4deg)}}
+@media (prefers-reduced-motion:reduce){.card{opacity:1;transform:none;transition:none}.env{animation:none}}
+</style>
+</head>
+<body>
+<nav class="nav"><a href="../index.html">→ ملفي</a><a href="../world/">✨ شغفٌ مستمر</a></nav>
+<div class="wrap">
+<header>
+  <span class="env" aria-hidden="true">💌</span>
+  <h1>كلماتٌ وصلتني</h1>
+  <p>ما كتبه من عرفوا عملي، بنصّه كما كتبوه، دون تعديل. وأنا ممتنّة لكل حرف.</p>
+  <div class="stats" id="stats"></div>
+</header>
+<div class="tabs" id="tabs" role="group" aria-label="تصفية الكلمات"></div>
+<div class="grid" id="grid"></div>
+<div class="cta">
+  <h2>هل عرفتِ عملي؟</h2>
+  <p>يسعدني أن تتركي لي كلمة، فكل كلمة صادقة تزيدني حرصًا على الإتقان.</p>
+  <a href="https://form.jotform.com/263094950867066" target="_blank" rel="noopener">💌 اترك لي كلمة طيبة</a>
+</div>
+<p class="upd">آخر تحديث: <span id="upd">11 جمادى الآخرة 1448هـ · 21 نوفمبر 2026</span></p>
+<p class="foot">بتوفيق الله… ثم بكلماتكم<small>عواطف الجهني · المساعد الإداري · الابتدائية الخامسة والستون بعد المائة بجدة</small></p>
+</div>
+<script>
+const W=[{"c": "edu", "name": "أ. رضا الغامدي", "role": "مشرفة الإعلام بقسم الاتصال المؤسسي، الإدارة العامة للتعليم بجدة", "show": 1, "t": "ما حسيت بالوقت وأنا أقرأ… والله إن الكلمات تتقزّم أمام ما رأيت… عمل جبّار يا أستاذة عواطف: شخصية منظمة، وتركيز عالٍ، وعقلية عملية علمية… أنتِ احترمتِ العلم، والعلم احترمك.", "about": "عن دليل «من الفكرة إلى الأثر»", "h": "17 ربيع الآخر 1448هـ", "g": "28 سبتمبر 2026", "link": "https://drive.google.com/file/d/16WKlgwmGCtiYOOiXuzp_OXM6KEzyYz5O/view", "src": "رسالة صوتية"}, {"c": "edu", "name": "أ. رضا الغامدي", "role": "مشرفة الإعلام بقسم الاتصال المؤسسي، الإدارة العامة للتعليم بجدة", "show": 1, "t": "جميل جميل جميل جداً… الداشبورد جميلة مرة مرة… اختصرتي الوقت، اختصرتي الجهود.", "about": "عن منصة موافقات التصوير", "h": "8 ربيع الآخر 1448هـ", "g": "19 سبتمبر 2026", "link": "https://drive.google.com/file/d/126l5qQcV881h9lSepvGASDPL5aGIKhaS/view", "src": "رسالة صوتية"}, {"c": "col", "role": "زميلة استفادت من شرحي", "show": 0, "t": "صراحةً، استفدتُ منكِ كثيرًا.", "about": "بعد أن وظّفت ChatGPT في تحليل نتائج «نافس»", "h": "", "g": "", "link": "", "src": "محادثة واتساب"}, {"c": "col", "role": "زميلة عمل", "show": 0, "t": "أنتِ عنوان للإبداع والتميّز، حضوركِ يُلهم، وعطاؤكِ يُبهر، تستحقين كل كلمات الفخر والإشادة. أبدعتِ حتى بلغتِ القمة، فهنيئًا لكِ هذا التألق المستحق دمتِ نجمةً لا يخفت بريقها.", "about": "", "h": "29 جمادى الأولى 1448هـ", "g": "9 نوفمبر 2026", "link": "", "src": "نموذج «كلمة طيبة»"}, {"c": "fam", "role": "أخت", "show": 0, "t": "يا مبدعة، يا ملهمة، يا أيقونة الجمال، يا صاحبة الذوق الرفيع، يا زهرة الإبداع، يا نبض التميز، يا عنوان الرقي، يا حكاية الجمال.\nلكِ أثر يلامس القلب قبل أن تراه العين❤️❤️❤️❤️❤️❤️", "about": "", "h": "29 جمادى الأولى 1448هـ", "g": "9 نوفمبر 2026", "link": "", "src": "نموذج «كلمة طيبة»"}, {"c": "col", "role": "زميلة عمل", "show": 0, "t": "إلى المبدعة التي لا تعرف للإبداع حدودًا…\nعواطف الطاقة الايجابية لكل من يقابلها 🤍 \nأنتِ نموذج للعطاء والتميز، تتحدث إنجازاتك عن شغفك، وتعكس أعمالك روحًا مبدعة لا ترضى إلا بالتألق. كل فكرة تقدمينها تحمل بصمتك الجميلة، وكل إنجاز يضيف صفحة مشرقة إلى مسيرتك.\n\nدام إبداعك مصدر إلهام، ودام عطاؤك أثرًا جميلًا أينما كنتِ🌹❤️", "about": "", "h": "30 جمادى الأولى 1448هـ", "g": "10 نوفمبر 2026", "link": "", "src": "نموذج «كلمة طيبة»"}, {"c": "col", "role": "زميلة عمل", "show": 0, "t": "ما شاء الله، لا قوة إلا بالله 🌷\nمبارك هذه الإنجازات عواطف ، ومبارك هذا العطاء الذي يترجم الجهود إلى نجاحات نفخر بها. أسأل الله أن يكتب لك مزيدًا من التوفيق والتميز، ويبارك في جهودك وأوقاتك، ويرفع قدرك، ويجعل النجاح حليفك في كل خطوة.\nبوركت الهمم ، ودام التميز عنوانًا لكِ .", "about": "", "h": "30 جمادى الأولى 1448هـ", "g": "10 نوفمبر 2026", "link": "", "src": "نموذج «كلمة طيبة»"}, {"c": "adm", "role": "وكيلة المدرسة", "show": 0, "t": "إلى من جعلت من الإبداع عنوانًا، ومن التميز بصمة، ومن العطاء رسالة…\n\nإلى منسقتنا الإعلامية المتميزة  🌹عواطف 🌹\n\nأتقدم لكِ بخالص الشكر وعظيم الامتنان على جهودكِ الرائعة وعطائكِ المتواصل في إبراز أنشطة المدرسة وفعالياتها، ونقل إنجازاتها بصورة مشرّفة تعكس جمال العمل وروح الإبداع.\n\nلقد كنتِ عينًا ترصد التميز، وعدسةً توثق الإنجاز، وقلمًا يترك أثرًا جميلًا.\n\nشكرًا لكِ بحجم عطائكِ، وامتنانًا يليق بتميزكِ.\n\nدمتِ رمزًا للإبداع والتألق، ودام عطاؤكِ مصدر فخر واعتزاز لنا. 💐", "about": "", "h": "30 جمادى الأولى 1448هـ", "g": "10 نوفمبر 2026", "link": "", "src": "نموذج «كلمة طيبة»"}, {"c": "fam", "role": "أخت", "show": 0, "t": "توفتي طلبتي مني اكتب كلمة انا لو اكتب ما في قلبي ما راح يكفيه مجلد اكتب لك الان وكل عيوني دموع اتذكر كل شي من يوم ما بدأنا كنت معاك في كل خطوة تخطينها وكل جهد وكل تعب الى ان وصلتي الى ما انتي عليه الان فخووووورة فيك اكثر من اي انسان على وجه الارض يعني لما اقول توفا ، اقول توفا الاخت الحبيبة القريبة الحنونة المبدعة الرائعة الفنانة جمعتي كل محاسن الدنيا فيك ، جهدك وعلمك وصل لكل من عرفتي ما كتمتي علم ولا معرفة شاركتي الجميع إبداعك وعلمتيهم وساعدتيهم وكل خير سويتيه ثقي قاعد يرجع لك انتي في نفسك في اولادك في زوجك وحياتك لو اكتب ما راح اوفي شي بسيط من حقك عشان كذا بأختصر الكلام بأحب شي لقلبك أسأل الله رب العرش العظيم ان يبارك لك في جهدك وعلمك وعملك ويسخر لك جنود الارض والسماء والطيبين من خلقه ويحفظ اولادك ويوفقهم ويسخرهم ويسخر زوجك لك ويجعلني واياك من المتحابين في الله ويديم علينا اخوتنا الى يوم الدين 🫂", "about": "", "h": "30 جمادى الأولى 1448هـ", "g": "10 نوفمبر 2026", "link": "", "src": "نموذج «كلمة طيبة»"}, {"c": "col", "role": "زميلة عمل", "show": 0, "t": "اول شئ الله يحميك ويحفظك ويقويك دائماً لنفسك لأن مهما كثروا الداعمين تبقى نفسك هي اكبر داعم 🤍\nثاني شئ فخورة بمعرفتك وفخورة بإنجازاتك 🌹\nثالث شئ ان شاءالله دائما ً تحققي ذاتك وتكون هذه بداية لإنجازات رائعة تشبهك 🤍", "about": "", "h": "3 جمادى الآخرة 1448هـ", "g": "13 نوفمبر 2026", "link": "", "src": "نموذج «كلمة طيبة»"}, {"c": "fri", "role": "صديقة", "show": 0, "t": "بعض الأشخاص لا يؤدون أعمالهم فحسب، بل يتركون فيها شيئًا من أرواحهم؛ إتقانًا وحرصًا وإخلاصًا.\nوأنتِ من هؤلاء الذين يجمعون بين جمال الخُلُق وروعة العطاء؛ لا تتأخرين عن مساعدة أحد، ولا تجعلين المعروف ثقيلًا، وتؤدين عملكِ بمحبة وإتقان دون تذمر أو انتظار مقابل.\nأنتِ من الأشخاص الذين لا يُقدّر أثرهم بما ينجزونه فقط، بل بما يتركونه من طيب في القلوب. وجودكِ مكسب، وعطاؤكِ يستحق كل التقدير. دمتِ جميلة الروح وعظيمة الأثر. ❤", "about": "", "h": "6 جمادى الآخرة 1448هـ", "g": "16 نوفمبر 2026", "link": "", "src": "نموذج «كلمة طيبة»"}, {"c": "col", "role": "زميلة عمل", "show": 0, "t": "فخورة بوجود زميلة مبدعة مثلك بجانبي🥰", "about": "", "h": "7 جمادى الآخرة 1448هـ", "g": "17 نوفمبر 2026", "link": "", "src": "نموذج «كلمة طيبة»"}, {"c": "fri", "role": "صديقة", "show": 0, "t": "إلى الجميلة التي أحببتُ روحها قبل إبداعها… 🤍🌷\nأحيانًا نلتقي بأشخاص نشعر أن وجودهم بحد ذاته هدية جميلة من الله، وأنت واحده من أجمل هؤلاء الأشخاص.\nلا أعرف كيف أصف لكِ إعجابي بشخصيتك، فكلما رأيت إبداعك ازددت إعجابًا بك، وكلما لمست جمال أخلاقك وطيب تعاملك ازددت محبةً وتقديرًا لكِ\nأنت من الأشخاص النادرين الذين جمعوا بين جمال الروح، ورُقيّ الأخلاق، وصدق المشاعر، والإبداع الذي لا حدود له. والأجمل من كل ما تبدعينه هو قلبك الجميل وتواضعك ولطفك مع الآخرين.\nعواطف 🤍\n ليس إبداعك وحده ما يميزك، بل تلك الروح الحلوة التي تجعل لكل شيء منك طعمًا مختلفًا وأثرًا لا يُنسى.\nأسأل الله من قلبي أن يفتح لكِ أبواب السعادة والتوفيق، وأن يرزقكِ من جمال الأقدار بقدر جمال قلبك، وأن أراك دائمًا في أعلى المراتب، لأنك تستحقين كل شيء جميل.\nدمت روحًا أعتز بمعرفتها، وشخصًا أفتخر به، وقلبًا لا يشبه إلا الجمال. أحبك يا صاحبة الروح النقية. 🤍🫶🏻", "about": "", "h": "8 جمادى الآخرة 1448هـ", "g": "18 نوفمبر 2026", "link": "", "src": "نموذج «كلمة طيبة»"}];
+const CAT={edu:"من إدارة التعليم",adm:"من الإدارة المدرسية",col:"زميلات العمل",fri:"صديقات",fam:"من الأهل"};
+const ORDER=["edu","adm","col","fri","fam"];
+W.sort((a,b)=>ORDER.indexOf(a.c)-ORDER.indexOf(b.c));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
+const n=c=>W.filter(w=>w.c===c).length;
+document.getElementById("stats").innerHTML=`<div class="stat"><b>${W.length}</b><span>كلمة وصلتني</span></div>`+ORDER.filter(n).map(c=>`<div class="stat"><b>${n(c)}</b><span>${CAT[c]}</span></div>`).join("");
+const tabs=document.getElementById("tabs");
+tabs.innerHTML=`<button class="tab" aria-pressed="true" data-c="all">الكل</button>`+ORDER.filter(n).map(c=>`<button class="tab" aria-pressed="false" data-c="${c}">${CAT[c]}</button>`).join("");
+const grid=document.getElementById("grid");
+function draw(f){
+  grid.innerHTML=W.filter(w=>f==="all"||w.c===f).map((w,i)=>{
+    const long=w.t.length>330;
+    return `<article class="card ${w.c}"><span class="badge">${CAT[w.c]}</span>${w.about?`<p class="about">${esc(w.about)}</p>`:""}
+      <p class="q${long?" cut":""}">«${esc(w.t)}»</p>${long?`<button class="more">اقرئي الكلمة كاملة ↓</button>`:""}
+      <div class="who">${w.name?`<b>${esc(w.name)}</b><span>${esc(w.role)}</span>`:`<b>${esc(w.role)}</b>`}
+      <span class="src">${[w.src,w.h,w.g].filter(Boolean).map(esc).join(" · ")}</span>
+      ${w.link?`<a class="lnk" href="${w.link}" target="_blank" rel="noopener">افتحي العمل الذي تتحدث عنه ←</a>`:""}</div></article>`}).join("");
+  grid.querySelectorAll(".more").forEach(b=>b.onclick=()=>{const q=b.previousElementSibling;const open=q.classList.toggle("cut");b.textContent=open?"اقرئي الكلمة كاملة ↓":"إخفاء ↑";});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.08});
+  grid.querySelectorAll(".card").forEach((c,i)=>{c.style.transitionDelay=(i%3)*90+"ms";io.observe(c)});
+}
+tabs.onclick=e=>{const b=e.target.closest(".tab");if(!b)return;tabs.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-pressed",t===b));draw(b.dataset.c);};
+draw("all");
+</script>
+</body>
+</html>
