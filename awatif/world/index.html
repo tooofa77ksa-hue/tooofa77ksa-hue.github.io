@@ -75,6 +75,7 @@
   .fbox .ph img{width:100%;height:100%;object-fit:contain;display:block}
   .fbox .frm{position:relative;width:100%;display:block;pointer-events:none;filter:drop-shadow(0 16px 20px rgba(20,10,30,.45))}
   .fr b{display:block;text-align:center;font-family:"El Messiri";font-size:1.12rem;color:var(--gold);margin-top:2px}
+  .fr .open{display:table;margin:8px auto 0;font-style:normal;font-family:"El Messiri";font-size:.85rem;color:#2b1830;background:linear-gradient(135deg,#e6cfa5,#c9a96a);padding:3px 14px;border-radius:99px}
   .fr small{display:block;text-align:center;color:#e6d8e2;font-size:.9rem;padding:0 10px}
   .dev{position:absolute;top:46%;left:14%;z-index:3;background:#c9524a;color:#fff;font-family:"El Messiri";font-size:12px;padding:1px 10px;border-radius:99px;transform:rotate(-8deg)}
   .end{text-align:center;margin-top:80px;font-family:"Aref Ruqaa",serif;font-size:clamp(1.5rem,4vw,2.3rem)}
@@ -112,7 +113,7 @@
 </style>
 </head>
 <body>
-<nav class="nav"><a class="home" href="../index.html#about">→ ملفي</a><a href="#hobbies">هواياتي</a><a href="#works">من أعمالي</a><button class="snd" id="snd" aria-pressed="false"><span id="sndt">▶ الأنشودة</span><b id="eq" hidden><i></i><i></i><i></i></b></button></nav>
+<nav class="nav"><a class="home" href="../index.html#about">→ ملفي</a><a href="#hobbies">هواياتي</a><a href="#works">من أعمالي</a><a href="#kids">لأبنائي</a><button class="snd" id="snd" aria-pressed="false"><span id="sndt">▶ الأنشودة</span><b id="eq" hidden><i></i><i></i><i></i></b></button></nav>
 <audio id="nash" src="audio/nasheed.mp3?v=2" loop preload="auto"></audio>
 
 <header class="hero" id="top">
@@ -141,13 +142,21 @@
       <h2 class="h2" style="margin-top:90px">من أعمالي</h2><p class="sub">أعمال صنعتها بشغف خارج مهامي اليومية</p>
       <div class="gallery" id="gal"></div>
     </section>
+    <section id="kids">
+      <h2 class="h2" style="margin-top:90px">صمّمتها لأبنائي… فصارت لصفوفهم</h2><p class="sub">بدأت من مذاكرة البيت، ثم صارت لزميلاتهم ومعلماتهم ينتفعون بها</p>
+      <div class="gallery" id="kgal"></div>
+    </section>
     <p class="end">بتوفيق الله… ثم بشغفٍ لا ينطفئ<small>عواطف الجهني · TOFA</small></p>
   </div>
 </main>
 <script>
 (function(){
-  const works=[["tamayuz","إذاعة مدرسة التميز","مونتاج، ومذيعة بصوت مولّد، ومقطع توعوي كرتوني."],["principal-day","اليوم العالمي للمدير","فيديو إهداء بأسلوب القصاصات الورقية المتحركة."],["teacher-day","يوم المعلم العالمي","تكريم 28 معلمة على أنشودة يوم المعلم."],["nahrawan","منصة خطة التحسين","منصة رقمية لخطة التحسين 1448هـ."],["portfolio","«إنجازي يحكي»","8 طالبات، و10 معلمات، و91 مشروعًا."],["guide","«من الفكرة إلى الأثر»","دليل بناء تطبيق بلا خبرة برمجية."],["bebras","نهر القندس","ألغاز تفكير بنفس أنواع أسئلة بيبراس، لعب فردي أو أونلاين مع الأصدقاء."],["mawhiba","أبطال موهبة","مقياس موهبة في صورة لعبة: 4 مبانٍ وزومبي يتحدّى كل طالب."],["ajaj","لعبة «عجاج» على Roblox","ماب وقصة وألغاز بنيتها من الصفر.",1]];
-  document.getElementById('gal').innerHTML=works.map(w=>`<a class="fr" href="img2/${w[0]}.jpg" target="_blank" rel="noopener"><div class="fbox"><div class="ph"><img src="img2/${w[0]}.jpg" alt="${w[1]}" loading="lazy"></div><img class="frm" src="img2/frame.webp" alt="">${w[3]?'<span class="dev">قيد التطوير</span>':''}</div><b>${w[1]}</b><small>${w[2]}</small></a>`).join('');
+  const works=[["tamayuz","إذاعة مدرسة التميز","مونتاج، ومذيعة بصوت مولّد، ومقطع توعوي كرتوني."],["principal-day","اليوم العالمي للمدير","فيديو إهداء بأسلوب القصاصات الورقية المتحركة."],["teacher-day","يوم المعلم العالمي","تكريم 28 معلمة على أنشودة يوم المعلم."],["nahrawan","منصة خطة التحسين","منصة رقمية لخطة التحسين 1448هـ.",0,"https://khutta-165.web.app/#/dashboard"],["portfolio","«إنجازي يحكي»","8 طالبات، و10 معلمات، و91 مشروعًا."],["guide","«من الفكرة إلى الأثر»","دليل بناء تطبيق بلا خبرة برمجية.",0,"https://drive.google.com/file/d/16WKlgwmGCtiYOOiXuzp_OXM6KEzyYz5O/view"],["bebras","نهر القندس","ألغاز تفكير بنفس أنواع أسئلة بيبراس، لعب فردي أو أونلاين مع الأصدقاء.",0,"https://tooofa77ksa-hue.github.io/-/saleh/bebras/"],["mawhiba","أبطال موهبة","مقياس موهبة في صورة لعبة: 4 مبانٍ وزومبي يتحدّى كل طالب."],["ajaj","لعبة «عجاج» على Roblox","ماب وقصة وألغاز بنيتها من الصفر.",1]];
+  const kids=[["timss","«رحلة الكنز» لتدريب TIMSS","ألغاز بالكروشيه على أسئلة حقيبة TIMSS التدريبية من وزارة التعليم: رحلة فردية، وسباق فرق للصف مع المعلمة. مبادرة لطالبات الصف الرابع.",0,"https://tooofa77ksa-hue.github.io/nadeen-yasin-games/timss/#guide"],["nadeen-site","موقع نادين للصف الرابع","منصة مذاكرة للرياضيات والعلوم ولغتي والإنجليزي، بألعاب الاختبارات المركزية ومواضع الأسئلة في الكتاب.",0,"https://tooofa77ksa-hue.github.io/nadeen-yasin-games/"],["nadeen-science","مطويات العلوم التفاعلية","الخلايا وتصنيف المخلوقات الحية في مطويات تنفتح وتشرح، صمّمتها لابنتي نادين ومعلمة العلوم.",0,"https://tooofa77ksa-hue.github.io/-/nadeen/"],["saleh-deen","رحلة الدراسات الإسلامية","مطوية تفاعلية لابني صالح يقدّمها لمعلمه: نتعلّم ثم نلعب، ونجوم وأوسمة، وكلمة يوم المعلم.",0,"https://tooofa77ksa-hue.github.io/-/saleh/deen/"]];
+  const card=w=>`<a class="fr" href="${w[4]||'img2/'+w[0]+'.jpg'}" target="_blank" rel="noopener"><div class="fbox"><div class="ph"><img src="img2/${w[0]}.jpg" alt="${w[1]}" loading="lazy"></div><img class="frm" src="img2/frame.webp" alt="">${w[3]?'<span class="dev">قيد التطوير</span>':''}</div><b>${w[1]}</b><small>${w[2]}</small>${w[4]?'<i class="open">افتحي العمل ←</i>':''}</a>`;
+  document.getElementById('gal').innerHTML=works.map(card).join('');
+  document.getElementById('kgal').innerHTML=kids.map(card).join('');
+  works.push(...kids);
   const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const tw=document.getElementById('twinkles');
   for(let i=0;i<34;i++){const s=document.createElement('i');s.className='tw';const z=2+Math.random()*3;s.style.cssText=`width:${z}px;height:${z}px;left:${Math.random()*100}%;top:${Math.random()*60}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;tw.appendChild(s);}
